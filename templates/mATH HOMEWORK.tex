@@ -1,0 +1,180 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath,amsfonts}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{8.7in}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\title{Assignment 4}
+\author{Frank Yang}
+
+\begin{document}
+\maketitle
+\section{Homework list}
+
+\begin{itemize}
+
+
+\item Section  3.1:  18
+\item Section 3.2:  6, 8, 13
+\item Section 4.1:  4e, 8, 11, 19, 22ab, 24
+\end{itemize}
+
+\section{Solution}
+
+\begin{enumerate}
+
+\item[18]
+Assume $a$ is an odd integer.By definition, there exists an integer $k$ such that $a=2k+1$. 
+$$a^2-1=(2k+1)^2-1=(4k^2+4k+1)-1=4k^2+4k=4(k^2+k)$$
+Let $p=k^2+k$. So $a^2-1=4p$, which means that $4$ is a factor of $a^2-1$.
+
+
+\item[6]
+Based on our previous proof, we grant that $\sqrt{2}$ is not rational.
+We would prove all following statements  by contradiction.
+
+
+(a) Suppose $-\sqrt{2}$ is rational. By definition, there exists two integers $m,n$ such that $-\sqrt{2}=\frac{m}{n}$. So $\sqrt{2}=\frac{-m}{n}$. Let $p=-m$. $\sqrt{2}=\frac{p}{n}$, where $p$ and $n$ are two integers. It contradicts our assumption that $\sqrt{2}$ is not rational. Thus, $-\sqrt{2} \notin \mathbb{Q}$.
+
+(b) Suppose $1+\sqrt{2}$ is rational. By definition, there exists two integers $m,n$ such that $1+\sqrt{2}=\frac{m}{n}$. So $\sqrt{2}=\frac{m-n}{n}$. Let $p=m-n$. $\sqrt{2}=\frac{p}{n}$, where $p$ and $n$ are two integers. It contradicts our assumption that $\sqrt{2}$ is not rational. Thus, $1+\sqrt{2} \notin \mathbb{Q}$.
+
+(c) Suppose $3+\sqrt{2}$ is rational. By definition, there exists two integers $m,n$ such that $3+\sqrt{2}=\frac{m}{n}$. So $\sqrt{2}=\frac{m-3n}{n}$. Let $p=m-3n$. $\sqrt{2}=\frac{p}{n}$, where $p$ and $n$ are two integers. It contradicts our assumption that $\sqrt{2}$ is not rational. Thus, $3+\sqrt{2} \notin \mathbb{Q}$.
+
+(d) Suppose $r+\sqrt{2}$ is rational, where r is also a rational number. By definition, there exists two integers $m,n$ such that $r+\sqrt{2}=\frac{m}{n}$. Similarly, there exists two integers $t,k$ such that $r=\frac{t}{k}$ since $r$ itself is a rational number. Then,
+$$\sqrt{2}=\frac{m}{n}-\frac{t}{k}$$
+$$\sqrt{2}=\frac{km-nt}{nk}$$
+
+Let $p=km-nt$ and $q=nk$. $\sqrt{2}=\frac{p}{q}$, where $p$ and $q$ are two integers. It contradicts our assumption that $\sqrt{2}$ is not rational. Thus, $r+\sqrt{2} \notin \mathbb{Q}$.
+
+
+
+\item[8]
+We give a proof by contradiction. 
+Assume $\log_{2}(5)$ is rational. By definition,there exists two integers $m,n$ such that $\log_{2}(5)=\frac{m}{n}$. Then,
+ $$2^{\log_{2}(5)}=2^{\frac{m}{n}}$$
+ $$5=2^{\frac{m}{n}}$$
+$$5^{n}=2^{m}$$
+Apparently, $5^{n}$ is odd and $2^{m}$ is even. $5^{n}$ can never equal to $2^{m}$ for any two integers $m,n$. 
+Thus,  $\log_{2}(5)$ is not rational.
+
+
+
+
+
+\item[13]
+We give a proof by contradiction. 
+Assume $rx$ is rational, where r is a rational number but $\neq 0$ and x is not rational. By definition, there exists two integers $m,n$ such that $rx=\frac{m}{n}$. Similarly, there exists two integers $t,k$ such that $r=\frac{t}{k}$, since $r$ itself is a rational number. And since $r \neq 0$, $t$ is not $0$. 
+Then,
+ $$rx=\frac{tx}{k}=\frac{m}{n}$$
+ $$txn=mk$$
+ $$x=\frac{mk}{tn}$$
+Let $p=mk$ and $q=tn$. $x=\frac{p}{q}$, where $p$ and $q$ are two integers. It contradicts our assumption that x is not a rational number. Thus, if $r$ is rational and $\neq 0$ and $x$ is irrational, then $rx$ is irrational. 
+
+
+
+
+
+\item[4e]
+$(A-C)=(A-B)\cup(B-C)$ is not true. 
+
+
+Assume $A=\left\{{1,2}\right\}$ $B=\left\{{2,3}\right\}$ $C=\left\{{1,3}\right\}$
+
+
+$(A-C)=\left\{{2}\right\}$ $(B-C)=\left\{{2}\right\}$ $(A-B)=\left\{{1}\right\}$ 
+
+$(A-B)\cup(B-C)=\left\{{1,2}\right\} \neq (A-C)$
+
+
+Salveage: $(A-C) \subseteq (A-B)\cup(B-C)$
+
+
+Proof: Assume $x \in (A-C)$. Then, $x \in A$ and $x \notin C$. Either $x \in B$ or $x \notin B$. So, either $x \in B$ and $\notin C$, or $x \notin B$ and $x \in A$. So $x \in (B-C)$ or $x \in (A-B)$. So $x \in (A-B)\cup(B-C)$. Thus, $(A-C) \subseteq (A-B)\cup(B-C)$
+
+
+
+
+
+
+
+
+
+\item[8]
+(a) Assume $A \subseteq B$. So for all set $X$ that $X \subseteq A$, $X \subseteq B$. Since every element in $P(A)$ must be an subset of $A$, which means it must be an subset of $B$. And every subset of $B$ $\in P(B)$. So every element in $P(A)$ is also an element in $P(B)$. Thus, $P(A) \subseteq P(B)$.  
+
+
+(b) By definition, for all element $X \in P(A \cap B)$, $X \subseteq (A \cap B)$. So, $X \subseteq A$ and $X \subseteq B$. Since $X \subseteq A$, $X \in P(A)$. Similarly, since $X \subseteq B$, $X \in P(B)$. So $X \in (P(A) \cap P(B)) $. Thus $P(A \cap B) \subseteq (P(A) \cap P(B))$. Since all previous steps are reversible. $(P(A) \cap P(B)) \subseteq P(A \cap B)$. Thus $P(A \cap B) = P(A) \cap P(B)$.
+
+
+(c) $P(A \cup B)= P(A) \cup P(B)$
+
+
+By definition, for all element $X \in P(A \cup B)$, $X \subseteq (A \cup B)$. So, $X \subseteq A$ or $X \subseteq B$. So $X \in P(A)$ or $X \in P(B)$. So $X \in (P(A) \cup P(B)) $. Thus $P(A \cup B) \subseteq (P(A) \cup P(B))$. Since all previous steps are reversible. $(P(A) \cup P(B)) \subseteq P(A \cup B)$. Thus $P(A \cup B) = P(A) \cup P(B)$.
+
+
+
+
+\item[11]
+On the last page. 
+   
+   
+\item[19]
+Proof by contrapositive:
+Assume $B \neq C$. There exists an element $x$ that ($x$ in $B$ but not in $C$) or ($x$ in $C$ but not in $B$). Because $B$ and $C$ are symmetrical in this statement (swatching $B$ and $C$ will give us same proposition). Just assume $x$ in $B$ but not in $C$. For an element $a \in A$, the ordered pair $(a,x)$ will be in $A \times B$ but not in $A \times C$, since $x \notin C$. So $A \times B \neq A\times C$. Thus, if $A \times B= A\times C$, $B = C$.
+
+
+\item[22a]
+True.
+
+
+Assume ordered pair $(p,q) \in A \times (B-C)$. So $p \in A$ and $q \in B$ and $q \notin C$. So $(p,q) \in A \times B$ and $(p,q) \notin A \times C$. So $(p,q) \in (A \times B - A\times C)$. Thus, $A \times (B-C) \subseteq A \times B - A\times C$. Since previous steps are all reversible, $A \times B - A\times C\subseteq A \times (B-C)$. So $A \times (B-C) = A \times B - A\times C$.   
+
+\item[22b]
+False.
+
+
+Counterexample: 
+
+
+Assume $A=\left\{{1}\right\}$
+
+
+$B=\left\{{2}\right\}$
+
+
+$U=\left\{{1,2}\right\}$
+
+
+$A \times B =\left\{{(1,2)}\right\}$
+
+
+$U^2=\left\{{(1,1),(1,2),(2,1),(2,2)}\right\}$
+
+
+$(A \times B)^{c}=\left\{{(1,1),(2,1),(2,2)}\right\}$
+
+
+$A^{c} \times B^{c}=\left\{{(2,1)}\right\}$
+
+
+Thus, $(A \times B)^{c} \neq A^{c} \times B^{c}$.
+
+
+\item[24]
+(a)$\left\{{[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[10,11]}\right\}$
+
+
+(b) $B_{1}=(0,2)$, $B_{10}=(0.9,1.1)$, $B_{100}=(0.99,1.01)$
+
+\end{enumerate}
+\end{document}
