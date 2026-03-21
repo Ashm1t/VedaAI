@@ -11,10 +11,17 @@ import questionPaperRoutes from "./routes/questionPaperRoutes.js";
 import { initRedis } from "./config/redis.js";
 import { startWorker } from "./jobs/generationWorker.js";
 import fs from "fs";
+import mongoose from "mongoose";
+import { getRedisConnection } from "./config/redis.js";
 
 // Ensure directories exist
 fs.mkdirSync(config.uploadsDir, { recursive: true });
 fs.mkdirSync(config.outputDir, { recursive: true });
+
+const corsOrigins = config.frontendUrl
+  .split(",")
+  .map((u) => u.trim())
+  .filter(Boolean);
 
 const app = express();
 const server = http.createServer(app);
@@ -22,7 +29,7 @@ const server = http.createServer(app);
 // Socket.io
 const io = new SocketIOServer(server, {
   cors: {
-    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    origin: corsOrigins,
     methods: ["GET", "POST"],
   },
 });
@@ -45,7 +52,7 @@ ioInstance = io;
 
 // Middleware
 app.use(helmet({ crossOriginResourcePolicy: false }));
-app.use(cors({ origin: ["http://localhost:3000", "http://127.0.0.1:3000"] }));
+app.use(cors({ origin: corsOrigins }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -55,7 +62,15 @@ app.use("/api/question-papers", questionPaperRoutes);
 
 // Health check
 app.get("/api/health", (_req, res) => {
-  res.json({ status: "ok", timestamp: new Date().toISOString() });
+  const mongoStatus =
+    mongoose.connection.readyState === 1 ? "connected" : "disconnected";
+  const redis = getRedisConnection();
+  const redisStatus = redis?.status === "ready" ? "connected" : "disconnected";
+  res.json({
+    status: "ok",
+    timestamp: new Date().toISOString(),
+    services: { mongodb: mongoStatus, redis: redisStatus },
+  });
 });
 
 // Error handler

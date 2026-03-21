@@ -13,6 +13,7 @@ export const config = {
   redisUrl: process.env.REDIS_URL || "",
   geminiApiKey: process.env.GEMINI_API_KEY || "",
   groqApiKey: process.env.GROQ_API_KEY || "",
+  frontendUrl: process.env.FRONTEND_URL || "http://localhost:3000",
 
   // Paths
   uploadsDir: path.resolve(__dirname, "../../uploads"),

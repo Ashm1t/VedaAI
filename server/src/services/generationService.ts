@@ -1,3 +1,4 @@
+import path from "path";
 import { AssignmentModel } from "../models/Assignment.js";
 import { QuestionPaperOutputModel } from "../models/QuestionPaperOutput.js";
 import * as ocrService from "./ocrService.js";
@@ -5,6 +6,7 @@ import * as aiService from "./aiService.js";
 import * as latexService from "./latexService.js";
 import { validateLatex, autoFixLatex } from "./latexValidator.js";
 import { getIO } from "../index.js";
+import { config } from "../config/index.js";
 
 type ProgressEmitter = (status: string, progress: number) => void;
 
@@ -168,14 +170,17 @@ export async function runGenerationPipeline(
       }
     }
 
-    // Step 5: Save output
+    // Step 5: Save output (store relative path for portability)
     emit("processing", 95);
+    const relativePdfPath = pdfPath
+      ? path.relative(config.outputDir, pdfPath)
+      : undefined;
     const output = await QuestionPaperOutputModel.create({
       assignmentId,
       ...questionData,
       latexSource: texContent,
       latexTemplateName: selectedTemplate,
-      pdfPath: pdfPath || undefined,
+      pdfPath: relativePdfPath,
     });
 
     // Update assignment

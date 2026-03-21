@@ -7,7 +7,7 @@ let socket: Socket | null = null;
 
 function getSocket(): Socket {
   if (!socket) {
-    socket = io("http://localhost:4000", {
+    socket = io(process.env.NEXT_PUBLIC_WS_URL || "http://localhost:4000", {
       transports: ["websocket", "polling"],
       autoConnect: true,
     });
