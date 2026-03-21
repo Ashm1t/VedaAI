@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_WS_URL=${NEXT_PUBLIC_WS_URL:-http://localhost}
     restart: unless-stopped
     environment:
       - API_URL=http://backend:4000
