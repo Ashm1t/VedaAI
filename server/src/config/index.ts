@@ -18,7 +18,7 @@ export const config = {
   // Paths
   uploadsDir: path.resolve(__dirname, "../../uploads"),
   outputDir: path.resolve(__dirname, "../../output"),
-  templatesDir: path.resolve(__dirname, "../../../templates"),
+  templatesDir: process.env.TEMPLATES_DIR || path.resolve(__dirname, "../../../templates"),
 
   // Limits
   maxFileSize: 10 * 1024 * 1024, // 10MB

@@ -25,6 +25,7 @@ services:
       - REDIS_URL=redis://redis:6379
       - GROQ_API_KEY=${GROQ_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - TEMPLATES_DIR=/app/templates
     volumes:
       - uploads:/app/uploads
       - output:/app/output
