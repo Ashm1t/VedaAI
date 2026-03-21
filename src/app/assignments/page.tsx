@@ -53,14 +53,15 @@ export default function AssignmentsPage() {
 
           <AssignmentGrid assignments={filtered} />
 
-          {/* Floating Create Button — circular FAB on mobile, pill on desktop */}
+          {/* Floating Create Button */}
           <Link
             href="/assignments/create"
-            className="fixed z-30 flex items-center justify-center rounded-full bg-primary text-white shadow-lg transition-colors hover:bg-primary-hover
+            className="fixed z-30 flex items-center justify-center gap-2 rounded-full text-white shadow-lg transition-opacity hover:opacity-90
               bottom-24 right-5 h-14 w-14
-              md:bottom-8 md:right-8 md:h-auto md:w-auto md:px-6 md:py-3 md:gap-2"
+              md:bottom-8 md:right-8 md:h-auto md:w-auto md:px-6 md:py-3 md:rounded-full"
+            style={{ backgroundColor: "#181818" }}
           >
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
               <path
                 d="M12 5v14M5 12h14"
                 stroke="currentColor"
