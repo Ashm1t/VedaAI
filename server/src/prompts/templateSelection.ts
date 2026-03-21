@@ -166,16 +166,55 @@ Add "options": {"a": "...", "b": "...", "c": "...", "d": "..."} to each question
 }
 
 /**
- * Step 3: Select best template (tiny call).
- * For school papers, this almost always returns questionpaper.tex.
+ * Step 3: Select best template based on subject and paper structure.
+ *
+ * Template catalogue:
+ *   questionpaper.tex               — Default. STEM, sciences, general school exams.
+ *   icse_english_literature.tex     — ICSE-style English Literature papers with
+ *                                     extract-based drama / prose / poetry sections.
+ */
+const LITERATURE_KEYWORDS = [
+  "english literature",
+  "literature",
+  "english paper 2",
+  "english paper-2",
+  "english paper ii",
+  "drama",
+  "poetry",
+  "prose",
+  "shakespeare",
+  "julius caesar",
+  "treasure trove",
+  "icse english",
+];
+
+export function selectTemplate(
+  formData: AssignmentFormData
+): string {
+  const subject = (formData.subject || "").toLowerCase().trim();
+  const topic = (formData.topic || "").toLowerCase().trim();
+  const extra = (formData.additionalInstructions || "").toLowerCase();
+
+  const combined = `${subject} ${topic} ${extra}`;
+
+  // Check if the paper looks like an ICSE-style English Literature exam
+  const isLiterature = LITERATURE_KEYWORDS.some((kw) => combined.includes(kw));
+
+  if (isLiterature) {
+    return "icse_english_literature.tex";
+  }
+
+  return "questionpaper.tex";
+}
+
+/**
+ * @deprecated Use selectTemplate() instead. Kept for backward compatibility.
  */
 export function buildTemplatePickerPrompt(
   sections: QuestionSection[],
   formData: AssignmentFormData
 ): string {
-  return `questionpaper.tex`;
-  // For school-level papers, we always use the default template.
-  // This function exists for future extensibility.
+  return selectTemplate(formData);
 }
 
 /**
