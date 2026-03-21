@@ -66,12 +66,10 @@ export default function CreateAssignmentForm() {
   return (
     <div className="mx-auto w-full max-w-2xl">
       <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-8">
-        {/* Progress bar */}
-        <div className="h-1.5 rounded-full bg-gray-200 mb-8 overflow-hidden">
-          <div
-            className="h-full rounded-full bg-gray-900 transition-all duration-300"
-            style={{ width: isGenerating ? `${progress}%` : "60%" }}
-          />
+        {/* Two-step progress indicator */}
+        <div className="flex items-center gap-2 mb-8">
+          <div className="flex-1 h-1.5 rounded-full bg-gray-900" />
+          <div className="flex-1 h-1.5 rounded-full bg-gray-200" />
         </div>
 
         {isGenerating ? (

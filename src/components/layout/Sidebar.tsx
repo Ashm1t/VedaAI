@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useAssignmentStore } from "@/store/assignmentStore";
@@ -81,28 +82,35 @@ function SidebarContent({ pathname, assignmentCount, onNavigate }: SidebarConten
       <div>
         {/* Logo */}
         <div className="flex items-center gap-2.5 mb-8">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-orange-500">
-            <span className="text-white font-bold text-xl">V</span>
-          </div>
+          <Image
+            src="/vedaAI.png"
+            alt="VedaAI"
+            width={40}
+            height={40}
+            className="rounded-xl"
+          />
           <span className="text-xl font-bold text-gray-900">VedaAI</span>
         </div>
 
         {/* Create Assignment Button */}
-        <Link
-          href="/assignments/create"
-          onClick={onNavigate}
-          className="flex items-center justify-center gap-2 rounded-2xl border-2 border-primary bg-gray-900 px-4 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-gray-800 mb-8"
-        >
-          <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-            <path
-              d="M12 5v14M5 12h14"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
-          <span>Create Assignment</span>
-        </Link>
+        <div className="gradient-border-btn mb-8">
+          <Link
+            href="/assignments/create"
+            onClick={onNavigate}
+            className="flex items-center justify-center gap-2 rounded-full px-4 py-3.5 text-sm font-semibold text-white transition-colors"
+            style={{ backgroundColor: "#2c2c2c" }}
+          >
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
+              <path
+                d="M12 5v14M5 12h14"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span>Create Assignment</span>
+          </Link>
+        </div>
 
         {/* Navigation */}
         <nav className="flex flex-col gap-2">
