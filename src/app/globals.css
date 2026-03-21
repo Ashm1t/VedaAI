@@ -13,8 +13,14 @@
   --color-text-secondary: #6B7280;
   --color-text-muted: #9CA3AF;
   --color-badge-easy: #22C55E;
+  --color-badge-easy-bg: #F0FDF4;
+  --color-badge-easy-text: #166534;
   --color-badge-moderate: #F59E0B;
+  --color-badge-moderate-bg: #FFFBEB;
+  --color-badge-moderate-text: #92400E;
   --color-badge-hard: #EF4444;
+  --color-badge-hard-bg: #FEF2F2;
+  --color-badge-hard-text: #991B1B;
   --font-sans: var(--font-manrope);
 }
 
@@ -23,6 +29,15 @@ body {
   color: #111827;
   font-family: var(--font-sans), system-ui, sans-serif;
   min-height: 100vh;
+}
+
+/* Toast fade-in animation */
+@keyframes fade-in {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
 }
 
 /* Scrollbar styling */

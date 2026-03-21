@@ -15,7 +15,7 @@ const assignmentSchema = new Schema(
       default: "draft",
     },
     outputId: { type: String, default: null },
-    uploadedFilePath: { type: String },
+    uploadedFilePaths: [{ type: String }],
     extractedText: { type: String },
     formData: { type: Schema.Types.Mixed },
   },
@@ -28,7 +28,7 @@ const assignmentSchema = new Schema(
         ret.id = ret._id;
         delete ret._id;
         delete ret.__v;
-        delete ret.uploadedFilePath;
+        delete ret.uploadedFilePaths;
         delete ret.extractedText;
         delete ret.formData;
         delete ret.createdAt;

@@ -32,8 +32,10 @@ export async function createAssignment(
   body.append("additionalInstructions", formData.additionalInstructions);
   body.append("questionTypes", JSON.stringify(formData.questionTypes));
 
-  if (formData.file) {
-    body.append("file", formData.file);
+  if (formData.files && formData.files.length > 0) {
+    for (const file of formData.files) {
+      body.append("file", file);
+    }
   }
 
   const res = await fetch(`${API_BASE}/assignments`, {

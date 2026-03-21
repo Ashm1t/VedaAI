@@ -53,23 +53,23 @@ export default function AssignmentsPage() {
 
           <AssignmentGrid assignments={filtered} />
 
-          {/* Floating Create Button */}
-          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 ml-[130px]">
-            <Link
-              href="/assignments/create"
-              className="flex items-center gap-2 rounded-xl bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-gray-800"
-            >
-              <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-                <path
-                  d="M12 5v14M5 12h14"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-              Create Assignment
-            </Link>
-          </div>
+          {/* Floating Create Button — circular FAB on mobile, pill on desktop */}
+          <Link
+            href="/assignments/create"
+            className="fixed z-30 flex items-center justify-center rounded-full bg-primary text-white shadow-lg transition-colors hover:bg-primary-hover
+              bottom-24 right-5 h-14 w-14
+              md:bottom-8 md:right-8 md:h-auto md:w-auto md:px-6 md:py-3 md:gap-2"
+          >
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path
+                d="M12 5v14M5 12h14"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span className="hidden md:inline text-sm font-semibold">Create Assignment</span>
+          </Link>
         </div>
       )}
     </div>

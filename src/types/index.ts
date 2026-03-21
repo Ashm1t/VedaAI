@@ -29,8 +29,8 @@ export interface AssignmentFormData {
   title: string;
   subject: string;
   className: string;
-  file?: File | null;
-  fileType?: "pdf" | "text";
+  files: File[];
+  fileType?: "pdf" | "image";
   dueDate: string;
   questionTypes: QuestionTypeConfig[];
   additionalInstructions: string;
