@@ -6,6 +6,7 @@ import {
   buildAnalysisPrompt,
   buildSectionPrompt,
   computeStartingNumbers,
+  selectTemplate,
 } from "../prompts/templateSelection.js";
 import { buildLatexGenerationPrompt } from "../prompts/latexGeneration.js";
 import type {
@@ -206,7 +207,7 @@ export async function selectTemplateAndGenerate(
     throw new Error("All section generation calls failed — no questions produced");
   }
 
-  const selectedTemplate = "questionpaper.tex";
+  const selectedTemplate = selectTemplate(formData);
 
   const totalMarks = formData.questionTypes.reduce(
     (sum, qt) => sum + qt.numberOfQuestions * qt.marksPerQuestion,

@@ -70,6 +70,7 @@ export function validateLatex(tex: string): ValidationResult {
     "\\mcqfourtwo",
     "\\mcqfour",
     "\\question",
+    "\\qmarks",
   ];
   for (const cmd of expectedCommands) {
     // Check if command is used but not defined
