@@ -15,7 +15,7 @@ Hosted on AWS EC2 (`c7i-flex.large`) with Docker Compose and CI/CD via GitHub Ac
 - **AI Question Paper Generation** — Upload syllabus/notes (PDF, images), and AI generates a complete, formatted question paper
 - **OCR Pipeline** — Extracts text from uploaded PDFs and images automatically
 - **Feedforward Chain** — AI analyzes content, identifies topics, and creates balanced question distributions across sections
-- **LaTeX PDF Compilation** — Generates professional, print-ready PDFs using LaTeX templates
+- **LaTeX PDF Compilation** (My solution to pdf generation of this sort, i use this with resumes as well) — Generates professional, print-ready PDFs using LaTeX templates
 - **Real-time Progress** — WebSocket-based live progress tracking (OCR, chain, LaTeX, PDF compilation)
 - **Question Paper Library** — Browse, view, and download all previously generated papers
 - **Multiple AI Providers** — Supports Groq and Gemini API backends
