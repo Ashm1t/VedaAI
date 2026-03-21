@@ -94,13 +94,60 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
-### Docker (Production)
+### Docker (No Dependencies Required)
+
+If you don't want to install MongoDB, Redis, or TeX Live locally, use Docker — it bundles everything for you.
+
+**Prerequisites:** [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/)
 
 ```bash
+# Clone
+git clone https://github.com/Ashm1t/VedaAI.git
+cd VedaAI
+
+# Configure environment
 cp .env.example .env
-# Edit .env with your values
-docker-compose up -d --build
+# Edit .env — at minimum set your GROQ_API_KEY
 ```
+
+Edit `.env` and set:
+```env
+NEXT_PUBLIC_WS_URL=http://localhost       # or your server IP/domain
+FRONTEND_URL=http://localhost             # same as above
+GROQ_API_KEY=your_key_here               # required
+```
+
+Leave `MONGODB_URI`, `REDIS_URL`, `API_URL`, and `PORT` as defaults — they point to the Docker containers automatically.
+
+```bash
+# Start all services (frontend, backend, MongoDB, Redis, Nginx)
+docker-compose up -d --build
+
+# Check all containers are running
+docker-compose ps
+
+# View logs
+docker-compose logs -f backend    # backend logs
+docker-compose logs -f frontend   # frontend logs
+
+# Stop everything
+docker-compose down
+
+# Restart a single service (e.g., after changing .env)
+docker-compose up -d --force-recreate backend
+```
+
+Open [http://localhost](http://localhost)
+
+**What Docker runs for you:**
+
+| Container | What it does |
+|-----------|-------------|
+| `nginx` | Reverse proxy on port 80, routes traffic to frontend and backend |
+| `frontend` | Next.js app |
+| `backend` | Express API + BullMQ worker + TeX Live (pdflatex) |
+| `mongodb` | Database (data persists in a Docker volume) |
+| `redis` | Job queue for background PDF generation |
 
 ---
 
