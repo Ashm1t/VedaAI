@@ -32,7 +32,9 @@ export async function createAssignment(req: Request, res: Response) {
     dueDate,
     assignedOn: new Date().toISOString().split("T")[0],
     status: "draft",
-    uploadedFilePath: req.file?.path || undefined,
+    uploadedFilePaths: req.files
+      ? (req.files as Express.Multer.File[]).map((f) => f.path)
+      : [],
     formData: {
       title,
       subject,
@@ -41,10 +43,10 @@ export async function createAssignment(req: Request, res: Response) {
       topic,
       additionalInstructions,
       questionTypes: parsedQuestionTypes,
-      fileType: req.file
-        ? req.file.originalname.endsWith(".pdf")
+      fileType: req.files && (req.files as Express.Multer.File[]).length > 0
+        ? (req.files as Express.Multer.File[])[0].originalname.endsWith(".pdf")
           ? "pdf"
-          : "text"
+          : "image"
         : undefined,
     },
   });

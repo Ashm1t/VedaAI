@@ -13,7 +13,7 @@ const router = Router();
 
 router.get("/", listAssignments);
 router.get("/:id", getAssignment);
-router.post("/", upload.single("file"), createAssignment);
+router.post("/", upload.array("file", 10), createAssignment);
 router.put("/:id", updateAssignment);
 router.delete("/:id", deleteAssignment);
 router.post("/:id/generate", generateQuestions);

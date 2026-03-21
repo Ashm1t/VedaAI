@@ -24,7 +24,7 @@ const initialFormData: AssignmentFormData = {
   title: "",
   subject: "",
   className: "",
-  file: null,
+  files: [],
   dueDate: "",
   questionTypes: [
     {

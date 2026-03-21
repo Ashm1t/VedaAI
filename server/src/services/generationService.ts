@@ -42,17 +42,27 @@ export async function runGenerationPipeline(
     emit("processing", 10);
     let extractedText: string | null = null;
 
-    if (assignment.uploadedFilePath as string) {
+    const filePaths = (assignment.uploadedFilePaths as string[]) || [];
+    if (filePaths.length > 0) {
       try {
-        console.log(`[${assignmentId}] Running OCR on uploaded file...`);
-        extractedText = await ocrService.extractText(
-          assignment.uploadedFilePath as string
-        );
-        assignment.extractedText = extractedText;
-        await assignment.save();
-        console.log(
-          `[${assignmentId}] OCR complete — ${extractedText.length} chars extracted`
-        );
+        console.log(`[${assignmentId}] Running OCR on ${filePaths.length} uploaded file(s)...`);
+        const textParts: string[] = [];
+        for (const fp of filePaths) {
+          try {
+            const text = await ocrService.extractText(fp);
+            if (text) textParts.push(text);
+          } catch (err) {
+            console.warn(`[${assignmentId}] OCR failed for ${fp}:`, (err as Error).message);
+          }
+        }
+        if (textParts.length > 0) {
+          extractedText = textParts.join("\n\n---\n\n");
+          assignment.extractedText = extractedText;
+          await assignment.save();
+          console.log(
+            `[${assignmentId}] OCR complete — ${extractedText.length} chars from ${textParts.length} file(s)`
+          );
+        }
       } catch (err) {
         console.error(`[${assignmentId}] OCR failed, continuing without:`, err);
       }
