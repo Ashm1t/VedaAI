@@ -58,8 +58,189 @@ Hosted on AWS EC2 (`c7i-flex.large`) with Docker Compose and CI/CD via GitHub Ac
                        |          (pdflatex)     |
                        |________________________|
 ```
+The user uploads the source material > The ocr scans for texts (currently using llama scout) takes chunks out, The form details and the relevant sourced chunks are passed in a feedforward fashion to the LLM, The LLM is then instructed to choose the best possible latex template already available to build upon, These templates i have collected from overleaf's website icse board papers and cbse papers as well, Formatting handbook and how to use templates to create paper is written in a detailed but efficient system prompt that goes in the next pass, After that the question paper is generated in latex and then compiled using pdflatex to a pdf that can be downloaded. Have tried to make the pdfs look exactly as unit tests/exams formatting 
 
----
+here is a flowchart of the process : 
+┌─────────────────────────────────────────────────────────────┐
+│                    USER SUBMITS FORM                        │
+│  Subject, Class, Topic, Due Date, Question Types, Files     │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼  [5%]
+┌─────────────────────────────────────────────────────────────┐
+│                 1. LOAD ASSIGNMENT                           │
+│  MongoDB lookup by assignmentId                             │
+│  Extract formData + uploadedFilePaths                       │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼  [10%]
+┌─────────────────────────────────────────────────────────────┐
+│                    2. OCR (if files)                         │
+│  For each uploaded file:                                    │
+│    .png/.jpg → Groq Vision (Llama 4 Scout) → text           │
+│    .txt      → read directly                                │
+│  Join all with "---" separator                              │
+│                                                             │
+│  ~1-2K tokens per image  ·  ~500 tokens out                 │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼  [25%]
+┌─────────────────────────────────────────────────────────────┐
+│              3. ANALYZE SOURCE MATERIAL                      │
+│  buildAnalysisPrompt(extractedText, formData)               │
+│  Groq JSON call → llama-3.3-70b-versatile                   │
+│                                                             │
+│  Output:                                                    │
+│  ┌────────────────────────────────────────────┐             │
+│  │ {                                          │             │
+│  │   subject: "Science",                      │             │
+│  │   topic: "Forces and Motion",              │             │
+│  │   keyConcepts: ["friction", "gravity"...], │             │
+│  │   keyTerms: ["Newton", "inertia"...],      │             │
+│  │   difficultyGuide: "...",                  │             │
+│  │   detectedSchoolName: "DPS R.K. Puram"     │             │
+│  │ }                                          │             │
+│  └────────────────────────────────────────────┘             │
+│  ~2K tokens in  ·  ~500 tokens out                          │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼  [25-50%]
+┌─────────────────────────────────────────────────────────────┐
+│         4. GENERATE SECTIONS (PARALLEL)                      │
+│                                                             │
+│  For each questionType in formData.questionTypes:           │
+│  buildSectionPrompt() → Groq JSON call                      │
+│                                                             │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
+│  │ Section A │  │ Section B │  │ Section C │  │ Section D │   │
+│  │   MCQ     │  │   Fill    │  │   Short   │  │   Long    │   │
+│  │  5 × 1m   │  │  3 × 1m   │  │  3 × 2m   │  │  2 × 4m   │   │
+│  └─────┬────┘  └─────┬────┘  └─────┬────┘  └─────┬────┘   │
+│        │             │             │             │          │
+│        └──────┬──────┴──────┬──────┴──────┬──────┘          │
+│               │  Promise.all (concurrent)  │                │
+│               ▼                            ▼                │
+│  Each returns: { label, title, instruction, questions[] }   │
+│                                                             │
+│  ~1.5K tokens in × N sections  ·  ~1K tokens out each       │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│            5. SELECT TEMPLATE                                │
+│  selectTemplate(formData)                                   │
+│                                                             │
+│  subject contains "literature"? ──yes──▶ icse_english_      │
+│         │                                literature.tex     │
+│         no                                                  │
+│         ▼                                                   │
+│  questionpaper.tex  (default)                               │
+│                                                             │
+│  No API call — pure keyword match                           │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│            6. ASSEMBLE QUESTION DATA                         │
+│                                                             │
+│  ┌──────────────────────────────────────────┐               │
+│  │ QuestionPaperOutput {                    │               │
+│  │   schoolName, subject, className,        │               │
+│  │   timeAllowed: "45 minutes",             │               │
+│  │   maximumMarks: 30,                      │               │
+│  │   generalInstruction: "...",             │               │
+│  │   sections: [A, B, C, D],               │               │
+│  │   aiSummary: "Generated a Science..."    │               │
+│  │ }                                        │               │
+│  └──────────────────────────────────────────┘               │
+│                                                             │
+│  Validates: marks add up, sections non-empty                │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼  [55%]
+┌─────────────────────────────────────────────────────────────┐
+│              7. GENERATE LATEX                                │
+│  Load template .tex source + handbook.md                    │
+│  buildLatexGenerationPrompt(template, handbook, questions)  │
+│  Groq TEXT call → llama-3.3-70b-versatile (temp=0.3)        │
+│                                                             │
+│  Input: full template preamble + all questions + rules      │
+│  Output: complete compilable .tex file                      │
+│                                                             │
+│  ~12K tokens in  ·  ~4K tokens out  ← BIGGEST CALL         │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼  [65%]
+┌─────────────────────────────────────────────────────────────┐
+│           8. VALIDATE + AUTO-FIX                             │
+│                                                             │
+│  autoFixLatex():                                            │
+│    ✓ Strip markdown fences (```latex...```)                  │
+│    ✓ Fix double-escaped commands (\\\\begin → \\begin)       │
+│    ✓ Remove \includegraphics / \img calls                   │
+│    ✓ Balance unclosed { braces }                            │
+│    ✓ Fix unmatched \begin{env} / \end{env}                  │
+│                                                             │
+│  validateLatex():                                           │
+│    ✓ \documentclass present?                                │
+│    ✓ \begin{document} + \end{document} matched?            │
+│    ✓ Brace balance = 0?                                    │
+│    ✓ All environments matched?                              │
+│    ✓ No \usepackage after \begin{document}?                │
+│                                                             │
+│  No API call — deterministic                                │
+│                                                             │
+│        PASS ──────────────────────▶ Step 9                  │
+│        FAIL ──▶ AI Fix (Groq) ──▶ re-validate ──▶ Step 9   │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼  [75%]
+┌─────────────────────────────────────────────────────────────┐
+│            9. COMPILE PDF                                    │
+│                                                             │
+│  Write paper.tex → output/<assignmentId>/paper.tex          │
+│  pdflatex pass 1 (references)                               │
+│  pdflatex pass 2 (cross-refs)                               │
+│                                                             │
+│        SUCCESS ──▶ paper.pdf ──▶ Step 10                    │
+│        FAIL ──▶ AI Fix (Groq) ──▶ recompile                │
+│                    FAIL again ──▶ save without PDF           │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼  [95%]
+┌─────────────────────────────────────────────────────────────┐
+│            10. SAVE OUTPUT                                   │
+│                                                             │
+│  QuestionPaperOutputModel.create({                          │
+│    assignmentId, sections, latexSource,                     │
+│    latexTemplateName, pdfPath, aiSummary                    │
+│  })                                                         │
+│                                                             │
+│  Assignment.status = "generated"                            │
+│  Assignment.outputId = output._id                           │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼  [100%]
+┌─────────────────────────────────────────────────────────────┐
+│            WebSocket → "done"                                │
+│  Frontend receives completion, navigates to output view     │
+└─────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════
+  TOKEN BUDGET (typical 30-mark paper, 4 sections):
+
+  OCR (1 image)          ~2,500 tokens
+  Analyze                ~2,500 tokens
+  Sections (4 parallel)  ~10,000 tokens
+  LaTeX generation       ~16,000 tokens
+  AI fix (if needed)     ~4,000 tokens
+  ─────────────────────────────────
+  TOTAL                  ~25-30K tokens
+  
+  Groq API calls: 6-8 (OCR + analyze + 4 sections + LaTeX + fix)
+  Wall time: ~15-25 seconds
+═══════════════════════════════════════════════════════════════
 
 ## Getting Started (Local Development)
 
