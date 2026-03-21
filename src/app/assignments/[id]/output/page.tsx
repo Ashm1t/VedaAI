@@ -23,10 +23,10 @@ export default function OutputPage() {
   const assignment = assignments.find((a) => a.id === id);
 
   useEffect(() => {
-    if (assignment?.outputId && !currentOutput) {
+    if (assignment?.outputId && currentOutput?.assignmentId !== id) {
       fetchOutput(assignment.outputId);
     }
-  }, [assignment, currentOutput, fetchOutput]);
+  }, [assignment, currentOutput, fetchOutput, id]);
 
   const handleDownload = () => {
     if (currentOutput?.id) {
