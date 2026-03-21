@@ -61,6 +61,7 @@ Hosted on AWS EC2 (`c7i-flex.large`) with Docker Compose and CI/CD via GitHub Ac
 The user uploads the source material > The ocr scans for texts (currently using llama scout) takes chunks out, The form details and the relevant sourced chunks are passed in a feedforward fashion to the LLM, The LLM is then instructed to choose the best possible latex template already available to build upon, These templates i have collected from overleaf's website icse board papers and cbse papers as well, Formatting handbook and how to use templates to create paper is written in a detailed but efficient system prompt that goes in the next pass, After that the question paper is generated in latex and then compiled using pdflatex to a pdf that can be downloaded. Have tried to make the pdfs look exactly as unit tests/exams formatting 
 
 here is a flowchart of the process : 
+```
 ┌─────────────────────────────────────────────────────────────┐
 │                    USER SUBMITS FORM                        │
 │  Subject, Class, Topic, Due Date, Question Types, Files     │
@@ -241,7 +242,7 @@ here is a flowchart of the process :
   Groq API calls: 6-8 (OCR + analyze + 4 sections + LaTeX + fix)
   Wall time: ~15-25 seconds
 ═══════════════════════════════════════════════════════════════
-
+```
 ## Getting Started (Local Development)
 
 ### Prerequisites
