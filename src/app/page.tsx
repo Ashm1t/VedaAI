@@ -128,8 +128,15 @@ function Hero({ onCTAClick, onHowItWorks }: { onCTAClick: () => void; onHowItWor
 
 /* ── App Mockup ── */
 const AppMockup = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
+  const cards = [
+    { title: "Geography - Geo", assigned: "21-03-2026", due: "21-04-2026" },
+    { title: "Math - Math", assigned: "21-03-2026", due: "31-12-2026" },
+    { title: "Bio Test - Bio", assigned: "21-03-2026", due: "22-08-2026" },
+    { title: "Trees - Bio", assigned: "23-03-2026", due: "13-06-2026" },
+  ];
+
   return (
-    <section ref={ref} className="px-6 py-24 max-w-6xl mx-auto">
+    <section ref={ref} className="px-4 md:px-6 py-24 max-w-6xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold mb-3">Everything in one place</h2>
         <p className="text-[#B3B3B3] max-w-lg mx-auto">
@@ -137,8 +144,8 @@ const AppMockup = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => 
         </p>
       </div>
 
-      {/* Browser chrome wrapper */}
-      <div className="rounded-2xl overflow-hidden border border-[#282828] shadow-2xl"
+      {/* ── Desktop mockup (hidden on mobile) ── */}
+      <div className="hidden md:block rounded-2xl overflow-hidden border border-[#282828] shadow-2xl"
         style={{ boxShadow: "0 0 80px rgba(29,185,84,0.06), 0 32px 64px rgba(0,0,0,0.5)" }}>
         {/* Browser bar */}
         <div className="flex items-center gap-2 bg-[#1a1a1a] px-4 py-3 border-b border-[#282828]">
@@ -152,7 +159,7 @@ const AppMockup = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => 
           </div>
         </div>
 
-        {/* App UI Mockup */}
+        {/* Desktop App UI */}
         <div className="bg-[#121212] flex" style={{ height: 480 }}>
           {/* Sidebar */}
           <div className="w-56 shrink-0 bg-[#121212] border-r border-[#282828] p-4 flex flex-col justify-between">
@@ -195,7 +202,6 @@ const AppMockup = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => 
 
           {/* Main content */}
           <div className="flex-1 p-5 overflow-hidden">
-            {/* Header */}
             <div className="flex items-center justify-between mb-5 rounded-xl px-4 py-2"
               style={{ background: "rgba(18,18,18,0.85)" }}>
               <div className="flex items-center gap-2">
@@ -209,14 +215,10 @@ const AppMockup = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => 
                 <span className="text-[10px] text-[#B3B3B3]">John Doe</span>
               </div>
             </div>
-
-            {/* Section title */}
             <div className="flex items-center gap-2 mb-3">
               <div className="h-2 w-2 rounded-full bg-[#1DB954]" />
               <span className="text-sm font-bold text-white">Assignments</span>
             </div>
-
-            {/* Filter bar */}
             <div className="flex gap-2 mb-4">
               <div className="flex items-center gap-1 rounded-lg border border-[#333] bg-[#282828] px-3 py-1.5">
                 <div className="h-2.5 w-2.5 rounded bg-[#333]" />
@@ -226,16 +228,9 @@ const AppMockup = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => 
                 <span className="text-[9px] text-[#727272]">Search Assignment</span>
               </div>
             </div>
-
-            {/* Assignment cards grid */}
             <div className="grid grid-cols-2 gap-3">
-              {[
-                { title: "Geography - Geo", assigned: "21-03-2026", due: "21-04-2026" },
-                { title: "Math - Math", assigned: "21-03-2026", due: "31-12-2026" },
-                { title: "Bio Test - Bio", assigned: "21-03-2026", due: "22-08-2026" },
-                { title: "Trees - Bio", assigned: "23-03-2026", due: "13-06-2026" },
-              ].map((card) => (
-                <div key={card.title} className="rounded-xl bg-[#181818] border border-[#282828] p-3 hover:bg-[#282828] transition-colors cursor-pointer">
+              {cards.map((card) => (
+                <div key={card.title} className="rounded-xl bg-[#181818] border border-[#282828] p-3">
                   <div className="flex items-start justify-between mb-4">
                     <span className="text-[10px] font-semibold text-white pr-2">{card.title}</span>
                     <div className="flex gap-0.5">
@@ -249,6 +244,92 @@ const AppMockup = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => 
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Mobile mockup (hidden on desktop) ── */}
+      <div className="md:hidden mx-auto" style={{ maxWidth: 320 }}>
+        <div className="rounded-[2rem] overflow-hidden border-[3px] border-[#333] shadow-2xl"
+          style={{ boxShadow: "0 0 60px rgba(29,185,84,0.06), 0 24px 48px rgba(0,0,0,0.5)" }}>
+          {/* Phone status bar */}
+          <div className="flex items-center justify-between bg-[#121212] px-5 pt-3 pb-1">
+            <span className="text-[10px] font-semibold text-white">9:41</span>
+            <div className="flex items-center gap-1">
+              <div className="h-2 w-3 rounded-sm bg-white/70" />
+              <div className="h-2 w-2.5 rounded-sm bg-white/70" />
+              <div className="h-2.5 w-5 rounded-sm border border-white/70 p-px"><div className="h-full w-3/4 rounded-sm bg-white/70" /></div>
+            </div>
+          </div>
+
+          {/* App header */}
+          <div className="bg-[#121212] px-4 py-3 flex items-center justify-between border-b border-[#282828]">
+            <div className="flex items-center gap-2">
+              <div className="h-5 w-5 rounded bg-[#1DB954] flex items-center justify-center">
+                <span className="text-black text-[7px] font-bold">L</span>
+              </div>
+              <span className="text-xs font-bold text-white">Assignments</span>
+            </div>
+            <div className="h-6 w-6 rounded-full bg-[#1DB954]/20 flex items-center justify-center">
+              <span className="text-[7px] font-bold text-[#1DB954]">JD</span>
+            </div>
+          </div>
+
+          {/* Content area */}
+          <div className="bg-[#121212] px-4 py-3" style={{ minHeight: 420 }}>
+            {/* Create button */}
+            <div className="mb-3 rounded-full bg-[#1DB954] px-4 py-2 text-center text-[11px] font-semibold text-black">
+              + Create Assignment
+            </div>
+
+            {/* Filter bar */}
+            <div className="flex gap-2 mb-3">
+              <div className="flex items-center gap-1 rounded-lg border border-[#333] bg-[#282828] px-2.5 py-1.5">
+                <div className="h-2 w-2 rounded bg-[#333]" />
+                <span className="text-[9px] text-[#B3B3B3]">Filter</span>
+              </div>
+              <div className="flex-1 rounded-lg border border-[#333] bg-[#282828] px-2.5 py-1.5">
+                <span className="text-[9px] text-[#727272]">Search...</span>
+              </div>
+            </div>
+
+            {/* Card list (single column for phone) */}
+            <div className="space-y-2">
+              {cards.map((card) => (
+                <div key={card.title} className="rounded-xl bg-[#181818] border border-[#282828] p-3">
+                  <div className="flex items-start justify-between mb-3">
+                    <span className="text-[11px] font-semibold text-white">{card.title}</span>
+                    <div className="flex gap-0.5 mt-1">
+                      {[1,2,3].map(i => <div key={i} className="h-0.5 w-0.5 rounded-full bg-[#727272]" />)}
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between text-[9px] text-[#727272]">
+                    <span>Assigned: {card.assigned}</span>
+                    <span>Due: {card.due}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom nav bar */}
+          <div className="bg-[#121212] border-t border-[#282828] px-4 py-2.5 flex items-center justify-around">
+            {[
+              { label: "Home", active: false },
+              { label: "Tasks", active: true },
+              { label: "Library", active: false },
+              { label: "Settings", active: false },
+            ].map((tab) => (
+              <div key={tab.label} className="flex flex-col items-center gap-0.5">
+                <div className={`h-4 w-4 rounded ${tab.active ? "bg-[#1DB954]" : "bg-[#333]"}`} />
+                <span className={`text-[8px] ${tab.active ? "text-[#1DB954] font-semibold" : "text-[#727272]"}`}>{tab.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Home indicator */}
+          <div className="bg-[#121212] flex justify-center pb-2 pt-1">
+            <div className="h-1 w-24 rounded-full bg-white/20" />
           </div>
         </div>
       </div>
