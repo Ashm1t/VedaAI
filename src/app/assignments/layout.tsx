@@ -39,9 +39,9 @@ export default function AssignmentsLayout({
       <div className="fixed top-0 left-0 right-0 z-30 flex items-center justify-between px-4 py-3 bg-white/80 backdrop-blur-md md:hidden">
         <div className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-red-500 to-orange-500">
-            <span className="text-white font-bold text-sm">V</span>
+            <span className="text-white font-bold text-sm">L</span>
           </div>
-          <span className="text-base font-bold text-gray-900">VedaAI</span>
+          <span className="text-base font-bold text-gray-900">Libra</span>
         </div>
         <button className="relative flex h-9 w-9 items-center justify-center rounded-lg hover:bg-gray-100/60">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24">

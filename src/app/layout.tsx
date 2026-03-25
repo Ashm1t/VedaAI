@@ -9,7 +9,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "VedaAI - Assignment Creator",
+  title: "Libra - Assignment Creator",
   description: "AI-powered assessment creator for teachers",
 };
 
