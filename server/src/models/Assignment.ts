@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const assignmentSchema = new Schema(
   {
     _id: { type: String, default: () => uuidv4() },
+    userId: { type: String, default: null, index: true },
     title: { type: String, required: true },
     subject: { type: String, required: true },
     className: { type: String, required: true },

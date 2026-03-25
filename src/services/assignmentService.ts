@@ -3,11 +3,20 @@ import type {
   AssignmentFormData,
   QuestionPaperOutput,
 } from "@/types";
+import { useAuthStore } from "@/store/authStore";
 
 const API_BASE = "/api";
 
+function authHeaders(): Record<string, string> {
+  const token = useAuthStore.getState().token;
+  if (!token) return {};
+  return { Authorization: `Bearer ${token}` };
+}
+
 export async function fetchAssignments(): Promise<Assignment[]> {
-  const res = await fetch(`${API_BASE}/assignments`);
+  const res = await fetch(`${API_BASE}/assignments`, {
+    headers: authHeaders(),
+  });
   if (!res.ok) throw new Error("Failed to fetch assignments");
   return res.json();
 }
@@ -15,7 +24,9 @@ export async function fetchAssignments(): Promise<Assignment[]> {
 export async function fetchAssignmentById(
   id: string
 ): Promise<Assignment | undefined> {
-  const res = await fetch(`${API_BASE}/assignments/${id}`);
+  const res = await fetch(`${API_BASE}/assignments/${id}`, {
+    headers: authHeaders(),
+  });
   if (!res.ok) return undefined;
   return res.json();
 }
@@ -40,6 +51,7 @@ export async function createAssignment(
 
   const res = await fetch(`${API_BASE}/assignments`, {
     method: "POST",
+    headers: authHeaders(),
     body,
   });
   if (!res.ok) throw new Error("Failed to create assignment");
@@ -49,6 +61,7 @@ export async function createAssignment(
 export async function deleteAssignment(id: string): Promise<void> {
   const res = await fetch(`${API_BASE}/assignments/${id}`, {
     method: "DELETE",
+    headers: authHeaders(),
   });
   if (!res.ok) throw new Error("Failed to delete assignment");
 }
@@ -59,7 +72,10 @@ export async function updateAssignment(
 ): Promise<Assignment | undefined> {
   const res = await fetch(`${API_BASE}/assignments/${id}`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...authHeaders(),
+    },
     body: JSON.stringify(updates),
   });
   if (!res.ok) return undefined;
@@ -69,7 +85,10 @@ export async function updateAssignment(
 export async function triggerGeneration(assignmentId: string): Promise<void> {
   const res = await fetch(
     `${API_BASE}/assignments/${assignmentId}/generate`,
-    { method: "POST" }
+    {
+      method: "POST",
+      headers: authHeaders(),
+    }
   );
   if (!res.ok) throw new Error("Failed to trigger generation");
 }
@@ -77,7 +96,9 @@ export async function triggerGeneration(assignmentId: string): Promise<void> {
 export async function fetchQuestionPaper(
   outputId: string
 ): Promise<QuestionPaperOutput | undefined> {
-  const res = await fetch(`${API_BASE}/question-papers/${outputId}`);
+  const res = await fetch(`${API_BASE}/question-papers/${outputId}`, {
+    headers: authHeaders(),
+  });
   if (!res.ok) return undefined;
   return res.json();
 }
@@ -85,4 +106,3 @@ export async function fetchQuestionPaper(
 export function getPdfUrl(outputId: string): string {
   return `${API_BASE}/question-papers/${outputId}/pdf`;
 }
-

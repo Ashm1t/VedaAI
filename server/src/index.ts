@@ -8,6 +8,9 @@ import { connectDB } from "./config/db.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import assignmentRoutes from "./routes/assignmentRoutes.js";
 import questionPaperRoutes from "./routes/questionPaperRoutes.js";
+import waitlistRoutes from "./routes/waitlistRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import { requireAuth } from "./middleware/auth.js";
 import { initRedis } from "./config/redis.js";
 import { startWorker } from "./jobs/generationWorker.js";
 import fs from "fs";
@@ -57,8 +60,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/assignments", assignmentRoutes);
-app.use("/api/question-papers", questionPaperRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/assignments", requireAuth, assignmentRoutes);
+app.use("/api/question-papers", requireAuth, questionPaperRoutes);
+app.use("/api/waitlist", waitlistRoutes);
 
 // Health check
 app.get("/api/health", (_req, res) => {
