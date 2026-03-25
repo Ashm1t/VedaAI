@@ -4,8 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useAssignmentStore } from "@/store/assignmentStore";
 import { useProfileStore } from "@/store/profileStore";
+import { useAuthStore } from "@/store/authStore";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/", icon: HomeIcon },
@@ -76,6 +78,8 @@ interface SidebarContentProps {
 function SidebarContent({ pathname, assignmentCount, generatedCount, onNavigate }: SidebarContentProps) {
   const [toast, setToast] = useState<string | null>(null);
   const { name, initials, schoolName, schoolLocation } = useProfileStore();
+  const { user: authUser, logout } = useAuthStore();
+  const router = useRouter();
 
   // Derive display initials
   const displayInitials =
@@ -201,25 +205,46 @@ function SidebarContent({ pathname, assignmentCount, generatedCount, onNavigate 
           <span>Settings</span>
         </Link>
 
-        {/* Profile / School Info */}
-        <Link
-          href="/settings"
-          onClick={onNavigate}
-          className="flex items-center gap-3 rounded-xl bg-[#282828] px-3 py-3 hover:bg-[#333] transition-colors"
-        >
-          <div
-            className="flex h-10 w-10 items-center justify-center rounded-full flex-shrink-0 text-sm font-bold text-white"
-            style={{ background: "linear-gradient(135deg, #1DB954 0%, #0f7a33 100%)" }}
-          >
-            {displayInitials}
+        {/* User profile card */}
+        <div className="rounded-xl bg-[#282828] px-3 py-3">
+          <div className="flex items-center gap-3">
+            {authUser?.avatar ? (
+              <img
+                src={authUser.avatar}
+                alt=""
+                className="h-10 w-10 rounded-full flex-shrink-0"
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <div
+                className="flex h-10 w-10 items-center justify-center rounded-full flex-shrink-0 text-sm font-bold text-white"
+                style={{ background: "linear-gradient(135deg, #1DB954 0%, #0f7a33 100%)" }}
+              >
+                {displayInitials}
+              </div>
+            )}
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-white truncate">
+                {authUser?.name || name || "User"}
+              </p>
+              <p className="text-xs text-[#727272] truncate">
+                {authUser?.email || schoolName || ""}
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                logout();
+                router.push("/login");
+              }}
+              title="Sign out"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-[#727272] hover:bg-[#333] hover:text-white transition-colors flex-shrink-0"
+            >
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
-          <div className="min-w-0">
-            <p className="text-sm font-semibold text-white truncate">
-              {schoolName || "My School"}
-            </p>
-            <p className="text-xs text-[#727272] truncate">{schoolLocation || "Location"}</p>
-          </div>
-        </Link>
+        </div>
       </div>
 
       {/* Toast notification */}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Sidebar from "@/components/layout/Sidebar";
 import MobileNav from "@/components/layout/MobileNav";
+import AuthGuard from "@/components/auth/AuthGuard";
 
 export default function AssignmentsLayout({
   children,
@@ -12,6 +13,7 @@ export default function AssignmentsLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
+    <AuthGuard>
     <div className="min-h-screen">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
@@ -68,5 +70,6 @@ export default function AssignmentsLayout({
       {/* Mobile bottom nav + hamburger callback */}
       <MobileNav onMenuOpen={() => setSidebarOpen(true)} />
     </div>
+    </AuthGuard>
   );
 }

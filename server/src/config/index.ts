@@ -15,6 +15,14 @@ export const config = {
   groqApiKey: process.env.GROQ_API_KEY || "",
   frontendUrl: process.env.FRONTEND_URL || "http://localhost:3000",
 
+  // Auth
+  jwtSecret: process.env.JWT_SECRET || "libra-dev-secret-change-me",
+  googleClientId: process.env.GOOGLE_CLIENT_ID || "",
+  adminEmails: (process.env.ADMIN_EMAILS || "")
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean),
+
   // Paths
   uploadsDir: path.resolve(__dirname, "../../uploads"),
   outputDir: path.resolve(__dirname, "../../output"),

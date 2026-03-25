@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Sidebar from "@/components/layout/Sidebar";
 import MobileNav from "@/components/layout/MobileNav";
+import AuthGuard from "@/components/auth/AuthGuard";
 
 export default function SettingsLayout({
   children,
@@ -12,6 +13,7 @@ export default function SettingsLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
+    <AuthGuard>
     <div className="min-h-screen">
       {sidebarOpen && (
         <div
@@ -52,5 +54,6 @@ export default function SettingsLayout({
 
       <MobileNav onMenuOpen={() => setSidebarOpen(true)} />
     </div>
+    </AuthGuard>
   );
 }

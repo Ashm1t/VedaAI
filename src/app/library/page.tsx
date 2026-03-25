@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useAssignmentStore } from "@/store/assignmentStore";
+import { useAuthStore } from "@/store/authStore";
 import { getPdfUrl } from "@/services/assignmentService";
 import type { Assignment } from "@/types";
 
@@ -48,7 +49,10 @@ export default function LibraryPage() {
     setDownloadingId(assignment.id);
     try {
       const url = getPdfUrl(assignment.outputId);
-      const res = await fetch(url);
+      const token = useAuthStore.getState().token;
+      const res = await fetch(url, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
       if (!res.ok) throw new Error("Download failed");
       const blob = await res.blob();
       const a = document.createElement("a");

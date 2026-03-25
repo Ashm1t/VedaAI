@@ -6,18 +6,22 @@ import Image from "next/image";
 
 export default function LandingPage() {
   const waitlistRef = useRef<HTMLDivElement>(null);
+  const mockupRef = useRef<HTMLDivElement>(null);
 
   const scrollToWaitlist = () => {
     waitlistRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToMockup = () => {
+    mockupRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen bg-[#121212] text-white overflow-x-hidden">
-      <Navbar onCTAClick={scrollToWaitlist} />
-      <Hero onCTAClick={scrollToWaitlist} />
-      <AppMockup />
+      <Navbar onCTAClick={scrollToWaitlist} onHowItWorks={scrollToMockup} />
+      <Hero onCTAClick={scrollToWaitlist} onHowItWorks={scrollToMockup} />
+      <AppMockup ref={mockupRef} />
       <HowItWorks />
-      <Features />
       <WaitlistSection ref={waitlistRef} />
       <Footer />
     </div>
@@ -25,75 +29,51 @@ export default function LandingPage() {
 }
 
 /* ── Navbar ── */
-function Navbar({ onCTAClick }: { onCTAClick: () => void }) {
+function Navbar({ onCTAClick, onHowItWorks }: { onCTAClick: () => void; onHowItWorks: () => void }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4"
+    <nav className="fixed top-0 left-0 right-0 z-50 py-2.5"
       style={{ background: "rgba(18,18,18,0.85)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-      <div className="flex items-center gap-2.5">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#1DB954]">
-          <Image src="/libra.png" alt="Libra" width={24} height={24} className="rounded-md" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+      <div className="w-full px-4 md:px-8 lg:px-12 grid grid-cols-3 items-center">
+        {/* Logo — left */}
+        <div className="flex items-center gap-2.5">
+          <Image src="/libra.png" alt="Libra" width={28} height={28} className="rounded-md" />
+          <span className="text-lg font-bold">Libra</span>
         </div>
-        <span className="text-lg font-bold">Libra</span>
-      </div>
 
-      <div className="hidden md:flex items-center gap-8 text-sm text-[#B3B3B3]">
-        <button onClick={onCTAClick} className="hover:text-white transition-colors">Features</button>
-        <button onClick={onCTAClick} className="hover:text-white transition-colors">How it works</button>
-      </div>
+        {/* Centre link — always page-centred */}
+        <div className="hidden md:flex items-center justify-center">
+          <button onClick={onHowItWorks} className="text-sm text-[#B3B3B3] hover:text-white transition-colors">
+            How it works
+          </button>
+        </div>
 
-      <div className="flex items-center gap-3">
-        <Link
-          href="/assignments"
-          className="hidden md:block text-sm text-[#B3B3B3] hover:text-white transition-colors"
-        >
-          Open app
-        </Link>
-        <button
-          onClick={onCTAClick}
-          className="rounded-full bg-[#1DB954] px-5 py-2 text-sm font-semibold text-black hover:bg-[#1AA34A] transition-colors"
-        >
-          Try it free
-        </button>
+        {/* Right side */}
+        <div className="flex items-center justify-end gap-3 col-start-3">
+          <Link
+            href="/login"
+            className="hidden md:block text-sm text-[#B3B3B3] hover:text-white transition-colors"
+          >
+            Open app
+          </Link>
+          <button
+            onClick={onCTAClick}
+            className="rounded-full bg-[#1DB954] px-5 py-2 text-sm font-semibold text-black hover:bg-[#1AA34A] transition-colors"
+          >
+            Try it free
+          </button>
+        </div>
       </div>
     </nav>
   );
 }
 
 /* ── Hero ── */
-function Hero({ onCTAClick }: { onCTAClick: () => void }) {
+function Hero({ onCTAClick, onHowItWorks }: { onCTAClick: () => void; onHowItWorks: () => void }) {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center overflow-hidden pt-16">
-      {/* Abstract background orbs */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Top-left orb */}
-        <div className="absolute -top-32 -left-32 h-[600px] w-[600px] rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle, #1DB954 0%, transparent 70%)" }} />
-        {/* Bottom-right orb */}
-        <div className="absolute -bottom-48 -right-48 h-[700px] w-[700px] rounded-full opacity-15"
-          style={{ background: "radial-gradient(circle, #1DB954 0%, transparent 70%)" }} />
-        {/* Centre subtle glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[800px] opacity-8"
-          style={{ background: "radial-gradient(ellipse, #1DB954 0%, transparent 65%)" }} />
-
-        {/* Abstract grid lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#1DB954" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-
-        {/* Floating shapes */}
-        <div className="absolute top-1/4 left-[10%] h-3 w-3 rounded-full bg-[#1DB954] opacity-40 animate-pulse" />
-        <div className="absolute top-1/3 right-[15%] h-2 w-2 rounded-full bg-[#1DB954] opacity-30 animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-1/3 left-[20%] h-1.5 w-1.5 rounded-full bg-[#1DB954] opacity-50 animate-pulse" style={{ animationDelay: "2s" }} />
-
-        {/* Abstract rectangles */}
-        <div className="absolute top-[15%] right-[8%] h-24 w-0.5 bg-gradient-to-b from-[#1DB954]/40 to-transparent rounded-full" />
-        <div className="absolute bottom-[20%] left-[8%] h-16 w-0.5 bg-gradient-to-b from-transparent to-[#1DB954]/30 rounded-full" />
-      </div>
+    <section className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center pt-16">
+      {/* Minimal background — single subtle glow */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full opacity-[0.07]"
+        style={{ background: "radial-gradient(ellipse, #1DB954 0%, transparent 70%)" }} />
 
       {/* Badge */}
       <div className="relative mb-6 inline-flex items-center gap-2 rounded-full border border-[#1DB954]/30 bg-[#1DB954]/10 px-4 py-1.5 text-xs font-medium text-[#1DB954]">
@@ -128,7 +108,7 @@ function Hero({ onCTAClick }: { onCTAClick: () => void }) {
           </svg>
         </button>
         <Link
-          href="/assignments"
+          href="/login"
           className="flex items-center gap-2 rounded-full border border-[#333] px-8 py-3.5 text-base font-semibold text-[#B3B3B3] hover:border-[#555] hover:text-white transition-colors"
         >
           Open app
@@ -136,20 +116,20 @@ function Hero({ onCTAClick }: { onCTAClick: () => void }) {
       </div>
 
       {/* Scroll indicator */}
-      <div className="relative mt-20 flex flex-col items-center gap-2 text-[#727272]">
+      <button onClick={onHowItWorks} className="relative mt-20 flex flex-col items-center gap-2 text-[#727272] hover:text-[#B3B3B3] transition-colors">
         <span className="text-xs">See how it works</span>
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" className="animate-bounce">
           <path d="M19 9l-7 7-7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-      </div>
+      </button>
     </section>
   );
 }
 
 /* ── App Mockup ── */
-function AppMockup() {
+const AppMockup = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
   return (
-    <section className="px-6 py-24 max-w-6xl mx-auto">
+    <section ref={ref} className="px-6 py-24 max-w-6xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold mb-3">Everything in one place</h2>
         <p className="text-[#B3B3B3] max-w-lg mx-auto">
@@ -159,7 +139,7 @@ function AppMockup() {
 
       {/* Browser chrome wrapper */}
       <div className="rounded-2xl overflow-hidden border border-[#282828] shadow-2xl"
-        style={{ boxShadow: "0 0 80px rgba(29,185,84,0.08), 0 32px 64px rgba(0,0,0,0.6)" }}>
+        style={{ boxShadow: "0 0 80px rgba(29,185,84,0.06), 0 32px 64px rgba(0,0,0,0.5)" }}>
         {/* Browser bar */}
         <div className="flex items-center gap-2 bg-[#1a1a1a] px-4 py-3 border-b border-[#282828]">
           <div className="flex gap-1.5">
@@ -250,7 +230,7 @@ function AppMockup() {
             {/* Assignment cards grid */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                { title: "Geography - GEo", assigned: "21-03-2026", due: "21-04-2026" },
+                { title: "Geography - Geo", assigned: "21-03-2026", due: "21-04-2026" },
                 { title: "Math - Math", assigned: "21-03-2026", due: "31-12-2026" },
                 { title: "Bio Test - Bio", assigned: "21-03-2026", due: "22-08-2026" },
                 { title: "Trees - Bio", assigned: "23-03-2026", due: "13-06-2026" },
@@ -274,7 +254,7 @@ function AppMockup() {
       </div>
     </section>
   );
-}
+};
 
 /* ── How It Works ── */
 function HowItWorks() {
@@ -315,10 +295,7 @@ function HowItWorks() {
     <section className="px-6 py-24 max-w-6xl mx-auto">
       <div className="text-center mb-16">
         <span className="text-xs font-semibold text-[#1DB954] uppercase tracking-widest">How it works</span>
-        <h2 className="mt-3 text-3xl font-bold md:text-4xl">Three steps. That's it.</h2>
-        <p className="mt-3 text-[#727272] max-w-md mx-auto">
-          No training. No setup. No complicated interface. Just upload and go.
-        </p>
+        <h2 className="mt-3 text-3xl font-bold md:text-4xl">Three steps. That&apos;s it.</h2>
       </div>
 
       <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -335,65 +312,6 @@ function HowItWorks() {
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
             <p className="text-sm text-[#727272] leading-relaxed">{step.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ── Features ── */
-function Features() {
-  const features = [
-    {
-      title: "Reads your notes",
-      description: "Upload handwritten notes, printed pages, or photos. Libra extracts every word using OCR and uses it to build relevant questions.",
-      icon: (
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke="currentColor" strokeWidth="1.5" />
-        </svg>
-      ),
-    },
-    {
-      title: "Multiple question types",
-      description: "MCQs, short answers, long answers, fill-in-the-blanks, and true/false — with customisable marks and section counts.",
-      icon: (
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
-    },
-    {
-      title: "Print-ready PDFs",
-      description: "Every paper is typeset using LaTeX — the same system used by academic journals. Clean formatting, proper math symbols, every time.",
-      icon: (
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
-    },
-  ];
-
-  return (
-    <section className="px-6 py-24 max-w-6xl mx-auto">
-      <div className="text-center mb-16">
-        <span className="text-xs font-semibold text-[#1DB954] uppercase tracking-widest">Features</span>
-        <h2 className="mt-3 text-3xl font-bold md:text-4xl">Built for the classroom</h2>
-        <p className="mt-3 text-[#727272] max-w-md mx-auto">
-          Every feature designed around how teachers actually work.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {features.map((feature) => (
-          <div key={feature.title}
-            className="rounded-2xl bg-[#181818] border border-[#282828] p-6 hover:border-[#1DB954]/30 hover:bg-[#1a1a1a] transition-all group">
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#1DB954]/10 text-[#1DB954] group-hover:bg-[#1DB954]/20 transition-colors">
-              {feature.icon}
-            </div>
-            <h3 className="text-base font-semibold text-white mb-2">{feature.title}</h3>
-            <p className="text-sm text-[#727272] leading-relaxed">{feature.description}</p>
           </div>
         ))}
       </div>
@@ -435,13 +353,7 @@ const WaitlistSection = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> 
   };
 
   return (
-    <section ref={ref} className="relative px-6 py-32 overflow-hidden">
-      {/* Background glow */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="h-[600px] w-[600px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #1DB954 0%, transparent 70%)" }} />
-      </div>
-
+    <section ref={ref} className="relative px-6 py-32">
       <div className="relative max-w-2xl mx-auto text-center">
         <span className="text-xs font-semibold text-[#1DB954] uppercase tracking-widest">Early access</span>
         <h2 className="mt-4 text-4xl font-extrabold md:text-5xl">
@@ -450,7 +362,7 @@ const WaitlistSection = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> 
           <span className="text-[#1DB954]">teachers to use Libra.</span>
         </h2>
         <p className="mt-5 text-[#727272] text-lg max-w-md mx-auto">
-          Join the waitlist and we'll reach out when your spot is ready.
+          Join the waitlist and we&apos;ll reach out when your spot is ready.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -468,7 +380,7 @@ const WaitlistSection = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> 
             disabled={state === "loading" || state === "success"}
             className="rounded-full bg-[#1DB954] px-7 py-3.5 text-sm font-semibold text-black hover:bg-[#1AA34A] transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
           >
-            {state === "loading" ? "Joining..." : state === "success" ? "You're in! ✓" : "Join the waitlist"}
+            {state === "loading" ? "Joining..." : state === "success" ? "You're in!" : "Join the waitlist"}
           </button>
         </form>
 
@@ -490,17 +402,15 @@ function Footer() {
     <footer className="border-t border-[#282828] px-8 py-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-[#1DB954]">
-            <span className="text-black text-[10px] font-bold">L</span>
-          </div>
+          <Image src="/libra.png" alt="Libra" width={20} height={20} className="rounded" />
           <span className="text-sm font-semibold">Libra</span>
-          <span className="text-[#727272] text-sm ml-2">© 2026</span>
+          <span className="text-[#727272] text-sm ml-2">&copy; 2026</span>
         </div>
 
         <p className="text-sm text-[#727272]">AI-powered question paper generation for educators.</p>
 
         <Link
-          href="/assignments"
+          href="/login"
           className="flex items-center gap-2 rounded-full border border-[#333] px-4 py-2 text-sm text-[#B3B3B3] hover:border-[#1DB954] hover:text-[#1DB954] transition-colors"
         >
           Open app

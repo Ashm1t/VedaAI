@@ -2,8 +2,9 @@ import type { Request, Response } from "express";
 import { AssignmentModel } from "../models/Assignment.js";
 import { triggerGeneration } from "../services/generationService.js";
 
-export async function listAssignments(_req: Request, res: Response) {
-  const assignments = await AssignmentModel.find().sort({ createdAt: -1 });
+export async function listAssignments(req: Request, res: Response) {
+  const filter = req.user ? { userId: req.user.userId } : {};
+  const assignments = await AssignmentModel.find(filter).sort({ createdAt: -1 });
   res.json(assignments.map((a) => a.toJSON()));
 }
 
@@ -11,6 +12,11 @@ export async function getAssignment(req: Request, res: Response) {
   const assignment = await AssignmentModel.findById(req.params.id);
   if (!assignment) {
     res.status(404).json({ error: "Assignment not found" });
+    return;
+  }
+  // If authed, only allow owner to view
+  if (req.user && assignment.userId && assignment.userId !== req.user.userId) {
+    res.status(403).json({ error: "Access denied" });
     return;
   }
   res.json(assignment.toJSON());
@@ -26,6 +32,7 @@ export async function createAssignment(req: Request, res: Response) {
       : questionTypes;
 
   const assignment = await AssignmentModel.create({
+    userId: req.user?.userId || null,
     title: title || `${topic} - ${subject}`,
     subject,
     className,
@@ -55,24 +62,33 @@ export async function createAssignment(req: Request, res: Response) {
 }
 
 export async function updateAssignment(req: Request, res: Response) {
-  const assignment = await AssignmentModel.findByIdAndUpdate(
-    req.params.id,
-    { $set: req.body },
-    { new: true }
-  );
+  const assignment = await AssignmentModel.findById(req.params.id);
   if (!assignment) {
     res.status(404).json({ error: "Assignment not found" });
     return;
   }
+  if (req.user && assignment.userId && assignment.userId !== req.user.userId) {
+    res.status(403).json({ error: "Access denied" });
+    return;
+  }
+
+  Object.assign(assignment, req.body);
+  await assignment.save();
   res.json(assignment.toJSON());
 }
 
 export async function deleteAssignment(req: Request, res: Response) {
-  const assignment = await AssignmentModel.findByIdAndDelete(req.params.id);
+  const assignment = await AssignmentModel.findById(req.params.id);
   if (!assignment) {
     res.status(404).json({ error: "Assignment not found" });
     return;
   }
+  if (req.user && assignment.userId && assignment.userId !== req.user.userId) {
+    res.status(403).json({ error: "Access denied" });
+    return;
+  }
+
+  await assignment.deleteOne();
   res.json({ success: true });
 }
 
@@ -80,6 +96,10 @@ export async function generateQuestions(req: Request, res: Response) {
   const assignment = await AssignmentModel.findById(req.params.id);
   if (!assignment) {
     res.status(404).json({ error: "Assignment not found" });
+    return;
+  }
+  if (req.user && assignment.userId && assignment.userId !== req.user.userId) {
+    res.status(403).json({ error: "Access denied" });
     return;
   }
 
