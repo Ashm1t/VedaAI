@@ -5,13 +5,14 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useAssignmentStore } from "@/store/assignmentStore";
+import { useProfileStore } from "@/store/profileStore";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/", icon: HomeIcon },
   { label: "My Groups", href: "/coming-soon", icon: GroupIcon },
   { label: "Assignments", href: "/assignments", icon: AssignmentIcon },
   { label: "AI Teacher's Toolkit", href: "/coming-soon", icon: ToolkitIcon },
-  { label: "My Library", href: "/coming-soon", icon: LibraryIcon },
+  { label: "My Library", href: "/library", icon: LibraryIcon },
 ];
 
 interface SidebarProps {
@@ -23,6 +24,7 @@ export default function Sidebar({ mobile, onClose }: SidebarProps) {
   const pathname = usePathname();
   const assignments = useAssignmentStore((s) => s.assignments);
   const assignmentCount = assignments.length;
+  const generatedCount = assignments.filter((a) => a.status === "generated").length;
 
   // Mobile: full-height drawer, no gap
   if (mobile) {
@@ -31,6 +33,7 @@ export default function Sidebar({ mobile, onClose }: SidebarProps) {
         <SidebarContent
           pathname={pathname}
           assignmentCount={assignmentCount}
+          generatedCount={generatedCount}
           onNavigate={onClose}
         />
       </aside>
@@ -55,6 +58,7 @@ export default function Sidebar({ mobile, onClose }: SidebarProps) {
       <SidebarContent
         pathname={pathname}
         assignmentCount={assignmentCount}
+        generatedCount={generatedCount}
       />
     </aside>
   );
@@ -65,11 +69,25 @@ export default function Sidebar({ mobile, onClose }: SidebarProps) {
 interface SidebarContentProps {
   pathname: string;
   assignmentCount: number;
+  generatedCount: number;
   onNavigate?: () => void;
 }
 
-function SidebarContent({ pathname, assignmentCount, onNavigate }: SidebarContentProps) {
+function SidebarContent({ pathname, assignmentCount, generatedCount, onNavigate }: SidebarContentProps) {
   const [toast, setToast] = useState<string | null>(null);
+  const { name, initials, schoolName, schoolLocation } = useProfileStore();
+
+  // Derive display initials
+  const displayInitials =
+    initials ||
+    name
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((w) => w[0].toUpperCase())
+      .join("") ||
+    "?";
 
   const showToast = (label: string) => {
     setToast(`${label} — Coming Soon!`);
@@ -118,6 +136,8 @@ function SidebarContent({ pathname, assignmentCount, onNavigate }: SidebarConten
             const isActive =
               item.href === "/assignments"
                 ? pathname.startsWith("/assignments")
+                : item.href === "/library"
+                ? pathname.startsWith("/library")
                 : pathname === item.href;
 
             const isPlaceholder = item.href === "/coming-soon";
@@ -130,9 +150,9 @@ function SidebarContent({ pathname, assignmentCount, onNavigate }: SidebarConten
               >
                 <item.icon active={false} />
                 <span>{item.label}</span>
-                {item.label === "My Library" && (
+                {item.label === "My Library" && assignmentCount > 0 && (
                   <span className="ml-auto flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[11px] font-bold text-white">
-                    32
+                    {assignmentCount}
                   </span>
                 )}
               </button>
@@ -154,6 +174,11 @@ function SidebarContent({ pathname, assignmentCount, onNavigate }: SidebarConten
                     {assignmentCount}
                   </span>
                 )}
+                {item.label === "My Library" && generatedCount > 0 && (
+                  <span className="ml-auto flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[11px] font-bold text-white">
+                    {generatedCount}
+                  </span>
+                )}
               </Link>
             );
           })}
@@ -163,29 +188,38 @@ function SidebarContent({ pathname, assignmentCount, onNavigate }: SidebarConten
       {/* Bottom section */}
       <div>
         {/* Settings */}
-        <button
-          onClick={() => showToast("Settings")}
-          className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-[#B3B3B3] hover:bg-[#282828] hover:text-white mb-4"
+        <Link
+          href="/settings"
+          onClick={onNavigate}
+          className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors mb-4 ${
+            pathname === "/settings"
+              ? "bg-[#282828] text-white"
+              : "text-[#B3B3B3] hover:bg-[#282828] hover:text-white"
+          }`}
         >
-          <SettingsIcon />
+          <SettingsIcon active={pathname === "/settings"} />
           <span>Settings</span>
-        </button>
+        </Link>
 
-        {/* School Info */}
-        <div className="flex items-center gap-3 rounded-xl bg-[#282828] px-3 py-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full overflow-hidden bg-[#1DB954]/20">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="8" r="4" fill="#B3B3B3" />
-              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" fill="#B3B3B3" />
-            </svg>
+        {/* Profile / School Info */}
+        <Link
+          href="/settings"
+          onClick={onNavigate}
+          className="flex items-center gap-3 rounded-xl bg-[#282828] px-3 py-3 hover:bg-[#333] transition-colors"
+        >
+          <div
+            className="flex h-10 w-10 items-center justify-center rounded-full flex-shrink-0 text-sm font-bold text-white"
+            style={{ background: "linear-gradient(135deg, #1DB954 0%, #0f7a33 100%)" }}
+          >
+            {displayInitials}
           </div>
-          <div>
-            <p className="text-sm font-semibold text-white">
-              Delhi Public School
+          <div className="min-w-0">
+            <p className="text-sm font-semibold text-white truncate">
+              {schoolName || "My School"}
             </p>
-            <p className="text-xs text-[#727272]">Bokaro Steel City</p>
+            <p className="text-xs text-[#727272] truncate">{schoolLocation || "Location"}</p>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Toast notification */}
@@ -270,19 +304,20 @@ function LibraryIcon({ active }: { active: boolean }) {
   );
 }
 
-function SettingsIcon() {
+function SettingsIcon({ active }: { active: boolean }) {
+  const color = active ? "#FFFFFF" : "#727272";
   return (
     <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
       <path
         d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-        stroke="#727272"
+        stroke={color}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-        stroke="#727272"
+        stroke={color}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
