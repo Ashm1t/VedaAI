@@ -29,7 +29,7 @@ export default function AssignmentsPage() {
 
       {isLoading ? (
         <div className="flex flex-1 items-center justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-gray-900" />
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#333] border-t-[#1DB954]" />
         </div>
       ) : isEmpty ? (
         <EmptyState />
@@ -38,10 +38,10 @@ export default function AssignmentsPage() {
           {/* Section Header */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-1">
-              <div className="h-2.5 w-2.5 rounded-full bg-green-500" />
-              <h2 className="text-xl font-bold text-gray-900">Assignments</h2>
+              <div className="h-2.5 w-2.5 rounded-full bg-[#1DB954]" />
+              <h2 className="text-xl font-bold text-white">Assignments</h2>
             </div>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-[#B3B3B3]">
               Manage and create assignments for your classes.
             </p>
           </div>
@@ -56,10 +56,10 @@ export default function AssignmentsPage() {
           {/* Floating Create Button */}
           <Link
             href="/assignments/create"
-            className="fixed z-30 flex items-center justify-center gap-2 rounded-full text-white shadow-lg transition-opacity hover:opacity-90
+            className="fixed z-30 flex items-center justify-center gap-2 rounded-full text-black shadow-lg transition-opacity hover:opacity-90
               bottom-24 right-5 h-14 w-14
               md:bottom-8 md:right-8 md:h-auto md:w-auto md:px-6 md:py-3 md:rounded-full"
-            style={{ backgroundColor: "#181818" }}
+            style={{ backgroundColor: "#1DB954" }}
           >
             <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
               <path

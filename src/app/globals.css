@@ -1,33 +1,36 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #E05C2A;
-  --color-primary-hover: #C94D1F;
-  --color-sidebar-bg: #FFFFFF;
-  --color-page-bg-from: #EEEEEE;
-  --color-page-bg-to: #DADADA;
-  --color-output-bg: #E6E6E6;
-  --color-card-bg: #FFFFFF;
-  --color-border: #E5E7EB;
-  --color-gray-900: #303030;
-  --color-text-primary: #303030;
-  --color-text-secondary: #6B7280;
-  --color-text-muted: #9CA3AF;
-  --color-badge-easy: #22C55E;
-  --color-badge-easy-bg: #F0FDF4;
-  --color-badge-easy-text: #166534;
+  --color-primary: #1DB954;
+  --color-primary-hover: #1AA34A;
+  --color-sidebar-bg: #121212;
+  --color-page-bg-from: #121212;
+  --color-page-bg-to: #181818;
+  --color-output-bg: #181818;
+  --color-card-bg: #282828;
+  --color-card-hover: #333333;
+  --color-border: #333333;
+  --color-gray-900: #FFFFFF;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B3B3B3;
+  --color-text-muted: #727272;
+  --color-surface: #181818;
+  --color-surface-raised: #282828;
+  --color-badge-easy: #1DB954;
+  --color-badge-easy-bg: #1DB95420;
+  --color-badge-easy-text: #1DB954;
   --color-badge-moderate: #F59E0B;
-  --color-badge-moderate-bg: #FFFBEB;
-  --color-badge-moderate-text: #92400E;
+  --color-badge-moderate-bg: #F59E0B20;
+  --color-badge-moderate-text: #F59E0B;
   --color-badge-hard: #EF4444;
-  --color-badge-hard-bg: #FEF2F2;
-  --color-badge-hard-text: #991B1B;
+  --color-badge-hard-bg: #EF444420;
+  --color-badge-hard-text: #EF4444;
   --font-sans: var(--font-bricolage);
 }
 
 body {
-  background: linear-gradient(135deg, #EEEEEE 0%, #DADADA 100%);
-  color: #303030;
+  background: #121212;
+  color: #FFFFFF;
   font-family: var(--font-sans), system-ui, sans-serif;
   min-height: 100vh;
 }
@@ -41,11 +44,11 @@ body {
   animation: fade-in 0.2s ease-out;
 }
 
-/* Static orange border for Create Assignment button */
+/* Emerald border for Create Assignment button */
 .gradient-border-btn {
   display: block;
   border-radius: 9999px;
-  border: 2px solid #E05C2A;
+  border: 2px solid #1DB954;
 }
 
 /* Scrollbar styling */
@@ -56,6 +59,6 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D1D5DB;
+  background: #333333;
   border-radius: 3px;
 }

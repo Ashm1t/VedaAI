@@ -48,13 +48,13 @@ export default function FileUploadZone() {
         {...getRootProps()}
         className={`flex flex-col items-center justify-center rounded-xl border-2 border-dashed p-6 cursor-pointer transition-colors ${
           isDragActive
-            ? "border-primary bg-orange-50"
-            : "border-gray-300 bg-gray-50 hover:border-gray-400"
+            ? "border-primary bg-[#1DB954]/10"
+            : "border-[#333] bg-[#282828] hover:border-[#555]"
         }`}
       >
         <input {...getInputProps()} />
         <svg
-          className="mb-2 text-gray-400"
+          className="mb-2 text-[#727272]"
           width="28"
           height="28"
           fill="none"
@@ -68,13 +68,13 @@ export default function FileUploadZone() {
             strokeLinejoin="round"
           />
         </svg>
-        <p className="text-sm text-gray-600 mb-0.5">
+        <p className="text-sm text-[#B3B3B3] mb-0.5">
           Choose files or drag & drop here
         </p>
-        <p className="text-xs text-gray-400 mb-2">
+        <p className="text-xs text-[#727272] mb-2">
           JPEG, PNG, PDF — up to 10MB each
         </p>
-        <span className="rounded-lg border border-gray-300 px-4 py-1.5 text-sm font-medium text-gray-700 hover:bg-white transition-colors">
+        <span className="rounded-lg border border-[#555] px-4 py-1.5 text-sm font-medium text-[#B3B3B3] hover:bg-[#333] transition-colors">
           Browse Files
         </span>
       </div>
@@ -83,7 +83,7 @@ export default function FileUploadZone() {
       {formData.files.length > 0 && (
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-medium text-gray-500">
+            <p className="text-xs font-medium text-[#B3B3B3]">
               {formData.files.length} file{formData.files.length > 1 ? "s" : ""} selected
             </p>
             <button
@@ -96,14 +96,14 @@ export default function FileUploadZone() {
           {formData.files.map((file, i) => (
             <div
               key={`${file.name}-${i}`}
-              className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-3 py-2"
+              className="flex items-center gap-3 rounded-lg border border-[#333] bg-[#282828] px-3 py-2"
             >
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gray-100">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#333]">
                 {file.type.startsWith("image/") ? (
                   <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                    <rect x="3" y="3" width="18" height="18" rx="3" stroke="#6B7280" strokeWidth="1.5" />
-                    <circle cx="8.5" cy="8.5" r="2" stroke="#6B7280" strokeWidth="1.5" />
-                    <path d="M3 16l5-5 4 4 3-3 6 6" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <rect x="3" y="3" width="18" height="18" rx="3" stroke="#727272" strokeWidth="1.5" />
+                    <circle cx="8.5" cy="8.5" r="2" stroke="#727272" strokeWidth="1.5" />
+                    <path d="M3 16l5-5 4 4 3-3 6 6" stroke="#727272" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 ) : (
                   <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
@@ -112,16 +112,16 @@ export default function FileUploadZone() {
                 )}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-medium text-gray-900 truncate">
+                <p className="text-xs font-medium text-white truncate">
                   {file.name}
                 </p>
-                <p className="text-[10px] text-gray-400">
+                <p className="text-[10px] text-[#727272]">
                   {(file.size / 1024).toFixed(0)} KB
                 </p>
               </div>
               <button
                 onClick={() => removeFile(i)}
-                className="flex h-6 w-6 shrink-0 items-center justify-center rounded hover:bg-gray-100 transition-colors"
+                className="flex h-6 w-6 shrink-0 items-center justify-center rounded hover:bg-[#333] transition-colors"
               >
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
                   <path d="M6 18L18 6M6 6l12 12" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" />
@@ -132,7 +132,7 @@ export default function FileUploadZone() {
         </div>
       )}
 
-      <p className="text-xs text-gray-400 text-center">
+      <p className="text-xs text-[#727272] text-center">
         Upload images of your preferred document/image
       </p>
     </div>

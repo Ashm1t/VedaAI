@@ -44,16 +44,16 @@ export default function OutputPage() {
 
       {isLoading ? (
         <div className="flex flex-1 items-center justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-gray-900" />
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#333] border-t-[#1DB954]" />
         </div>
       ) : !currentOutput ? (
         <div className="flex flex-1 items-center justify-center">
-          <p className="text-gray-500">No output found for this assignment.</p>
+          <p className="text-[#727272]">No output found for this assignment.</p>
         </div>
       ) : (
         <div className="flex-1 p-8">
           {/* AI Summary Bar */}
-          <div className="flex items-center justify-between rounded-2xl bg-white border border-gray-100 shadow-sm px-6 py-4 mb-6">
+          <div className="flex items-center justify-between rounded-2xl bg-[#181818] border border-[#282828] shadow-sm px-6 py-4 mb-6">
             <div className="flex items-center gap-3 flex-1 min-w-0">
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10">
                 <svg
@@ -72,13 +72,13 @@ export default function OutputPage() {
                   />
                 </svg>
               </div>
-              <p className="text-sm text-gray-600 truncate">
+              <p className="text-sm text-[#B3B3B3] truncate">
                 {currentOutput.aiSummary}
               </p>
             </div>
             <button
               onClick={handleDownload}
-              className="flex items-center gap-2 rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-800 transition-colors shrink-0 ml-4"
+              className="flex items-center gap-2 rounded-xl bg-[#1DB954] px-5 py-2.5 text-sm font-semibold text-black hover:bg-[#1AA34A] transition-colors shrink-0 ml-4"
             >
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
                 <path

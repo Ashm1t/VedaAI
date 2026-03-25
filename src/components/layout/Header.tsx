@@ -21,7 +21,7 @@ export default function Header({ title, showBack = false }: HeaderProps) {
         borderRadius: 16,
         paddingLeft: 24,
         paddingRight: 12,
-        background: "rgba(255,255,255,0.75)",
+        background: "rgba(18,18,18,0.85)",
         backdropFilter: "blur(12px)",
       }}
     >
@@ -29,12 +29,12 @@ export default function Header({ title, showBack = false }: HeaderProps) {
         {showBack && (
           <button
             onClick={() => router.back()}
-            className="flex h-9 w-9 items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
+            className="flex h-9 w-9 items-center justify-center rounded-lg hover:bg-[#282828] transition-colors"
           >
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
               <path
                 d="M15 19l-7-7 7-7"
-                stroke="#374151"
+                stroke="#B3B3B3"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -46,21 +46,21 @@ export default function Header({ title, showBack = false }: HeaderProps) {
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
             <path
               d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-              stroke="#6B7280"
+              stroke="#727272"
               strokeWidth="1.5"
             />
           </svg>
-          <h1 className="text-base font-semibold text-gray-900">{title}</h1>
+          <h1 className="text-base font-semibold text-white">{title}</h1>
         </div>
       </div>
 
       <div className="flex items-center gap-4">
         {/* Notification Bell */}
-        <button className="relative flex h-10 w-10 items-center justify-center rounded-xl hover:bg-gray-100/60 transition-colors">
+        <button className="relative flex h-10 w-10 items-center justify-center rounded-xl hover:bg-[#282828] transition-colors">
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path
               d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              stroke="#374151"
+              stroke="#B3B3B3"
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -69,15 +69,15 @@ export default function Header({ title, showBack = false }: HeaderProps) {
         </button>
 
         {/* User Avatar + Name */}
-        <button className="flex items-center gap-2.5 rounded-full pl-1 pr-3 py-1 hover:bg-gray-100/60 transition-colors">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">
+        <button className="flex items-center gap-2.5 rounded-full pl-1 pr-3 py-1 hover:bg-[#282828] transition-colors">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1DB954]/20 text-sm font-semibold text-[#1DB954]">
             JD
           </div>
-          <span className="text-sm font-medium text-gray-700">John Doe</span>
+          <span className="text-sm font-medium text-[#B3B3B3]">John Doe</span>
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
             <path
               d="M19 9l-7 7-7-7"
-              stroke="#6B7280"
+              stroke="#727272"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
