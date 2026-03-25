@@ -13,7 +13,7 @@ services:
       backend:
         condition: service_healthy
     networks:
-      - vedanet
+      - libranet
 
   backend:
     build:
@@ -23,7 +23,7 @@ services:
     environment:
       - PORT=4000
       - FRONTEND_URL=${FRONTEND_URL:-http://localhost:3000}
-      - MONGODB_URI=mongodb://mongodb:27017/vedaai
+      - MONGODB_URI=mongodb://mongodb:27017/libra
       - REDIS_URL=redis://redis:6379
       - GROQ_API_KEY=${GROQ_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
@@ -44,7 +44,7 @@ services:
       retries: 3
       start_period: 20s
     networks:
-      - vedanet
+      - libranet
 
   mongodb:
     image: mongo:7
@@ -58,7 +58,7 @@ services:
       retries: 5
       start_period: 10s
     networks:
-      - vedanet
+      - libranet
 
   redis:
     image: redis:7-alpine
@@ -69,7 +69,7 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - vedanet
+      - libranet
 
   nginx:
     image: nginx:alpine
@@ -86,7 +86,7 @@ services:
       - frontend
       - backend
     networks:
-      - vedanet
+      - libranet
 
   certbot:
     image: certbot/certbot
@@ -105,5 +105,5 @@ volumes:
   certbot-webroot:
 
 networks:
-  vedanet:
+  libranet:
     driver: bridge

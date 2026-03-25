@@ -1,4 +1,4 @@
-# VedaAI
+# Libra
 
 <img width="1917" height="932" alt="image" src="https://github.com/user-attachments/assets/73811edd-60f8-4be1-bd42-d08b7db318bd" />
 
@@ -256,8 +256,8 @@ here is a flowchart of the process :
 
 ```bash
 # Clone
-git clone https://github.com/Ashm1t/VedaAI.git
-cd VedaAI
+git clone https://github.com/Ashm1t/Libra.git
+cd Libra
 
 # Install dependencies
 npm install
@@ -284,8 +284,8 @@ If you don't want to install MongoDB, Redis, or TeX Live locally, use Docker —
 
 ```bash
 # Clone
-git clone https://github.com/Ashm1t/VedaAI.git
-cd VedaAI
+git clone https://github.com/Ashm1t/Libra.git
+cd Libra
 
 # Configure environment
 cp .env.example .env

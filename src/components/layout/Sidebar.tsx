@@ -83,13 +83,13 @@ function SidebarContent({ pathname, assignmentCount, onNavigate }: SidebarConten
         {/* Logo */}
         <div className="flex items-center gap-2.5 mb-8">
           <Image
-            src="/vedaAI.png"
-            alt="VedaAI"
+            src="/libra.png"
+            alt="Libra"
             width={40}
             height={40}
             className="rounded-xl"
           />
-          <span className="text-xl font-bold text-gray-900">VedaAI</span>
+          <span className="text-xl font-bold text-gray-900">Libra</span>
         </div>
 
         {/* Create Assignment Button */}

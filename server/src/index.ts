@@ -86,7 +86,7 @@ async function start() {
   startWorker();
 
   server.listen(config.port, () => {
-    console.log(`\n✓ VedaAI server running on http://localhost:${config.port}`);
+    console.log(`\n✓ Libra server running on http://localhost:${config.port}`);
     console.log(`  Health: http://localhost:${config.port}/api/health`);
     console.log(
       `  MongoDB: ${config.mongoUri ? "configured" : "not configured"}`
