@@ -46,12 +46,12 @@ export default function AssignmentCard({ assignment }: AssignmentCardProps) {
   return (
     <div
       onClick={handleCardClick}
-      className={`relative rounded-2xl bg-white border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow ${
+      className={`relative rounded-2xl bg-[#181818] border border-[#282828] p-5 shadow-sm hover:bg-[#282828] transition-colors ${
         assignment.outputId ? "cursor-pointer" : "cursor-default"
       }`}
     >
       <div className="flex items-start justify-between mb-8">
-        <h3 className="text-base font-semibold text-gray-900 pr-4">
+        <h3 className="text-base font-semibold text-white pr-4">
           {assignment.title}
         </h3>
         <div className="relative" ref={menuRef}>
@@ -60,17 +60,17 @@ export default function AssignmentCard({ assignment }: AssignmentCardProps) {
               e.stopPropagation();
               setMenuOpen((o) => !o);
             }}
-            className="flex h-7 w-7 items-center justify-center rounded-md hover:bg-gray-100 transition-colors"
+            className="flex h-7 w-7 items-center justify-center rounded-md hover:bg-[#333] transition-colors"
           >
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-              <circle cx="12" cy="5" r="1.5" fill="#6B7280" />
-              <circle cx="12" cy="12" r="1.5" fill="#6B7280" />
-              <circle cx="12" cy="19" r="1.5" fill="#6B7280" />
+              <circle cx="12" cy="5" r="1.5" fill="#727272" />
+              <circle cx="12" cy="12" r="1.5" fill="#727272" />
+              <circle cx="12" cy="19" r="1.5" fill="#727272" />
             </svg>
           </button>
 
           {menuOpen && (
-            <div className="absolute right-0 top-8 z-10 w-44 rounded-xl bg-white border border-gray-200 shadow-lg py-1">
+            <div className="absolute right-0 top-8 z-10 w-44 rounded-xl bg-[#282828] border border-[#333] shadow-lg py-1">
               {assignment.outputId && (
                 <button
                   onClick={(e) => {
@@ -78,14 +78,14 @@ export default function AssignmentCard({ assignment }: AssignmentCardProps) {
                     setMenuOpen(false);
                     router.push(`/assignments/${assignment.id}/output`);
                   }}
-                  className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  className="flex w-full items-center px-4 py-2 text-sm text-[#B3B3B3] hover:bg-[#333] hover:text-white"
                 >
                   View Assignment
                 </button>
               )}
               <button
                 onClick={handleDelete}
-                className="flex w-full items-center px-4 py-2 text-sm text-red-600 hover:bg-red-50"
+                className="flex w-full items-center px-4 py-2 text-sm text-red-400 hover:bg-red-500/10"
               >
                 Delete
               </button>
@@ -94,7 +94,7 @@ export default function AssignmentCard({ assignment }: AssignmentCardProps) {
         </div>
       </div>
 
-      <div className="flex items-center justify-between text-xs text-gray-500">
+      <div className="flex items-center justify-between text-xs text-[#727272]">
         <span>Assigned on: {formatDate(assignment.assignedOn)}</span>
         {assignment.dueDate && (
           <span>Due: {formatDate(assignment.dueDate)}</span>

@@ -35,7 +35,7 @@ export default function QuestionTypeRow({ config }: QuestionTypeRowProps) {
         <select
           value={config.type}
           onChange={(e) => handleTypeChange(e.target.value as QuestionType)}
-          className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 focus:border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-300"
+          className="w-full rounded-lg border border-[#333] bg-[#282828] px-3 py-2.5 text-sm text-white focus:border-[#1DB954] focus:outline-none focus:ring-1 focus:ring-[#1DB954]/50"
         >
           {Object.entries(QUESTION_TYPE_LABELS).map(([value, label]) => (
             <option key={value} value={value}>
@@ -48,7 +48,7 @@ export default function QuestionTypeRow({ config }: QuestionTypeRowProps) {
       {/* Delete button */}
       <button
         onClick={() => removeQuestionType(config.id)}
-        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-[#727272] hover:text-red-400 hover:bg-red-500/10 transition-colors"
       >
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
           <path
@@ -64,16 +64,16 @@ export default function QuestionTypeRow({ config }: QuestionTypeRowProps) {
       <div className="flex items-center gap-1">
         <button
           onClick={() => decrement("numberOfQuestions")}
-          className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 transition-colors"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#333] text-[#B3B3B3] hover:bg-[#333] transition-colors"
         >
           &minus;
         </button>
-        <span className="w-8 text-center text-sm font-semibold text-gray-900">
+        <span className="w-8 text-center text-sm font-semibold text-white">
           {config.numberOfQuestions}
         </span>
         <button
           onClick={() => increment("numberOfQuestions")}
-          className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 transition-colors"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#333] text-[#B3B3B3] hover:bg-[#333] transition-colors"
         >
           +
         </button>
@@ -83,16 +83,16 @@ export default function QuestionTypeRow({ config }: QuestionTypeRowProps) {
       <div className="flex items-center gap-1">
         <button
           onClick={() => decrement("marksPerQuestion")}
-          className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 transition-colors"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#333] text-[#B3B3B3] hover:bg-[#333] transition-colors"
         >
           &minus;
         </button>
-        <span className="w-8 text-center text-sm font-semibold text-gray-900">
+        <span className="w-8 text-center text-sm font-semibold text-white">
           {config.marksPerQuestion}
         </span>
         <button
           onClick={() => increment("marksPerQuestion")}
-          className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 transition-colors"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#333] text-[#B3B3B3] hover:bg-[#333] transition-colors"
         >
           +
         </button>

@@ -65,11 +65,11 @@ export default function CreateAssignmentForm() {
 
   return (
     <div className="mx-auto w-full max-w-2xl">
-      <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-8">
+      <div className="rounded-2xl bg-[#181818] border border-[#282828] shadow-sm p-8">
         {/* Two-step progress indicator */}
         <div className="flex items-center gap-2 mb-8">
-          <div className="flex-1 h-1.5 rounded-full bg-gray-900" />
-          <div className="flex-1 h-1.5 rounded-full bg-gray-200" />
+          <div className="flex-1 h-1.5 rounded-full bg-[#1DB954]" />
+          <div className="flex-1 h-1.5 rounded-full bg-[#333333]" />
         </div>
 
         {isGenerating ? (
@@ -79,10 +79,10 @@ export default function CreateAssignmentForm() {
             {/* Assignment Details */}
             <div className="space-y-5">
               <div>
-                <h2 className="text-lg font-bold text-gray-900">
+                <h2 className="text-lg font-bold text-white">
                   Assignment Details
                 </h2>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-[#B3B3B3]">
                   Basic information about your assignment
                 </p>
               </div>
@@ -90,7 +90,7 @@ export default function CreateAssignmentForm() {
               {/* Subject and Class */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-1.5">
+                  <label className="block text-sm font-medium text-white mb-1.5">
                     Subject
                   </label>
                   <input
@@ -98,11 +98,11 @@ export default function CreateAssignmentForm() {
                     value={formData.subject}
                     onChange={(e) => updateField("subject", e.target.value)}
                     placeholder="e.g. Science"
-                    className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-300"
+                    className="w-full rounded-lg border border-[#333] bg-[#282828] px-3 py-2.5 text-sm text-white placeholder:text-[#727272] focus:border-[#1DB954] focus:outline-none focus:ring-1 focus:ring-[#1DB954]/50"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-1.5">
+                  <label className="block text-sm font-medium text-white mb-1.5">
                     Class / Grade
                   </label>
                   <input
@@ -110,7 +110,7 @@ export default function CreateAssignmentForm() {
                     value={formData.className}
                     onChange={(e) => updateField("className", e.target.value)}
                     placeholder="e.g. Class X"
-                    className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-300"
+                    className="w-full rounded-lg border border-[#333] bg-[#282828] px-3 py-2.5 text-sm text-white placeholder:text-[#727272] focus:border-[#1DB954] focus:outline-none focus:ring-1 focus:ring-[#1DB954]/50"
                   />
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function CreateAssignmentForm() {
 
               {/* Topic */}
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-1.5">
+                <label className="block text-sm font-medium text-white mb-1.5">
                   Topic / Chapter
                 </label>
                 <input
@@ -127,13 +127,13 @@ export default function CreateAssignmentForm() {
                   value={formData.topic}
                   onChange={(e) => updateField("topic", e.target.value)}
                   placeholder="e.g. Photosynthesis"
-                  className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-300"
+                  className="w-full rounded-lg border border-[#333] bg-[#282828] px-3 py-2.5 text-sm text-white placeholder:text-[#727272] focus:border-[#1DB954] focus:outline-none focus:ring-1 focus:ring-[#1DB954]/50"
                 />
               </div>
 
               {/* Due Date */}
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-1.5">
+                <label className="block text-sm font-bold text-white mb-1.5">
                   Due Date
                 </label>
                 <div className="relative">
@@ -142,10 +142,10 @@ export default function CreateAssignmentForm() {
                     value={formData.dueDate}
                     onChange={(e) => updateField("dueDate", e.target.value)}
                     placeholder="Choose a chapter"
-                    className={`w-full rounded-lg border px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 ${
+                    className={`w-full rounded-lg border px-3 py-2.5 text-sm text-white placeholder:text-[#727272] focus:outline-none focus:ring-1 ${
                       errors.dueDate
-                        ? "border-red-300 focus:border-red-400 focus:ring-red-300"
-                        : "border-gray-200 bg-white focus:border-gray-300 focus:ring-gray-300"
+                        ? "border-red-500/50 focus:border-red-500 focus:ring-red-500/30"
+                        : "border-[#333] bg-[#282828] focus:border-[#1DB954] focus:ring-[#1DB954]/50"
                     }`}
                   />
                 </div>
@@ -157,10 +157,10 @@ export default function CreateAssignmentForm() {
               {/* Question Type Section */}
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <label className="text-sm font-bold text-gray-900">
+                  <label className="text-sm font-bold text-white">
                     Question Type
                   </label>
-                  <div className="flex items-center gap-8 text-xs font-medium text-gray-500">
+                  <div className="flex items-center gap-8 text-xs font-medium text-[#B3B3B3]">
                     <span>No. of Questions</span>
                     <span>Marks</span>
                   </div>
@@ -191,23 +191,23 @@ export default function CreateAssignmentForm() {
 
               {/* Summary */}
               <div className="flex flex-col items-end gap-0.5 text-sm">
-                <span className="text-gray-700">
+                <span className="text-[#B3B3B3]">
                   Total Questions:{" "}
-                  <span className="font-bold text-gray-900">
+                  <span className="font-bold text-white">
                     {totalQuestions}
                   </span>
                 </span>
-                <span className="text-gray-700">
+                <span className="text-[#B3B3B3]">
                   Total Marks:{" "}
-                  <span className="font-bold text-gray-900">{totalMarks}</span>
+                  <span className="font-bold text-white">{totalMarks}</span>
                 </span>
               </div>
 
               {/* Additional Information */}
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-1.5">
+                <label className="block text-sm font-bold text-white mb-1.5">
                   Additional Information{" "}
-                  <span className="font-normal text-gray-400">
+                  <span className="font-normal text-[#727272]">
                     (For better output)
                   </span>
                 </label>
@@ -218,13 +218,13 @@ export default function CreateAssignmentForm() {
                   }
                   rows={3}
                   placeholder="e.g Generate a question paper for 3 hour exam duration..."
-                  className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-300 resize-none"
+                  className="w-full rounded-lg border border-[#333] bg-[#282828] px-3 py-2.5 text-sm text-white placeholder:text-[#727272] focus:border-[#1DB954] focus:outline-none focus:ring-1 focus:ring-[#1DB954]/50 resize-none"
                 />
               </div>
             </div>
 
             {/* Generate Button */}
-            <div className="flex justify-end mt-8 pt-6 border-t border-gray-100">
+            <div className="flex justify-end mt-8 pt-6 border-t border-[#333]">
               <button
                 onClick={handleSubmit}
                 className="flex items-center gap-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-white hover:bg-primary-hover transition-colors"
@@ -258,21 +258,21 @@ function GeneratingUI({
   return (
     <div className="flex flex-col items-center justify-center py-16">
       <div className="mb-6">
-        <div className="h-16 w-16 animate-spin rounded-full border-4 border-gray-200 border-t-primary" />
+        <div className="h-16 w-16 animate-spin rounded-full border-4 border-[#333] border-t-primary" />
       </div>
-      <h3 className="text-lg font-bold text-gray-900 mb-2">
+      <h3 className="text-lg font-bold text-white mb-2">
         {status === "queued" ? "Queued..." : "Generating Questions..."}
       </h3>
-      <p className="text-sm text-gray-500 mb-6">
+      <p className="text-sm text-[#B3B3B3] mb-6">
         AI is creating your question paper
       </p>
-      <div className="w-64 h-2 rounded-full bg-gray-200 overflow-hidden">
+      <div className="w-64 h-2 rounded-full bg-[#333] overflow-hidden">
         <div
           className="h-full rounded-full bg-primary transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>
-      <p className="mt-2 text-xs text-gray-400">{progress}%</p>
+      <p className="mt-2 text-xs text-[#727272]">{progress}%</p>
     </div>
   );
 }
