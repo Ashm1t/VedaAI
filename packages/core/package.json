@@ -1,0 +1,26 @@
+{
+  "name": "@libra/core",
+  "version": "0.1.0",
+  "description": "Open-source LaTeX document generation engine with RAG template retrieval",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": ["latex", "pdf", "document-generation", "rag", "templates"],
+  "license": "MIT",
+  "dependencies": {
+    "groq-sdk": "^0.12.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

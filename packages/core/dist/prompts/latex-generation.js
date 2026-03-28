@@ -1,37 +1,17 @@
-import type { QuestionPaperOutput, QuestionSection } from "../types/index.js";
-
-export function buildLatexGenerationPrompt(
-  templateSource: string,
-  handbookContent: string,
-  questionData: QuestionPaperOutput,
-  templateName: string
-): string {
-  // Delegate to the correct prompt builder based on template
-  if (templateName === "icse_english_literature.tex") {
-    return buildLiteraturePrompt(templateSource, handbookContent, questionData);
-  }
-
-  return buildDefaultPrompt(templateSource, handbookContent, questionData);
+export function buildLatexGenerationPrompt(templateSource, handbookContent, questionData, templateName) {
+    if (templateName === "icse_english_literature.tex") {
+        return buildLiteraturePrompt(templateSource, handbookContent, questionData);
+    }
+    return buildDefaultPrompt(templateSource, handbookContent, questionData);
 }
-
 // ── Default prompt (questionpaper.tex — STEM / general) ──────────────
-
-function buildDefaultPrompt(
-  templateSource: string,
-  handbookContent: string,
-  questionData: QuestionPaperOutput
-): string {
-  const sectionsMarkdown = questionData.sections
-    .map((s) => formatSectionForPrompt(s))
-    .join("\n\n");
-
-  const totalMarks = questionData.maximumMarks;
-  const totalQuestions = questionData.sections.reduce(
-    (sum, s) => sum + s.questions.length,
-    0
-  );
-
-  return `You are a LaTeX expert generating a school exam paper. Produce a COMPLETE, compilable .tex file.
+function buildDefaultPrompt(templateSource, handbookContent, questionData) {
+    const sectionsMarkdown = questionData.sections
+        .map((s) => formatSectionForPrompt(s))
+        .join("\n\n");
+    const totalMarks = questionData.maximumMarks;
+    const totalQuestions = questionData.sections.reduce((sum, s) => sum + s.questions.length, 0);
+    return `You are a LaTeX expert generating a school exam paper. Produce a COMPLETE, compilable .tex file.
 
 ## TEMPLATE (keep all \\newcommand definitions EXACTLY as-is, copy lines 1-146 unchanged):
 \`\`\`latex
@@ -84,25 +64,14 @@ Then for each section:
 - Short/Long answers: use \\textbf{Q[N].} Key points format with \\\\[2mm] spacing
 - End the paper with \\vspace{20pt} then centered $\\blacksquare$~$\\blacksquare$ then \\end{document}`;
 }
-
 // ── Literature prompt (icse_english_literature.tex) ──────────────────
-
-function buildLiteraturePrompt(
-  templateSource: string,
-  handbookContent: string,
-  questionData: QuestionPaperOutput
-): string {
-  const sectionsMarkdown = questionData.sections
-    .map((s) => formatSectionForPrompt(s))
-    .join("\n\n");
-
-  const totalMarks = questionData.maximumMarks;
-  const totalQuestions = questionData.sections.reduce(
-    (sum, s) => sum + s.questions.length,
-    0
-  );
-
-  return `You are a LaTeX expert generating an ICSE-style English Literature board exam paper. Produce a COMPLETE, compilable .tex file.
+function buildLiteraturePrompt(templateSource, handbookContent, questionData) {
+    const sectionsMarkdown = questionData.sections
+        .map((s) => formatSectionForPrompt(s))
+        .join("\n\n");
+    const totalMarks = questionData.maximumMarks;
+    const totalQuestions = questionData.sections.reduce((sum, s) => sum + s.questions.length, 0);
+    return `You are a LaTeX expert generating an ICSE-style English Literature board exam paper. Produce a COMPLETE, compilable .tex file.
 
 ## REFERENCE TEMPLATE (study its structure carefully — replicate the same formatting patterns):
 \`\`\`latex
@@ -177,30 +146,21 @@ After all questions, add \\newpage and an answer key section.
 10. Every \\begin{} must have a matching \\end{}
 11. Every { must have a matching }`;
 }
-
-
-function formatSectionForPrompt(section: QuestionSection): string {
-  const lines = [`### Section ${section.label}: ${section.title}`];
-  lines.push(`Instruction: ${section.instruction}`);
-  lines.push("");
-
-  for (const q of section.questions) {
-    lines.push(`Q${q.number}. [${q.difficulty}] (${q.marks} mark${q.marks > 1 ? "s" : ""}) ${q.text}`);
-
-    // Include MCQ options if present
-    const opts = (q as unknown as Record<string, unknown>).options as
-      | Record<string, string>
-      | undefined;
-    if (opts && typeof opts === "object") {
-      lines.push(`  (a) ${opts.a}`);
-      lines.push(`  (b) ${opts.b}`);
-      lines.push(`  (c) ${opts.c}`);
-      lines.push(`  (d) ${opts.d}`);
-    }
-
-    lines.push(`  Answer: ${q.answer || "N/A"}`);
+function formatSectionForPrompt(section) {
+    const lines = [`### Section ${section.label}: ${section.title}`];
+    lines.push(`Instruction: ${section.instruction}`);
     lines.push("");
-  }
-
-  return lines.join("\n");
+    for (const q of section.questions) {
+        lines.push(`Q${q.number}. [${q.difficulty}] (${q.marks} mark${q.marks > 1 ? "s" : ""}) ${q.text}`);
+        if (q.options && typeof q.options === "object") {
+            lines.push(`  (a) ${q.options.a}`);
+            lines.push(`  (b) ${q.options.b}`);
+            lines.push(`  (c) ${q.options.c}`);
+            lines.push(`  (d) ${q.options.d}`);
+        }
+        lines.push(`  Answer: ${q.answer || "N/A"}`);
+        lines.push("");
+    }
+    return lines.join("\n");
 }
+//# sourceMappingURL=latex-generation.js.map

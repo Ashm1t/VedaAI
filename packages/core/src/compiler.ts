@@ -2,19 +2,22 @@ import { execFile } from "child_process";
 import { promisify } from "util";
 import fs from "fs";
 import path from "path";
-import { config } from "../config/index.js";
 
 const execFileAsync = promisify(execFile);
 
+const DEFAULT_TIMEOUT = 30_000;
+
 /**
- * Compile a .tex string to PDF using pdflatex (MiKTeX).
+ * Compile a .tex string to PDF using pdflatex.
  * Returns the absolute path to the generated PDF.
  */
 export async function compileLaTeX(
   texContent: string,
-  assignmentId: string
+  outputDir: string,
+  documentId: string,
+  timeout: number = DEFAULT_TIMEOUT
 ): Promise<string> {
-  const dir = path.join(config.outputDir, assignmentId);
+  const dir = path.join(outputDir, documentId);
   await fs.promises.mkdir(dir, { recursive: true });
 
   const texPath = path.join(dir, "paper.tex");
@@ -31,21 +34,16 @@ export async function compileLaTeX(
           `-output-directory=${dir}`,
           texPath,
         ],
-        {
-          timeout: config.latexTimeout,
-          cwd: dir,
-        }
+        { timeout, cwd: dir }
       );
     } catch (err: unknown) {
       // pdflatex returns non-zero exit code on warnings too.
       // Only fail if the PDF wasn't produced.
       if (pass === 1) {
-        // Check if PDF exists despite error
         const pdfPath = path.join(dir, "paper.pdf");
         if (fs.existsSync(pdfPath)) {
           return pdfPath;
         }
-        // Extract error from log
         const logContent = await readLogFile(dir);
         const error = err instanceof Error ? err.message : String(err);
         throw new Error(
@@ -73,7 +71,6 @@ async function readLogFile(dir: string): Promise<string> {
 
   const log = await fs.promises.readFile(logPath, "utf-8");
 
-  // Extract lines containing errors
   const errorLines = log
     .split("\n")
     .filter(
@@ -88,7 +85,7 @@ async function readLogFile(dir: string): Promise<string> {
 
   return errorLines.length > 0
     ? errorLines.join("\n")
-    : log.slice(-1500); // Last 1500 chars as fallback
+    : log.slice(-1500);
 }
 
 /**

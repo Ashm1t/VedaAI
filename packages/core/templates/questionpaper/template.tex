@@ -1,0 +1,262 @@
+\documentclass[12pt,a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────
+\usepackage[top=1.8cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% ── No paragraph indent, small paragraph skip ────────────
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% ── Disable default page numbering ───────────────────────
+\pagestyle{empty}
+
+% ── Custom list styles (shared with literature template) ──
+\newlist{romanenum}{enumerate}{1}
+\setlist[romanenum]{label=\textbf{(\roman*)},leftmargin=1.2cm,itemsep=3pt,topsep=4pt}
+
+\newlist{abcenum}{enumerate}{1}
+\setlist[abcenum]{label=\textbf{(\alph*)},leftmargin=1.5cm,itemsep=1pt,topsep=2pt}
+
+% ── Marks flush-right ────────────────────────────────────
+\newcommand{\qmarks}[1]{\hfill\textbf{[#1]}}
+
+% ══════════════════════════════════════════════════════════
+%          CUSTOM MACROS (API unchanged from v1)
+% ══════════════════════════════════════════════════════════
+
+% ── Header ────────────────────────────────────────────────
+% \hdr{School Name}{Address}{Subject}{Class -- Exam Type}{Time: N min}{Maximum Marks: N}
+\newcommand{\hdr}[6]{%
+\begin{center}
+    {\LARGE\bfseries #1}\\[2pt]
+    {#2}\\[6pt]
+    {\Large\bfseries #3}\\[2pt]
+    {\Large\bfseries #4}
+\end{center}
+\vspace{4pt}
+\noindent\rule{\textwidth}{0.8pt}
+\vspace{-6pt}
+\noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
+\textbf{\textit{#5}} & \textbf{\textit{#6}}
+\end{tabularx}
+\vspace{-2pt}
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{4pt}}
+
+% ── General Instructions ─────────────────────────────────
+% \geninstructions{\item ...\item ...}
+\newcommand{\geninstructions}[1]{%
+\textbf{General Instructions:}
+\begin{enumerate}[leftmargin=0.8cm, itemsep=1pt, topsep=2pt]
+    #1
+\end{enumerate}
+\vspace{2pt}
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{6pt}}
+
+% ── Question Section ─────────────────────────────────────
+% \questionsection{A}{MCQs (1 mark each)}{section instructions as \item list}
+\newcommand{\questionsection}[3]{%
+\vspace{8pt}
+\begin{center}
+    {\large\bfseries SECTION~--~#1}\\[2pt]
+    \textbf{#2}
+\end{center}
+\vspace{2pt}
+{\small\textit{%
+\begin{itemize}[noitemsep, topsep=0pt, leftmargin=0.8cm]
+    #3
+\end{itemize}}}
+\vspace{4pt}}
+
+% ── 4-Option MCQ — 2-column layout ───────────────────────
+% \mcqfourtwo{num}{text}{optA}{optB}{optC}{optD}{(N mark)}{hint}{extra}
+\newcommand{\mcqfourtwo}[9]{%
+\vspace{4pt}
+\textbf{Q#1.}~#2 \hfill \textbf{#7}\\[2pt]
+\ifx&#8&\else{\small\textit{#8}}\\[1pt]\fi
+#9
+\vspace{2pt}
+\begin{tabularx}{\textwidth}{@{\hspace{1.2cm}}X X}
+\textbf{(a)}~#3 & \textbf{(b)}~#4 \\
+\textbf{(c)}~#5 & \textbf{(d)}~#6
+\end{tabularx}
+\vspace{2pt}}
+
+% ── 4-Option MCQ — 1-column layout (for long options) ────
+% \mcqfour{num}{text}{optA}{optB}{optC}{optD}{(N mark)}{hint}{extra}
+\newcommand{\mcqfour}[9]{%
+\vspace{4pt}
+\textbf{Q#1.}~#2 \hfill \textbf{#7}\\[2pt]
+\ifx&#8&\else{\small\textit{#8}}\\[1pt]\fi
+#9
+\begin{abcenum}
+    \item #3
+    \item #4
+    \item #5
+    \item #6
+\end{abcenum}
+\vspace{2pt}}
+
+% ── Descriptive / Fill / True-False Question ─────────────
+% \question{num}{text}{(N marks)}{hint}
+\newcommand{\question}[4]{%
+\vspace{3pt}
+\textbf{Q#1.}~#2 \hfill \textbf{#3}%
+\ifx&#4&\else\\[1pt]{\small\textit{#4}}\fi
+\\[2pt]}
+
+% ── Centered equation helper ─────────────────────────────
+\newcommand{\equ}[1]{%
+\begin{center}$\displaystyle #1$\end{center}}
+
+% ══════════════════════════════════════════════════════════
+%              BEGIN DOCUMENT CONTENT BELOW
+% ══════════════════════════════════════════════════════════
+
+\begin{document}
+
+% ── Example header ────────────────────────────────────────
+\hdr{Delhi Public School}{R.K.\ Puram, New Delhi}{Science -- Forces and Motion}{Class VIII -- Unit Test}{Time: 45 minutes}{Maximum Marks: 30}
+
+% ── General instructions ──────────────────────────────────
+\geninstructions{
+\item All questions are compulsory.
+\item Read each question carefully before answering.
+\item Write neat and legible answers.
+\item Marks are indicated against each question in brackets~[~].
+}
+
+% ══════════════════════════════════════════════════════════
+%                       SECTION A
+% ══════════════════════════════════════════════════════════
+
+\questionsection{A}{Multiple Choice Questions (1 mark each)}{
+\item Choose the correct option for each question.
+\item Each question carries 1 mark. No negative marking.}
+
+\mcqfourtwo{1}{A force can change the:}
+    {colour of an object}
+    {shape of an object}
+    {smell of an object}
+    {material of an object}
+    {[1]}{}{}
+
+\mcqfourtwo{2}{The SI unit of force is:}
+    {Joule}
+    {Watt}
+    {Newton}
+    {Pascal}
+    {[1]}{}{}
+
+\mcqfourtwo{3}{Friction can be reduced by:}
+    {increasing the weight}
+    {making surfaces rough}
+    {using lubricants}
+    {increasing contact area}
+    {[1]}{}{}
+
+\mcqfourtwo{4}{Gravity is a:}
+    {contact force}
+    {non-contact force}
+    {frictional force}
+    {muscular force}
+    {[1]}{}{}
+
+\mcqfourtwo{5}{Which of the following is a contact force?}
+    {Magnetic force}
+    {Gravitational force}
+    {Electrostatic force}
+    {Frictional force}
+    {[1]}{}{}
+
+% ══════════════════════════════════════════════════════════
+%                       SECTION B
+% ══════════════════════════════════════════════════════════
+
+\questionsection{B}{Fill in the Blanks (1 mark each)}{
+\item Fill in the blanks with the correct word or phrase.}
+
+\question{6}{The force exerted by a magnet is called \underline{\hspace{3cm}} force.}{[1]}{}
+\question{7}{The force of \underline{\hspace{3cm}} acts between all objects in the universe.}{[1]}{}
+\question{8}{A force can change the \underline{\hspace{3cm}} of motion of a body.}{[1]}{}
+
+% ══════════════════════════════════════════════════════════
+%                       SECTION C
+% ══════════════════════════════════════════════════════════
+
+\questionsection{C}{Short Answer Questions (2 marks each)}{
+\item Answer in 2--3 sentences.}
+
+\question{9}{Define force and state its SI unit.}{[2]}{}
+\question{10}{Differentiate between contact and non-contact forces with one example each.}{[2]}{}
+\question{11}{Why do we sprinkle fine powder on a carrom board?}{[2]}{}
+
+% ══════════════════════════════════════════════════════════
+%                       SECTION D
+% ══════════════════════════════════════════════════════════
+
+\questionsection{D}{Long Answer Questions (4 marks each)}{
+\item Answer in 5--6 sentences with appropriate detail.}
+
+\question{12}{Explain the different types of friction. Which type of friction is the least?}{[4]}{}
+\question{13}{Describe the effects of force on an object. Give two examples for each effect.}{[4]}{}
+
+% ══════════════════════════════════════════════════════════
+%                      ANSWER KEY
+% ══════════════════════════════════════════════════════════
+
+\newpage
+
+\begin{center}
+\textbf{\Large ANSWER KEY}\\[3pt]
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+\vspace{6pt}
+
+\textbf{\underline{Section A -- Multiple Choice Questions}}\\[3mm]
+\begin{tabular}{l l}
+Q1. & (b) shape of an object \\
+Q2. & (c) Newton \\
+Q3. & (c) using lubricants \\
+Q4. & (b) non-contact force \\
+Q5. & (d) Frictional force \\
+\end{tabular}
+
+\vspace{6pt}
+\textbf{\underline{Section B -- Fill in the Blanks}}\\[3mm]
+\begin{tabular}{l l}
+Q6. & magnetic \\
+Q7. & gravity (gravitational) \\
+Q8. & speed / direction \\
+\end{tabular}
+
+\vspace{6pt}
+\textbf{\underline{Section C -- Short Answers (Key Points)}}\\[3mm]
+\textbf{Q9.} A push or pull acting on an object is called a force. SI unit: Newton (N).\\[2mm]
+\textbf{Q10.} Contact forces require physical contact (e.g.\ friction). Non-contact forces act at a distance (e.g.\ gravity).\\[2mm]
+\textbf{Q11.} Fine powder reduces friction, allowing the striker to slide smoothly.\\[2mm]
+
+\vspace{6pt}
+\textbf{\underline{Section D -- Long Answers (Key Points)}}\\[3mm]
+\textbf{Q12.} Static friction (body at rest), sliding friction (body in motion), rolling friction (rolling objects). Rolling friction is the least.\\[2mm]
+\textbf{Q13.} Force can change shape (squeezing clay), speed (pushing a cart), direction (hitting a ball), or start/stop motion (kicking a ball, applying brakes).\\[2mm]
+
+\vspace{20pt}
+\begin{center}
+$\blacksquare$~$\blacksquare$
+\end{center}
+
+\end{document}

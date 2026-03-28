@@ -1,0 +1,8 @@
+{
+  "name": "ICSE English Literature",
+  "type": "exam-paper",
+  "tags": ["exam", "icse", "english", "literature", "drama", "poetry", "prose"],
+  "description": "ICSE-style English Literature board exam paper with extract-based questions, roman numeral sub-questions, and standard LaTeX formatting (no custom macros).",
+  "fields": ["schoolName", "subject", "className", "timeAllowed", "maximumMarks"],
+  "packages": ["geometry", "times", "enumitem", "tabularx", "graphicx", "multicol", "titlesec", "fancyhdr", "setspace", "ulem", "soul", "xcolor", "amssymb"]
+}

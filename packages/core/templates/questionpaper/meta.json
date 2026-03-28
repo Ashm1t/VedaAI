@@ -1,0 +1,8 @@
+{
+  "name": "Standard Question Paper",
+  "type": "exam-paper",
+  "tags": ["exam", "school", "stem", "science", "math", "general"],
+  "description": "Standard school exam paper with custom macros for MCQs, short/long answers, fill-in-the-blank. Includes header, general instructions, sections, and answer key.",
+  "fields": ["schoolName", "subject", "className", "timeAllowed", "maximumMarks"],
+  "packages": ["geometry", "times", "multicol", "graphicx", "amsmath", "amssymb", "enumitem", "tabularx", "fancyhdr"]
+}

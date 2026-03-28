@@ -1,14 +1,6 @@
-/**
- * Pre-compilation LaTeX validator.
- * Catches common structural errors before invoking pdflatex,
- * saving time and avoiding wasted AI credits on fixLatex retries.
- */
+import type { ValidationResult } from "./types.js";
 
-export interface ValidationResult {
-  valid: boolean;
-  errors: string[];
-  warnings: string[];
-}
+export type { ValidationResult } from "./types.js";
 
 export function validateLatex(tex: string): ValidationResult {
   const errors: string[] = [];
@@ -52,7 +44,6 @@ export function validateLatex(tex: string): ValidationResult {
   const imgMatches = tex.match(/\\includegraphics\[.*?\]\{.*?\}/g);
   if (imgMatches) {
     for (const match of imgMatches) {
-      // Extract filename
       const fileMatch = match.match(/\{([^}]+)\}/);
       if (fileMatch && fileMatch[1]) {
         warnings.push(
@@ -62,29 +53,7 @@ export function validateLatex(tex: string): ValidationResult {
     }
   }
 
-  // 7. Check for common typos in custom commands
-  const expectedCommands = [
-    "\\hdr",
-    "\\geninstructions",
-    "\\questionsection",
-    "\\mcqfourtwo",
-    "\\mcqfour",
-    "\\question",
-    "\\qmarks",
-  ];
-  for (const cmd of expectedCommands) {
-    // Check if command is used but not defined
-    const usageCount = (tex.match(new RegExp(escapeRegex(cmd) + "\\{", "g")) || []).length;
-    const defCount = (tex.match(new RegExp("\\\\newcommand\\{" + escapeRegex(cmd) + "\\}", "g")) || []).length;
-    if (usageCount > 0 && defCount === 0 && !tex.includes("\\newcommand{" + cmd + "}")) {
-      // Check if the definition exists with slightly different syntax
-      if (!tex.includes(cmd.slice(1))) {
-        warnings.push(`Command ${cmd} used ${usageCount} times but may not be defined`);
-      }
-    }
-  }
-
-  // 8. Markdown fence detection (AI sometimes wraps output)
+  // 7. Markdown fence detection (AI sometimes wraps output)
   if (tex.startsWith("```")) {
     errors.push("Output starts with markdown code fence — strip ``` before compiling");
   }
@@ -92,11 +61,7 @@ export function validateLatex(tex: string): ValidationResult {
     errors.push("Output ends with markdown code fence — strip ``` before compiling");
   }
 
-  return {
-    valid: errors.length === 0,
-    errors,
-    warnings,
-  };
+  return { valid: errors.length === 0, errors, warnings };
 }
 
 /**
@@ -175,13 +140,8 @@ function checkEnvironments(tex: string): string[] {
   return errors;
 }
 
-function escapeRegex(str: string): string {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
 /**
  * Attempt to auto-fix common issues deterministically (no AI needed).
- * Returns the fixed tex string.
  */
 export function autoFixLatex(tex: string): string {
   let fixed = tex;
@@ -228,8 +188,6 @@ export function autoFixLatex(tex: string): string {
 
 /**
  * Deterministic brace balancer.
- * Appends missing } before \end{document} if there are unclosed braces.
- * Removes trailing extra } if there are too many.
  */
 function fixBraces(tex: string): string {
   const balance = countBraces(tex);
@@ -237,7 +195,6 @@ function fixBraces(tex: string): string {
   if (balance === 0) return tex;
 
   if (balance > 0) {
-    // Unclosed { — add } before \end{document}
     const endDocIdx = tex.lastIndexOf("\\end{document}");
     if (endDocIdx !== -1) {
       const closingBraces = "}".repeat(balance);
@@ -247,28 +204,24 @@ function fixBraces(tex: string): string {
         tex.slice(endDocIdx)
       );
     }
-    // No \end{document} found — append at end
     return tex + "\n" + "}".repeat(balance);
   }
 
   // balance < 0 — extra closing braces
-  // Remove extra } from the end of the document body
   let result = tex;
   let toRemove = Math.abs(balance);
-  // Work backwards from \end{document}
   const endDocIdx = result.lastIndexOf("\\end{document}");
   const searchArea = endDocIdx !== -1 ? endDocIdx : result.length;
 
   for (let i = searchArea - 1; i >= 0 && toRemove > 0; i--) {
     if (result[i] === "}" && (i === 0 || result[i - 1] !== "\\")) {
-      // Check if this } is on a line by itself or at end of a line
       const lineStart = result.lastIndexOf("\n", i - 1) + 1;
       const lineEnd = result.indexOf("\n", i);
       const line = result.slice(lineStart, lineEnd === -1 ? undefined : lineEnd).trim();
       if (line === "}") {
         result = result.slice(0, lineStart) + result.slice(lineEnd === -1 ? result.length : lineEnd);
         toRemove--;
-        i = lineStart; // Adjust index
+        i = lineStart;
       }
     }
   }
@@ -295,7 +248,6 @@ function fixEnvironments(tex: string): string {
     ends[match[1]] = (ends[match[1]] || 0) + 1;
   }
 
-  // Add missing \end{env} before \end{document}
   const endDocIdx = fixed.lastIndexOf("\\end{document}");
   for (const env of Object.keys(begins)) {
     const diff = (begins[env] || 0) - (ends[env] || 0);

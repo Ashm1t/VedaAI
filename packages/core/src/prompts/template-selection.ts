@@ -1,4 +1,4 @@
-import type { AssignmentFormData, QuestionSection, QuestionTypeConfig } from "../types/index.js";
+import type { AssignmentFormData, QuestionTypeConfig } from "../types.js";
 
 /**
  * Step 1: Analyze source material.
@@ -166,12 +166,7 @@ Add "options": {"a": "...", "b": "...", "c": "...", "d": "..."} to each question
 }
 
 /**
- * Step 3: Select best template based on subject and paper structure.
- *
- * Template catalogue:
- *   questionpaper.tex               — Default. STEM, sciences, general school exams.
- *   icse_english_literature.tex     — ICSE-style English Literature papers with
- *                                     extract-based drama / prose / poetry sections.
+ * Select best template based on subject and paper structure.
  */
 const LITERATURE_KEYWORDS = [
   "english literature",
@@ -197,24 +192,13 @@ export function selectTemplate(
 
   const combined = `${subject} ${topic} ${extra}`;
 
-  // Check if the paper looks like an ICSE-style English Literature exam
   const isLiterature = LITERATURE_KEYWORDS.some((kw) => combined.includes(kw));
 
   if (isLiterature) {
-    return "icse_english_literature.tex";
+    return "icse-english-literature";
   }
 
-  return "questionpaper.tex";
-}
-
-/**
- * @deprecated Use selectTemplate() instead. Kept for backward compatibility.
- */
-export function buildTemplatePickerPrompt(
-  sections: QuestionSection[],
-  formData: AssignmentFormData
-): string {
-  return selectTemplate(formData);
+  return "questionpaper";
 }
 
 /**
