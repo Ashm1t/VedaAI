@@ -17,6 +17,7 @@ import {
   computeStartingNumbers,
   selectTemplate,
 } from "./prompts/template-selection.js";
+import type { TemplateRetriever } from "./template-retriever.js";
 import { buildLatexGenerationPrompt } from "./prompts/latex-generation.js";
 
 // ── Analysis ───────────────────────────────────────────────────────
@@ -195,7 +196,8 @@ export async function runPipeline(
   extractedText: string | null,
   formData: AssignmentFormData,
   options: PipelineOptions,
-  onProgress?: ProgressCallback
+  onProgress?: ProgressCallback,
+  retriever?: TemplateRetriever
 ): Promise<GenerateResult> {
   const emit = onProgress || (() => {});
 
@@ -212,7 +214,9 @@ export async function runPipeline(
     throw new Error("All section generation calls failed — no questions produced");
   }
 
-  const selectedTemplate = selectTemplate(formData);
+  const selectedTemplate = retriever
+    ? await retriever.selectTemplate(formData, analysis)
+    : selectTemplate(formData);
 
   const totalMarks = formData.questionTypes.reduce(
     (sum, qt) => sum + qt.numberOfQuestions * qt.marksPerQuestion,

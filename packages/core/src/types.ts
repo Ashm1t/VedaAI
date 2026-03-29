@@ -80,12 +80,66 @@ export interface TemplateMeta {
   description: string;
   fields: string[];
   packages: string[];
+  subject?: string;
+  documentClass?: string;
+  educational?: boolean;
 }
 
 export interface TemplateInfo {
   name: string;
   dirName: string;
   meta: TemplateMeta;
+}
+
+export interface ScrapedTemplateMeta {
+  id: string;
+  name: string;
+  source_url: string;
+  source_site: string;
+  type: string;
+  subject: string;
+  style_tags: string[];
+  description: string;
+  date_scraped: string;
+  packages_required: string[];
+  has_custom_macros: boolean;
+  document_class: string;
+  educational: boolean;
+}
+
+// ── RAG / Embeddings ──────────────────────────────────────────────
+
+export interface EmbeddingAdapter {
+  embed(text: string): Promise<number[]>;
+  embedBatch(texts: string[]): Promise<number[][]>;
+  readonly modelId: string;
+  readonly dimensions: number;
+}
+
+export interface EmbeddingEntry {
+  id: string;
+  text: string;
+  vector: number[];
+}
+
+export interface EmbeddingIndex {
+  version: number;
+  model: string;
+  dimensions: number;
+  entries: EmbeddingEntry[];
+}
+
+export interface RetrievalResult {
+  templateId: string;
+  score: number;
+  meta: TemplateMeta;
+}
+
+export interface RetrieverOptions {
+  topK?: number;
+  minScore?: number;
+  typeFilter?: string;
+  subjectFilter?: string;
 }
 
 // ── Pipeline ───────────────────────────────────────────────────────

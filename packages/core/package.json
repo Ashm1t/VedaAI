@@ -13,8 +13,16 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "build:embeddings": "npx tsx scripts/build-embeddings.ts"
   },
+  "files": [
+    "dist",
+    "templates",
+    "embeddings",
+    "README.md",
+    "LICENSE"
+  ],
   "keywords": ["latex", "pdf", "document-generation", "rag", "templates"],
   "license": "MIT",
   "dependencies": {
