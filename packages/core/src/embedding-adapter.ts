@@ -1,12 +1,13 @@
 import type { EmbeddingAdapter } from "./types.js";
 
 /**
- * Groq embedding adapter using native fetch().
- * Uses the OpenAI-compatible embeddings endpoint.
+ * OpenAI-compatible embedding adapter using native fetch().
+ * Works with OpenAI, Azure OpenAI, or any OpenAI-compatible endpoint.
  */
-export class GroqEmbeddingAdapter implements EmbeddingAdapter {
+export class OpenAIEmbeddingAdapter implements EmbeddingAdapter {
   private apiKey: string;
   private model: string;
+  private baseUrl: string;
   readonly modelId: string;
   readonly dimensions: number;
 
@@ -14,11 +15,13 @@ export class GroqEmbeddingAdapter implements EmbeddingAdapter {
     apiKey: string;
     model?: string;
     dimensions?: number;
+    baseUrl?: string;
   }) {
     this.apiKey = options.apiKey;
-    this.model = options.model || "llama-3.3-70b-versatile";
+    this.model = options.model || "text-embedding-3-small";
+    this.baseUrl = options.baseUrl || "https://api.openai.com/v1";
     this.modelId = this.model;
-    this.dimensions = options.dimensions || 1024;
+    this.dimensions = options.dimensions || 1536;
   }
 
   async embed(text: string): Promise<number[]> {
@@ -27,25 +30,22 @@ export class GroqEmbeddingAdapter implements EmbeddingAdapter {
   }
 
   async embedBatch(texts: string[]): Promise<number[][]> {
-    const response = await fetch(
-      "https://api.groq.com/openai/v1/embeddings",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${this.apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: this.model,
-          input: texts,
-        }),
-      }
-    );
+    const response = await fetch(`${this.baseUrl}/embeddings`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${this.apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: this.model,
+        input: texts,
+      }),
+    });
 
     if (!response.ok) {
       const body = await response.text();
       throw new Error(
-        `Groq embeddings API error (${response.status}): ${body}`
+        `Embeddings API error (${response.status}): ${body}`
       );
     }
 
