@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { WaitlistModel } from "../models/Waitlist.js";
-import { UserModel } from "../models/User.js";
 
 export async function joinWaitlist(req: Request, res: Response) {
   const { email } = req.body;
@@ -14,30 +13,13 @@ export async function joinWaitlist(req: Request, res: Response) {
     return res.status(400).json({ error: "Invalid email address." });
   }
 
-  const normalizedEmail = email.toLowerCase().trim();
-
   try {
-    // Add to waitlist
-    await WaitlistModel.create({ email: normalizedEmail });
-
-    // Auto-approve this email for login
-    await UserModel.findOneAndUpdate(
-      { email: normalizedEmail },
-      { $set: { approved: true }, $setOnInsert: { email: normalizedEmail } },
-      { upsert: true, new: true }
-    );
-
-    return res.status(201).json({ message: "You're in! Redirecting to sign in..." });
+    await WaitlistModel.create({ email: email.toLowerCase().trim() });
+    return res.status(201).json({ message: "You're on the list!" });
   } catch (err: unknown) {
-    // MongoDB duplicate key error — already on waitlist, still approved
+    // MongoDB duplicate key error
     if ((err as { code?: number }).code === 11000) {
-      // Make sure they're approved even if they were already on the waitlist
-      await UserModel.findOneAndUpdate(
-        { email: normalizedEmail },
-        { $set: { approved: true }, $setOnInsert: { email: normalizedEmail } },
-        { upsert: true, new: true }
-      );
-      return res.status(200).json({ message: "You're already signed up! Redirecting to sign in..." });
+      return res.status(409).json({ error: "This email is already on the waitlist." });
     }
     console.error("Waitlist error:", err);
     return res.status(500).json({ error: "Something went wrong. Please try again." });
