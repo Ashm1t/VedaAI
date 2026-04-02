@@ -53,13 +53,13 @@ function Navbar({ onCTAClick, onHowItWorks }: { onCTAClick: () => void; onHowItW
             href="/login"
             className="hidden md:block text-sm text-[#B3B3B3] hover:text-white transition-colors"
           >
-            Log in
+            Open app
           </Link>
           <button
             onClick={onCTAClick}
             className="rounded-full bg-[#1DB954] px-5 py-2 text-sm font-semibold text-black hover:bg-[#1AA34A] transition-colors"
           >
-            Get started
+            Try it free
           </button>
         </div>
       </div>
@@ -102,7 +102,7 @@ function Hero({ onCTAClick, onHowItWorks }: { onCTAClick: () => void; onHowItWor
           onClick={onCTAClick}
           className="flex items-center gap-2 rounded-full bg-[#1DB954] px-8 py-3.5 text-base font-semibold text-black hover:bg-[#1AA34A] transition-all hover:scale-[1.02] active:scale-[0.98]"
         >
-          Get started
+          Try it free
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -111,7 +111,7 @@ function Hero({ onCTAClick, onHowItWorks }: { onCTAClick: () => void; onHowItWor
           href="/login"
           className="flex items-center gap-2 rounded-full border border-[#333] px-8 py-3.5 text-base font-semibold text-[#B3B3B3] hover:border-[#555] hover:text-white transition-colors"
         >
-          Log in
+          Open app
         </Link>
       </div>
 
@@ -423,10 +423,6 @@ const WaitlistSection = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> 
         setState("success");
         setMessage(data.message);
         setEmail("");
-        // Redirect to login after a short delay
-        setTimeout(() => {
-          window.location.href = "/login";
-        }, 1500);
       } else {
         setState("error");
         setMessage(data.error || "Something went wrong.");
@@ -440,14 +436,14 @@ const WaitlistSection = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> 
   return (
     <section ref={ref} className="relative px-6 py-32">
       <div className="relative max-w-2xl mx-auto text-center">
-        <span className="text-xs font-semibold text-[#1DB954] uppercase tracking-widest">Get started</span>
+        <span className="text-xs font-semibold text-[#1DB954] uppercase tracking-widest">Early access</span>
         <h2 className="mt-4 text-4xl font-extrabold md:text-5xl">
-          Try Libra
+          Be among the first
           <br />
-          <span className="text-[#1DB954]">for free.</span>
+          <span className="text-[#1DB954]">teachers to use Libra.</span>
         </h2>
         <p className="mt-5 text-[#727272] text-lg max-w-md mx-auto">
-          Enter your email to get instant access. Sign in with Google and start creating.
+          Join the waitlist and we&apos;ll reach out when your spot is ready.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -465,7 +461,7 @@ const WaitlistSection = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> 
             disabled={state === "loading" || state === "success"}
             className="rounded-full bg-[#1DB954] px-7 py-3.5 text-sm font-semibold text-black hover:bg-[#1AA34A] transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
           >
-            {state === "loading" ? "Setting up..." : state === "success" ? "Redirecting..." : "Get access"}
+            {state === "loading" ? "Joining..." : state === "success" ? "You're in!" : "Join the waitlist"}
           </button>
         </form>
 
@@ -475,7 +471,7 @@ const WaitlistSection = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> 
           </p>
         )}
 
-        <p className="mt-4 text-xs text-[#727272]">No credit card required. Free during early access.</p>
+        <p className="mt-4 text-xs text-[#727272]">No spam. No credit card. Just early access.</p>
       </div>
     </section>
   );
@@ -498,7 +494,7 @@ function Footer() {
           href="/login"
           className="flex items-center gap-2 rounded-full border border-[#333] px-4 py-2 text-sm text-[#B3B3B3] hover:border-[#1DB954] hover:text-[#1DB954] transition-colors"
         >
-          Log in
+          Open app
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
