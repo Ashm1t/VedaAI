@@ -22,6 +22,7 @@ export default function LandingPage() {
       <Hero onCTAClick={scrollToWaitlist} onHowItWorks={scrollToMockup} />
       <AppMockup ref={mockupRef} />
       <HowItWorks />
+      <UpcomingAgent />
       <WaitlistSection ref={waitlistRef} />
       <Footer />
     </div>
@@ -395,6 +396,38 @@ function HowItWorks() {
             <p className="text-sm text-[#727272] leading-relaxed">{step.description}</p>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+/* ── Upcoming Agent ── */
+function UpcomingAgent() {
+  return (
+    <section className="px-4 md:px-6 py-24 max-w-6xl mx-auto">
+      <div className="text-center mb-12">
+        <span className="inline-flex items-center gap-2 rounded-full border border-[#1DB954]/30 bg-[#1DB954]/10 px-4 py-1.5 text-xs font-semibold text-[#1DB954] uppercase tracking-widest">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#1DB954] animate-pulse" />
+          Upcoming Feature
+        </span>
+        <h2 className="mt-4 text-3xl font-bold md:text-4xl">Meet the Agent</h2>
+        <p className="mt-3 text-[#B3B3B3] max-w-lg mx-auto">
+          Chat your way to a finished paper. Describe what you need and the Agent drafts, compiles, and previews it — live.
+        </p>
+      </div>
+
+      <div
+        className="rounded-2xl overflow-hidden border border-[#282828] shadow-2xl"
+        style={{ boxShadow: "0 0 80px rgba(29,185,84,0.06), 0 32px 64px rgba(0,0,0,0.5)" }}
+      >
+        <Image
+          src="/agent-preview.png"
+          alt="Libra Agent preview"
+          width={1900}
+          height={900}
+          className="w-full h-auto"
+          priority={false}
+        />
       </div>
     </section>
   );
