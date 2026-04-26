@@ -1,0 +1,17 @@
+{
+  "id": "github-main-gijs-pennings-latex-homework",
+  "name": "main (gijs-pennings/latex-homework)",
+  "source_url": "https://github.com/gijs-pennings/latex-homework/blob/bb25980b308509500c9d862eedabcfff6ed723e7/main.tex",
+  "source_site": "github",
+  "type": "homework",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "LaTeX class for homework assignments",
+  "date_scraped": "2026-03-29T08:17:39.192Z",
+  "packages_required": [],
+  "has_custom_macros": false,
+  "document_class": "homework",
+  "educational": true
+}

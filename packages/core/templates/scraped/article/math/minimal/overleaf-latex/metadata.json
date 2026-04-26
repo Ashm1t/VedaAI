@@ -1,0 +1,17 @@
+{
+  "id": "overleaf-latex",
+  "name": "學測／分科數學考科試題 LaTeX 模板",
+  "source_url": "https://www.overleaf.com/latex/templates/xue-ce-slash-fen-ke-shu-xue-kao-ke-shi-ti-latex-mo-ban/zsyfxkhwttdk",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "本模板專為台灣高中數學老師及命題人員設計，旨在精準還原大考中心（CEEC）的試題排版格式。內建自動編號的選填題圓圈、題組架構及標準參考公式頁，並附帶標楷體與細明體字型，即開即用。使用 XeLaTeX 編譯。附有詳細的使用說明，README 文件請參閱 https://hackmd.io/@viasdnhy1556...",
+  "date_scraped": "2026-03-29T08:20:00.523Z",
+  "packages_required": [],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

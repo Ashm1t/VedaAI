@@ -28,7 +28,7 @@ export default function AssignmentCard({ assignment }: AssignmentCardProps) {
 
   const handleCardClick = () => {
     if (assignment.outputId) {
-      router.push(`/assignments/${assignment.id}/output`);
+      router.push(`/legacy/assignments/${assignment.id}/output`);
     }
   };
 
@@ -76,11 +76,11 @@ export default function AssignmentCard({ assignment }: AssignmentCardProps) {
                   onClick={(e) => {
                     e.stopPropagation();
                     setMenuOpen(false);
-                    router.push(`/assignments/${assignment.id}/output`);
+                    router.push(`/legacy/assignments/${assignment.id}/output`);
                   }}
                   className="flex w-full items-center px-4 py-2 text-sm text-[#B3B3B3] hover:bg-[#333] hover:text-white"
                 >
-                  View Assignment
+                  View Legacy Output
                 </button>
               )}
               <button

@@ -1,0 +1,38 @@
+{
+  "id": "overleaf-ggsipu-cv-template",
+  "name": "GGSIPU CV Template",
+  "source_url": "https://www.overleaf.com/latex/templates/ggsipu-cv-template/xvcypypsdrqz",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "cs",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "CV Template for GGSIPU TnP",
+  "date_scraped": "2026-03-29T08:21:55.872Z",
+  "packages_required": [
+    "latexsym",
+    "xcolor",
+    "float",
+    "ragged2e",
+    "fullpage",
+    "wrapfig",
+    "lipsum",
+    "tabularx",
+    "titlesec",
+    "geometry",
+    "marvosym",
+    "verbatim",
+    "enumitem",
+    "hyperref",
+    "fancyhdr",
+    "multicol",
+    "graphicx",
+    "cfr-lm",
+    "fontenc",
+    "tcolorbox"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

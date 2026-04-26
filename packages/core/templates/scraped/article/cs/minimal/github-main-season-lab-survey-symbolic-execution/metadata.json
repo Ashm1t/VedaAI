@@ -1,0 +1,19 @@
+{
+  "id": "github-main-season-lab-survey-symbolic-execution",
+  "name": "main (season-lab/survey-symbolic-execution)",
+  "source_url": "https://github.com/season-lab/survey-symbolic-execution/blob/b7bc4026dcab38f5f1ed048b4ebc879d3a77cf0f/main.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "cs",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "A survey by the SEASON lab on symbolic execution tools and techniques. The survey has appeared in ACM CSUR in 2018.",
+  "date_scraped": "2026-03-29T08:18:59.286Z",
+  "packages_required": [
+    "algorithm2e"
+  ],
+  "has_custom_macros": true,
+  "document_class": "acmsmall",
+  "educational": false
+}

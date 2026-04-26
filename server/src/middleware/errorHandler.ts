@@ -3,11 +3,14 @@ import multer from "multer";
 
 export function errorHandler(
   err: Error,
-  _req: Request,
+  req: Request,
   res: Response,
   _next: NextFunction
 ): void {
-  console.error("Error:", err.message);
+  console.error(`[${req.method} ${req.originalUrl}] ${err.message}`);
+  if (err.stack) {
+    console.error(err.stack);
+  }
 
   if (err instanceof multer.MulterError) {
     res.status(400).json({ error: `Upload error: ${err.message}` });

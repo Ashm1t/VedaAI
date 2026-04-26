@@ -1,0 +1,17 @@
+{
+  "id": "overleaf-entry-level-resume-template-latex",
+  "name": "Entry Level Resume Template (LaTeX)",
+  "source_url": "https://www.overleaf.com/latex/templates/entry-level-resume-template-latex/jsmpwkcwyntg",
+  "source_site": "overleaf",
+  "type": "resume",
+  "subject": "cs",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Adapted from Twenty Seconds Resume/CV\nLaTeX Template\nVersion 1.0 (14/7/16) from\nLaTeXTemplates.com\nOriginal author:\nCarmine Spagnuolo (cspagnuolo@unisa.it)\nL...",
+  "date_scraped": "2026-03-29T08:22:05.931Z",
+  "packages_required": [],
+  "has_custom_macros": true,
+  "document_class": "twentysecondcv",
+  "educational": false
+}

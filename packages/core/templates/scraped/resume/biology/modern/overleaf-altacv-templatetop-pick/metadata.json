@@ -1,0 +1,22 @@
+{
+  "id": "overleaf-altacv-templatetop-pick",
+  "name": "AltaCV TemplateTop pick",
+  "source_url": "https://www.overleaf.com/latex/templates/altacv-template/trgqjpwnmtgv",
+  "source_site": "overleaf",
+  "type": "resume",
+  "subject": "biology",
+  "style_tags": [
+    "modern"
+  ],
+  "description": "This is an bare bones CV created using altacv.cls (v1.7.4, 30 Jul 2025), which is based on the style of Marissa Mayer&#39;s\nCV created by BusinessInsider using e...",
+  "date_scraped": "2026-03-29T08:21:40.908Z",
+  "packages_required": [
+    "paracol",
+    "roboto",
+    "lato",
+    "sourcesanspro"
+  ],
+  "has_custom_macros": true,
+  "document_class": "altacv",
+  "educational": false
+}

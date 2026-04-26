@@ -17,14 +17,16 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
     setHydrated(true);
   }, []);
 
+  const isDev = process.env.NODE_ENV === "development";
+
   useEffect(() => {
-    if (hydrated && !isAuthenticated) {
+    if (hydrated && !isAuthenticated && !isDev) {
       router.replace("/login");
     }
-  }, [hydrated, isAuthenticated, router]);
+  }, [hydrated, isAuthenticated, isDev, router]);
 
   // Don't render anything until zustand has hydrated from localStorage
-  if (!hydrated || !isAuthenticated) {
+  if (!hydrated || (!isAuthenticated && !isDev)) {
     return (
       <div className="min-h-screen bg-[#121212] flex items-center justify-center">
         <div className="flex items-center gap-3 text-[#727272] text-sm">

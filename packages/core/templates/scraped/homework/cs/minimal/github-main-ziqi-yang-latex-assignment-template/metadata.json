@@ -1,0 +1,17 @@
+{
+  "id": "github-main-ziqi-yang-latex-assignment-template",
+  "name": "main (Ziqi-Yang/latex_assignment_template)",
+  "source_url": "https://github.com/Ziqi-Yang/latex_assignment_template/blob/5734b949b085dd2eb09cd603f7af484a28b9c594/main.tex",
+  "source_site": "github",
+  "type": "homework",
+  "subject": "cs",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "latex assignment template (class)",
+  "date_scraped": "2026-03-29T08:17:50.325Z",
+  "packages_required": [],
+  "has_custom_macros": false,
+  "document_class": "assignment",
+  "educational": true
+}

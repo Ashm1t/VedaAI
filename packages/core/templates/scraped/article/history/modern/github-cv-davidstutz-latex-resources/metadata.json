@@ -1,0 +1,20 @@
+{
+  "id": "github-cv-davidstutz-latex-resources",
+  "name": "cv (davidstutz/latex-resources)",
+  "source_url": "https://github.com/davidstutz/latex-resources/blob/6de42dca4b15dd87e6467c48b64b44992dd7755d/cv-david-grant/cv.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "history",
+  "style_tags": [
+    "modern"
+  ],
+  "description": "Collection of LaTeX resources and examples.",
+  "date_scraped": "2026-03-29T08:17:28.054Z",
+  "packages_required": [
+    "fullpage",
+    "shading"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

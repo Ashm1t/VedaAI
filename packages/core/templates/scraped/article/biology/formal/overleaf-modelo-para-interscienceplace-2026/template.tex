@@ -1,0 +1,289 @@
+\documentclass[openany,oneside,a4paper,10pt]{extarticle}
+% acesso a links da internet
+%\usepackage[pdftext]{hyperref}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage[lmargin=2.5cm,tmargin=2.5cm,rmargin=2.5cm,bmargin=2.5cm]{geometry}
+%\usepackage[margin=2cm,headheight=1.5cm, includeheadfoot]{geometry}
+%\usepackage[parfill]{parskip}
+% DEFININDO OS PADRÕES DO EVENTO DA UENF
+% VII Colóquio Internacional de Cognição e Linguagem
+
+\usepackage{lipsum} % Textos aleatórios...
+
+\usepackage{float}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{longtable}  % <-- Novo! Para tabelas com mais de uma página
+\usepackage[font=scriptsize,labelfont=bf,justification=centering]{caption}
+
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}% Selecao de codigos de fonte.
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}   % Para a tabela se ajustar à largura do texto
+
+\usepackage{booktabs}   % Para linhas de tabela (toprule, midrule, bottomrule)
+%\usepackage{array}      % Para >{\raggedright\arraybackslash}
+
+\usepackage[table]{xcolor} % Importa o pacote para cores na tabela
+
+\usepackage{array} % Pacote necessário para alinhamento vertical
+
+% No pre{\^a}mbulo do seu documento, certifique-se de ter os pacotes:
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% E tamb{\'e}m defina os ambientes de teorema, se ainda n{\~a}o o fez:
+\newtheorem{theorem}{Teorema}
+\newtheorem{definition}{Defini{\c c}{\~a}o}
+
+% Cabeçalho e rodapé
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\pagestyle{fancy} % Define 'fancy' como o estilo padrão para todas as páginas
+
+% --- Configurações GLOBAIS de Estilo ---
+\renewcommand{\headrulewidth}{0pt}     % Remove a linha do cabeçalho
+\renewcommand{\footrulewidth}{0.4pt}    % ADICIONA A LINHA ACIMA DO RODAPÉ
+
+% --- Conteúdo para as páginas 2 em diante (estilo PADRÃO) ---
+\fancyhf{} % Limpa os campos de cabeçalho e rodapé antes de redefinir
+\fancyfoot[L]{\footnotesize ISSN: 16799844 – InterSciencePlace – International Scientific Journal}
+\fancyfoot[R]{\footnotesize Page \thepage}
+
+% --- Configuração ESPECIAL apenas para a PRIMEIRA página ---
+\fancypagestyle{meuEstilo}{%
+  \fancyhf{} % Limpa tudo para este estilo específico
+  % Note: As larguras das linhas (\headrulewidth e \footrulewidth) são herdadas da configuração global
+  %\fancyhead[C]{
+  %  \centering
+  %  \includegraphics[width=21cm]{cabecalhoArtigoUNEF.png}
+  %}
+  \fancyhead{}
+  \renewcommand{\footrulewidth}{0pt}    % ADICIONA A LINHA ACIMA DO RODAPÉ
+  %\fancyfoot[C]{\footnotesize Av. Alberto Lamego, 2000 - Parque Califórnia - Campos dos Goytacazes/ RJ\\
+  %Tel.: (22) 2739.7186 - Fax: (22) 2739.7281 - email: pgclcch@uenf.br}
+}
+% Pacotes de citações BibLaTeX
+% ----------------------------------------------------------
+\usepackage[style=abnt,
+	backend=biber,
+	citecounter=true,
+	backrefstyle=three,
+	url=true,
+	maxbibnames=99,
+    mincitenames=1,
+    maxcitenames=2,
+    backref=false,
+    hyperref=true,
+    giveninits=true,
+    uniquename=false,
+    uniquelist=false]{biblatex}
+
+% Colocar et al em itálico
+\usepackage{xpatch}
+\xpatchbibmacro{name:andothers}{%
+  \bibstring{andothers}%
+}{%
+  \bibstring[\emph]{andothers}%
+}{}{}
+
+% Arquivo de entrada das referências bibliográficas
+\addbibresource{referencias.bib}
+
+% Norma NBR10.520/2023 - Sobrenomes em minúsculas
+\renewcommand*{\mkbibnamefamily}[1]{#1}%
+ % Norma NBR10.520/2023 - Sobrenomes em minúsculas
+%\renewcommand*{\mkbibnamefamily}[1]{#1}%
+
+%fullcite com todos autores e não como cite
+\makeatletter
+\newcommand{\tempmaxup}[1]{\def\blx@maxcitenames{99}#1}
+\makeatother
+
+\DeclareCiteCommand{\fullcite}[\tempmaxup]
+{\usebibmacro{prenote}}
+{\usedriver
+	{}
+	{\thefield{entrytype}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+\setlength\bibitemsep{12pt}
+
+%Centralizando o Caption das imagens e tabelas
+%\usepackage[justification=centering]{caption}
+\usepackage[table]{xcolor}
+
+\title{\input{Título-autores-resumo-palavras/titulo}}
+
+\author{
+        \input{ Título-autores-resumo-palavras/autores}
+        }
+\usepackage{quoting}
+\usepackage{abstract}
+\usepackage{indentfirst}
+\setlength{\parindent}{30pt} % padrão 15pt.
+%\setlength{\parskip}{1cm plus 4mm minus 3mm}
+
+%\usepackage{sectsty}
+%\sectionfont{\fontsize{12}{15}\selectfont}
+%\subsectionfont{\fontsize{12}{15}\selectfont}
+
+\usepackage{outlines}
+
+% Definição da Macro para Citação Longa (mais de 3 linhas)
+\newcommand{\citelonga}[1]{
+    \begin{quoting}[rightmargin=0cm,leftmargin=4cm]
+        \small
+        \begin{singlespace}
+            \noindent #1
+        \end{singlespace}
+    \end{quoting}
+}
+
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{ltablex}
+\usepackage{newfloat} % Pacote para criar novos tipos de elementos flutuantes
+
+% --- Criando o elemento Independente "Quadro" ---
+\DeclareFloatingEnvironment[
+    fileext=loq,
+    listname={Lista de Quadros},
+    name=Quadro,
+    placement=htbp,
+]{quadroenv} 
+
+% --- Configuração das Legendas (Padronização ABNT) ---
+\captionsetup[quadroenv]{
+    labelsep=endash,
+    justification=centering,
+    font=small,
+    labelfont=bf,
+    skip=10pt
+}
+% Força a numeração independente para o novo ambiente
+\makeatletter
+\@addtoreset{quadroenv}{section} % Opcional: reinicia por seção, se desejar
+\makeatother
+\captionsetup[table]{
+    labelsep=endash,
+    justification=centering,
+    font=small,
+    labelfont=bf,
+    skip=10pt
+}
+
+% Defina aqui o número da página inicial fornecido pela revista
+\input{pag_inical}
+
+\begin{document}
+
+%\begin{titlepage}
+\begingroup
+%    % --- Novo Bloco com TikZ (A SOLUÇÃO) ---
+%\begin{tikzpicture}[remember picture, overlay]
+%    \node[anchor=north, yshift=0cm] at (current page.north) {
+%        \includegraphics[width=\paperwidth,height=3.8cm,keepaspectratio]{cabecalhoArtigoUENF.png}
+%    };
+%\end{tikzpicture}
+
+% --- Novo Bloco de Cabeçalho Editável ---
+\begin{tikzpicture}[remember picture, overlay]
+    % Insere a imagem de fundo (agora sem o texto estático)
+    \node[anchor=north, yshift=0cm] at (current page.north) {
+        \includegraphics[width=\paperwidth,height=3.8cm,keepaspectratio]{cabecalhoArtigoUENF.png}
+    };
+
+    % Insere o texto editável sobreposto
+    % O posicionamento (x,y) pode precisar de pequenos ajustes dependendo da sua imagem
+    \node[anchor=west, text width=12cm, font=\sffamily\normalfont, color=blue!40!black] at ([shift={(8.2cm,-2.1cm)}]current page.north west) { \input{edicao}};
+\end{tikzpicture}
+
+    % 2. Garante que esta página não tem cabeçalho/rodapé padrão
+    \thispagestyle{meuEstilo}
+
+    % 3. Adiciona um espaço vertical para empurrar o título para baixo
+    \vspace*{1cm} % <-- AJUSTE ESTE VALOR PARA POSICIONAR O TÍTULO
+
+    % 4. Insere o TÍTULO manualmente
+    \begin{center}
+        \LARGE\bfseries
+        \input{Título-autores-resumo-palavras/titulo}
+    \end{center}
+    \vspace{1cm} % Espaço entre título e autores
+
+    % 5. Insere os AUTORES manualmente
+    % O \noindent evita a indentação do primeiro autor
+    \noindent\input{Título-autores-resumo-palavras/autores}
+    \vspace{1.5cm} % Espaço entre autores e resumo
+
+    % 6. Insere o RESUMO e PALAVRAS-CHAVE manualmente
+    \setlength{\parindent}{0pt} % Garante que não há indentação no resumo
+    \noindent\textbf{\textit{Resumo - }}
+    \input{Título-autores-resumo-palavras/resumo}
+    \par\vspace{1\baselineskip}
+    \noindent\textbf{Palavras-chave: } \input{Título-autores-resumo-palavras/palavras-chave}
+    \par\vspace{1\baselineskip}
+    \noindent\textbf{\textit{Abstract - }}
+    \input{Título-autores-resumo-palavras/abstract}
+    \par\vspace{1\baselineskip}
+    \noindent\textbf{Keywords: } \input{Título-autores-resumo-palavras/keywords}
+
+\endgroup
+%\end{titlepage}
+% --- FIM DO NOVO BLOCO ---
+
+%**************
+% Introdução **
+%**************
+\section{Introdução}
+\onehalfspacing
+\input{secoes/introducao}
+
+
+%*************************
+% Fundamentação Teórica **
+%*************************
+\section{Fundamentação Teórica}
+\onehalfspacing
+\input{secoes/fund_teorica}
+
+%***************
+% Metodologia **
+%***************
+\section{Metodologia}
+\onehalfspacing
+\input{secoes/metodologia}
+
+%**************
+% Resultados **
+%**************
+\section{Resultados e Discussão}
+\onehalfspacing
+\input{secoes/resultados}
+
+%************************
+% Considerações Finais **
+%************************
+\section{Conclusão}
+\onehalfspacing
+\input{secoes/consideracoes_finais} 
+
+%*** Bibliografia ***
+\printbibliography
+
+%*************
+% Apêndices **
+%*************
+%\newpage
+%\section*{Apêndice}
+%\onehalfspacing
+%\input{secoes/apendices} 
+
+\end{document}

@@ -1,0 +1,25 @@
+{
+  "id": "overleaf-astronomy-and-astrophysics-template",
+  "name": "Astronomy and Astrophysics Template",
+  "source_url": "https://www.overleaf.com/latex/templates/astronomy-and-astrophysics-template/ngdddtchkbcg",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "A&amp;amp;A LaTeX macro package v9.4\ndownloaded from https://www.aanda.org/for-authors\n9.4 March 2026\n- Behaviour of the [longauth] command is modified to shift ...",
+  "date_scraped": "2026-03-29T08:21:08.278Z",
+  "packages_required": [
+    "graphicx",
+    "txfonts",
+    "lipsum",
+    "subcaption",
+    "lscape",
+    "placeins",
+    "hyperref"
+  ],
+  "has_custom_macros": false,
+  "document_class": "aa",
+  "educational": false
+}

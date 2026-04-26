@@ -1,0 +1,21 @@
+{
+  "id": "github-apps-huangxg-lnotes",
+  "name": "apps (huangxg/lnotes)",
+  "source_url": "https://github.com/huangxg/lnotes/blob/7bbcc541d661586678d2336e0122200eb8ccf954/src/apps.tex",
+  "source_site": "github",
+  "type": "presentation",
+  "subject": "history",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "LaTeX Notes",
+  "date_scraped": "2026-03-29T08:18:12.976Z",
+  "packages_required": [
+    "envlab",
+    "geometry",
+    "igo"
+  ],
+  "has_custom_macros": false,
+  "document_class": "beamer",
+  "educational": false
+}

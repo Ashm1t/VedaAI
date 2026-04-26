@@ -1,0 +1,20 @@
+{
+  "id": "github-wyx-en-zellux-resume",
+  "name": "wyx-en (zellux/resume)",
+  "source_url": "https://github.com/zellux/resume/blob/b959a8376c54df44d80cbe6887bbd3549936b5f3/wyx-en.tex",
+  "source_site": "github",
+  "type": "resume",
+  "subject": "cs",
+  "style_tags": [
+    "modern"
+  ],
+  "description": "My resume, generated with moderncv",
+  "date_scraped": "2026-03-29T08:18:16.638Z",
+  "packages_required": [
+    "inputenc",
+    "geometry"
+  ],
+  "has_custom_macros": true,
+  "document_class": "moderncv",
+  "educational": false
+}

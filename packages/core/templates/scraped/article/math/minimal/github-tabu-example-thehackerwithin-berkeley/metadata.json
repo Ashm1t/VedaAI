@@ -1,0 +1,20 @@
+{
+  "id": "github-tabu-example-thehackerwithin-berkeley",
+  "name": "tabu-example (thehackerwithin/berkeley)",
+  "source_url": "https://github.com/thehackerwithin/berkeley/blob/4237526c78cfadd43051257ffdd1110e348efc46/code_examples/LaTeX/tipsTricks/tabu-example.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "The Hacker Within at the University of California - Berkeley",
+  "date_scraped": "2026-03-29T08:19:16.757Z",
+  "packages_required": [
+    "geometry",
+    "tabu"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

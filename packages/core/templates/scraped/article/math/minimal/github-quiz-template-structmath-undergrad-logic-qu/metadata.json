@@ -1,0 +1,17 @@
+{
+  "id": "github-quiz-template-structmath-undergrad-logic-qu",
+  "name": "quiz-template (StructMath/undergrad-logic-questions)",
+  "source_url": "https://github.com/StructMath/undergrad-logic-questions/blob/32cc051b28354a41c4e6ba7486a74c900fe8a33e/quiz-template.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "A set of questions for an undergraduate course in logic",
+  "date_scraped": "2026-03-29T08:19:54.291Z",
+  "packages_required": [],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

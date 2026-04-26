@@ -1,0 +1,21 @@
+{
+  "id": "overleaf-pnas-nexus-official",
+  "name": "PNAS Nexus Official",
+  "source_url": "https://www.overleaf.com/latex/templates/pnas-nexus/ybdrrkfnxhtf",
+  "source_site": "overleaf",
+  "type": "exam",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "This is a template and guide for preparing papers for PNAS Nexus using the oup-authoring-template class file. See the pnas-nexus-authoring-template.tex file ...",
+  "date_scraped": "2026-03-29T08:20:50.808Z",
+  "packages_required": [
+    "showframe",
+    "lineno",
+    "draftwatermark"
+  ],
+  "has_custom_macros": false,
+  "document_class": "unknown",
+  "educational": true
+}

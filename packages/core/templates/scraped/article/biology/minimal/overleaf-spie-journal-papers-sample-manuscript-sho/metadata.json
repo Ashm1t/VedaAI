@@ -1,0 +1,25 @@
+{
+  "id": "overleaf-spie-journal-papers-sample-manuscript-sho",
+  "name": "SPIE journal papers: sample manuscript showing style and formatting specifications Official",
+  "source_url": "https://www.overleaf.com/latex/templates/spie-journal-papers-sample-manuscript-showing-style-and-formatting-specifications/vdydzwfvfvqg",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "biology",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "This template is for authors submitting a manuscript to an SPIE journal. The Overleaf template allows journal authors to write, edit, and collaborate online....",
+  "date_scraped": "2026-03-29T08:21:03.336Z",
+  "packages_required": [
+    "amsmath",
+    "amsfonts",
+    "amssymb",
+    "graphicx",
+    "setspace",
+    "tocloft",
+    "lineno"
+  ],
+  "has_custom_macros": true,
+  "document_class": "spieman",
+  "educational": false
+}

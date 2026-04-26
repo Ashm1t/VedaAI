@@ -1,0 +1,20 @@
+{
+  "id": "github-wedoc-dtuwindenergy-python4windenergy",
+  "name": "wedoc (DTUWindEnergy/Python4WindEnergy)",
+  "source_url": "https://github.com/DTUWindEnergy/Python4WindEnergy/blob/8f97a5f86e81ce01d80dafb6f8104165fd3ad397/slide_generator/template/wedoc.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "biology",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "This is a repository to gather the teaching material used for the course Python for Wind Energy organised at DTU Wind Energy",
+  "date_scraped": "2026-03-29T08:17:31.723Z",
+  "packages_required": [
+    "moreverb",
+    "hyperref"
+  ],
+  "has_custom_macros": true,
+  "document_class": "weauth",
+  "educational": false
+}

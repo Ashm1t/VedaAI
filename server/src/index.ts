@@ -7,10 +7,11 @@ import { config } from "./config/index.js";
 import { connectDB } from "./config/db.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import assignmentRoutes from "./routes/assignmentRoutes.js";
+import agentRoutes from "./routes/agentRoutes.js";
 import questionPaperRoutes from "./routes/questionPaperRoutes.js";
 import waitlistRoutes from "./routes/waitlistRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import { requireAuth } from "./middleware/auth.js";
+import { requireAuth, requireAuthOrDev } from "./middleware/auth.js";
 import { initRedis } from "./config/redis.js";
 import { startWorker } from "./jobs/generationWorker.js";
 import fs from "fs";
@@ -61,6 +62,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/agent", requireAuthOrDev, agentRoutes);
 app.use("/api/assignments", requireAuth, assignmentRoutes);
 app.use("/api/question-papers", requireAuth, questionPaperRoutes);
 app.use("/api/waitlist", waitlistRoutes);

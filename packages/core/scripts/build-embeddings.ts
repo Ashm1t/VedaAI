@@ -21,15 +21,15 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { TemplateRegistry } from "../src/template-registry.js";
 import { TemplateRetriever } from "../src/template-retriever.js";
-import { OpenAIEmbeddingAdapter } from "../src/embedding-adapter.js";
+import { HuggingFaceEmbeddingAdapter } from "../src/embedding-adapter.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 
 async function main() {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) {
-    console.error("Error: OPENAI_API_KEY environment variable is required");
+  const apiToken = process.env.HF_TOKEN;
+  if (!apiToken) {
+    console.error("Error: HF_TOKEN environment variable is required");
     process.exit(1);
   }
 
@@ -37,10 +37,15 @@ async function main() {
   const registry = new TemplateRegistry(path.join(rootDir, "templates"));
 
   // Register scraped templates if available
-  const scrapedArg = process.argv.find((_, i) =>
-    process.argv[i - 1] === "--scraped-dir"
+  const scrapedFlagIndex = process.argv.findIndex(
+    (value) => value === "--scraped-dir"
   );
-  const scrapedDir = scrapedArg || path.join(rootDir, "templates", "scraped");
+  const scrapedArg =
+    scrapedFlagIndex >= 0 ? process.argv[scrapedFlagIndex + 1] : undefined;
+  const scrapedDir =
+    process.env.SCRAPED_DIR ||
+    scrapedArg ||
+    path.join(rootDir, "templates", "scraped");
   const scrapedRegistryPath = path.join(scrapedDir, "registry.json");
 
   if (fs.existsSync(scrapedRegistryPath)) {
@@ -58,8 +63,8 @@ async function main() {
     process.exit(1);
   }
 
-  console.log("Creating embedding adapter (OpenAI text-embedding-3-small)...");
-  const adapter = new OpenAIEmbeddingAdapter({ apiKey });
+  console.log("Creating embedding adapter (HuggingFace all-MiniLM-L6-v2)...");
+  const adapter = new HuggingFaceEmbeddingAdapter({ apiToken });
 
   console.log("Building embedding index...");
   const retriever = new TemplateRetriever({

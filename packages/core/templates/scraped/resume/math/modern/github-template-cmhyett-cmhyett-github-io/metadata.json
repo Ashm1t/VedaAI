@@ -1,0 +1,27 @@
+{
+  "id": "github-template-cmhyett-cmhyett-github-io",
+  "name": "template (cmhyett/cmhyett.github.io)",
+  "source_url": "https://github.com/cmhyett/cmhyett.github.io/blob/30655a4d092233de6e11c5a0584e12c9ecbc5d7d/_site/markdown_generator/CV/moderncv/template.tex",
+  "source_site": "github",
+  "type": "resume",
+  "subject": "math",
+  "style_tags": [
+    "modern",
+    "formal"
+  ],
+  "description": "LaTeX template from cmhyett/cmhyett.github.io",
+  "date_scraped": "2026-03-29T08:18:18.460Z",
+  "packages_required": [
+    "inputenc",
+    "CJKutf8",
+    "geometry",
+    "fontspec",
+    "unicode-math",
+    "fontenc",
+    "lmodern",
+    "multibib"
+  ],
+  "has_custom_macros": true,
+  "document_class": "moderncv",
+  "educational": false
+}

@@ -1,0 +1,25 @@
+{
+  "id": "overleaf-a-customised-curve-cvtop-pick",
+  "name": "A Customised CurVe CVTop pick",
+  "source_url": "https://www.overleaf.com/latex/templates/a-customised-curve-cv/mvmbhkwsnmwv",
+  "source_site": "overleaf",
+  "type": "resume",
+  "subject": "general",
+  "style_tags": [
+    "modern"
+  ],
+  "description": "I&#39;ve been asked a few times for the code of my own CV. \nTruth is, it was first done many, many years ago, based on the CurVe class. As I picked up tips and t...",
+  "date_scraped": "2026-03-29T08:21:43.396Z",
+  "packages_required": [
+    "ctex",
+    "settings",
+    "fontspec",
+    "cochineal",
+    "cabin",
+    "zi4",
+    "fontenc"
+  ],
+  "has_custom_macros": false,
+  "document_class": "curve",
+  "educational": false
+}

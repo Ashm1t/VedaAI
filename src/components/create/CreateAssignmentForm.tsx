@@ -46,7 +46,7 @@ export default function CreateAssignmentForm() {
             await fetchAssignments();
             reset();
             resetWs();
-            router.push(`/assignments/${assignment.id}/output`);
+            router.push(`/legacy/assignments/${assignment.id}/output`);
           }
 
           if (genStatus === "error") {

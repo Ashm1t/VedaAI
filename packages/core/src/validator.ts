@@ -173,7 +173,7 @@ export function autoFixLatex(tex: string): string {
   );
   // Remove empty figure environments left behind
   fixed = fixed.replace(
-    /\\begin\{figure\}.*?\\end\{figure\}/gs,
+    /\\begin\{figure\}[\s\S]*?\\end\{figure\}/g,
     ""
   );
 

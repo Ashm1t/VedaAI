@@ -92,6 +92,6 @@ async function readLogFile(dir: string): Promise<string> {
  * Extract error summary from a compilation error message.
  */
 export function extractErrorFromLog(errorMessage: string): string {
-  const logMatch = errorMessage.match(/Log: (.+)/s);
+  const logMatch = errorMessage.match(/Log: ([\s\S]+)/);
   return logMatch ? logMatch[1].trim() : errorMessage;
 }

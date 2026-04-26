@@ -1,0 +1,31 @@
+% 
+% Disclaimer : This template is adapted from Piaget Exam Template (https://www.overleaf.com/latex/templates/piaget-exams-template/kvhcqftpsdyp)
+%
+% ==========
+% PETUNJUK
+% ==========
+%   1. Untuk mengetik soal, silahkan edit file "questions.tex";
+%
+%   2. Untuk mengedit data kampus, silahkan edit file "courseData.tex"
+%
+%   3. File "ïnstructions.md" berisi petunjuk untuk mengetik soal.
+
+\documentclass[11pt]{exam}
+\input{assets/settings}
+
+\begin{document}
+    {\fontfamily{qpl}\selectfont
+    \input{assets/title0}
+    \input{CPL-CPMK}\vspace{5cm} %atur jarak antar tabel Uraian Soal dengan tabel sebelumnya
+    \input{uraiansoal}
+    \input{pengesahan}
+    \restoregeometry
+    \newpage
+    \input{assets/title}
+    %{\ttfamily
+    \input{questions}
+    %}
+    \newpage
+    \input{rubrik}
+    }
+\end{document}

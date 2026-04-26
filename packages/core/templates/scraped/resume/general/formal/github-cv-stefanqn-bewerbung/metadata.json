@@ -1,0 +1,23 @@
+{
+  "id": "github-cv-stefanqn-bewerbung",
+  "name": "cv (Stefanqn/Bewerbung)",
+  "source_url": "https://github.com/Stefanqn/Bewerbung/blob/a3901e2799add4d665112f7c0abab6bb1eb31f8d/Vorlage/cv.tex",
+  "source_site": "github",
+  "type": "resume",
+  "subject": "general",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "Latex Bewerbungsvorlage",
+  "date_scraped": "2026-03-29T08:18:14.793Z",
+  "packages_required": [
+    "Vorlage_Lebenslauf",
+    "inputenc",
+    "showframe",
+    "picture",
+    "eso-pic"
+  ],
+  "has_custom_macros": false,
+  "document_class": "moderncv",
+  "educational": false
+}

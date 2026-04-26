@@ -1,0 +1,21 @@
+{
+  "id": "github-bsd-beamer-thodg-bsd-beamer",
+  "name": "bsd-beamer (thodg/bsd-beamer)",
+  "source_url": "https://github.com/thodg/bsd-beamer/blob/8626892b7735baf35c76b17e97d6faa3a2ee4a79/bsd-beamer.tex",
+  "source_site": "github",
+  "type": "presentation",
+  "subject": "history",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Slides for *BSD presentation",
+  "date_scraped": "2026-03-29T08:18:26.009Z",
+  "packages_required": [
+    "inputenc",
+    "upquote",
+    "graphicx"
+  ],
+  "has_custom_macros": false,
+  "document_class": "beamer",
+  "educational": false
+}

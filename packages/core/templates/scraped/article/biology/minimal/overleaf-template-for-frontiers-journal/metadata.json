@@ -1,0 +1,23 @@
+{
+  "id": "overleaf-template-for-frontiers-journal",
+  "name": "Template for Frontiers Journal",
+  "source_url": "https://www.overleaf.com/latex/templates/template-for-frontiers-journal/bksdwvxrvypb",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "biology",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "This template can also be downloaded from Github.\nThis is just an example/guide for you to refer to when submitting manuscripts to Frontiers, it is not manda...",
+  "date_scraped": "2026-03-29T08:21:05.736Z",
+  "packages_required": [
+    "url",
+    "hyperref",
+    "lineno",
+    "microtype",
+    "setspace"
+  ],
+  "has_custom_macros": false,
+  "document_class": "frontiers_suppmat",
+  "educational": false
+}

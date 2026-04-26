@@ -1,0 +1,17 @@
+{
+  "id": "github-template-faims-faims3-elaboration-report",
+  "name": "template (FAIMS/FAIMS3-Elaboration-Report)",
+  "source_url": "https://github.com/FAIMS/FAIMS3-Elaboration-Report/blob/68902091be370fec4991cda70fe1f68192b0ffc2/template.tex",
+  "source_site": "github",
+  "type": "report",
+  "subject": "biology",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "LaTeX template from FAIMS/FAIMS3-Elaboration-Report",
+  "date_scraped": "2026-03-29T08:18:39.772Z",
+  "packages_required": [],
+  "has_custom_macros": false,
+  "document_class": "faims3_report",
+  "educational": false
+}

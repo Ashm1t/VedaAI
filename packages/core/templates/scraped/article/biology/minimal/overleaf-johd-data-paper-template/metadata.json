@@ -1,0 +1,21 @@
+{
+  "id": "overleaf-johd-data-paper-template",
+  "name": "JOHD data paper template",
+  "source_url": "https://www.overleaf.com/latex/templates/johd-data-paper-template/tpvhzvpdgssp",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "biology",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Template for data papers to be submitted to the Journal of Open Humanities Data (https://openhumanitiesdata.metajnl.com/about/submissions).",
+  "date_scraped": "2026-03-29T08:21:10.806Z",
+  "packages_required": [
+    "babel",
+    "inputenc",
+    "johd"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

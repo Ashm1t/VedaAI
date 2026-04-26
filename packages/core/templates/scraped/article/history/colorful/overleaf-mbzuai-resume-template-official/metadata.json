@@ -1,0 +1,28 @@
+{
+  "id": "overleaf-mbzuai-resume-template-official",
+  "name": "MBZUAI Resume Template Official",
+  "source_url": "https://www.overleaf.com/latex/templates/mbzuai-resume-template/xfqbdzbfdkkf",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "history",
+  "style_tags": [
+    "colorful",
+    "modern",
+    "formal"
+  ],
+  "description": "MBZUAI Resume Template for Resume Book",
+  "date_scraped": "2026-03-29T08:21:50.921Z",
+  "packages_required": [
+    "geometry",
+    "inputenc",
+    "fontenc",
+    "sourcesanspro",
+    "xcolor",
+    "titlesec",
+    "enumitem",
+    "parskip"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

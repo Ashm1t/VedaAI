@@ -1,0 +1,24 @@
+{
+  "id": "overleaf-university-exercise-template-german",
+  "name": "University exercise template (German)",
+  "source_url": "https://www.overleaf.com/latex/templates/university-exercise-template-german/njhmmgjpfbvf",
+  "source_site": "overleaf",
+  "type": "homework",
+  "subject": "general",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "A LaTeX template for a university exercise in German, created by Michael Muller.\n\nSource: https://github.com/cmichi/latex-template-collection.\n\nThis template...",
+  "date_scraped": "2026-03-29T08:20:43.312Z",
+  "packages_required": [
+    "ngerman",
+    "inputenc",
+    "fontenc",
+    "textcomp",
+    "mcode",
+    "listings"
+  ],
+  "has_custom_macros": true,
+  "document_class": "scrartcl",
+  "educational": true
+}

@@ -1,0 +1,21 @@
+{
+  "id": "overleaf-template-ad-question-paper-iba-community-",
+  "name": "Template AD question paper IBA Community College Naushahro Feroze",
+  "source_url": "https://www.overleaf.com/latex/templates/template-ad-question-paper-iba-community-college-naushahro-feroze/zzqgtgpdfnpr",
+  "source_site": "overleaf",
+  "type": "exam",
+  "subject": "general",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "This template can be used for designing the question paper for the Associate Degree Program/ Undergraduate Level at IBA Community College Naushahro Feroze, S...",
+  "date_scraped": "2026-03-29T08:20:20.587Z",
+  "packages_required": [
+    "graphicx",
+    "geometry",
+    "ulem"
+  ],
+  "has_custom_macros": true,
+  "document_class": "exam",
+  "educational": true
+}

@@ -1,0 +1,1235 @@
+{
+  "version": 1,
+  "generated_at": "2026-03-29T08:22:18.597Z",
+  "total": 100,
+  "by_type": {
+    "article": 62,
+    "exam": 6,
+    "homework": 4,
+    "letter": 3,
+    "presentation": 6,
+    "report": 4,
+    "resume": 14,
+    "worksheet": 1
+  },
+  "by_subject": {
+    "biology": 17,
+    "chemistry": 5,
+    "cs": 15,
+    "english": 1,
+    "general": 14,
+    "history": 7,
+    "math": 40,
+    "physics": 1
+  },
+  "templates": [
+    {
+      "id": "overleaf-bgu-assignment-template",
+      "name": "BGU - Assignment Template",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/formal/overleaf-bgu-assignment-template/template.tex",
+      "metadata_path": "templates/scraped/article/biology/formal/overleaf-bgu-assignment-template/metadata.json"
+    },
+    {
+      "id": "overleaf-cefet-rj-nortese",
+      "name": "CEFET-RJ - Nortese",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/formal/overleaf-cefet-rj-nortese/template.tex",
+      "metadata_path": "templates/scraped/article/biology/formal/overleaf-cefet-rj-nortese/metadata.json"
+    },
+    {
+      "id": "overleaf-hslu-i-thesis-template",
+      "name": "HSLU-I Thesis Template",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/formal/overleaf-hslu-i-thesis-template/template.tex",
+      "metadata_path": "templates/scraped/article/biology/formal/overleaf-hslu-i-thesis-template/metadata.json"
+    },
+    {
+      "id": "overleaf-johd-data-paper-template",
+      "name": "JOHD data paper template",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/minimal/overleaf-johd-data-paper-template/template.tex",
+      "metadata_path": "templates/scraped/article/biology/minimal/overleaf-johd-data-paper-template/metadata.json"
+    },
+    {
+      "id": "overleaf-modelo-para-interscienceplace-2026",
+      "name": "Modelo Para InterSciencePlace 2026",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "formal",
+        "creative"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/formal/overleaf-modelo-para-interscienceplace-2026/template.tex",
+      "metadata_path": "templates/scraped/article/biology/formal/overleaf-modelo-para-interscienceplace-2026/metadata.json"
+    },
+    {
+      "id": "overleaf-rapport-de-stage-de-master-ipgp",
+      "name": "Rapport de Stage de Master IPGP",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/minimal/overleaf-rapport-de-stage-de-master-ipgp/template.tex",
+      "metadata_path": "templates/scraped/article/biology/minimal/overleaf-rapport-de-stage-de-master-ipgp/metadata.json"
+    },
+    {
+      "id": "overleaf-spie-journal-papers-sample-manuscript-sho",
+      "name": "SPIE journal papers: sample manuscript showing style and formatting specifications Official",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/minimal/overleaf-spie-journal-papers-sample-manuscript-sho/template.tex",
+      "metadata_path": "templates/scraped/article/biology/minimal/overleaf-spie-journal-papers-sample-manuscript-sho/metadata.json"
+    },
+    {
+      "id": "overleaf-template-for-frontiers-journal",
+      "name": "Template for Frontiers Journal",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/minimal/overleaf-template-for-frontiers-journal/template.tex",
+      "metadata_path": "templates/scraped/article/biology/minimal/overleaf-template-for-frontiers-journal/metadata.json"
+    },
+    {
+      "id": "overleaf-template-voor-een-onderzoeksverslag",
+      "name": "Template voor een onderzoeksverslag",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/minimal/overleaf-template-voor-een-onderzoeksverslag/template.tex",
+      "metadata_path": "templates/scraped/article/biology/minimal/overleaf-template-voor-een-onderzoeksverslag/metadata.json"
+    },
+    {
+      "id": "overleaf-tongji-university-undergraduate-thesis-te",
+      "name": "Tongji University Undergraduate Thesis Template",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/minimal/overleaf-tongji-university-undergraduate-thesis-te/template.tex",
+      "metadata_path": "templates/scraped/article/biology/minimal/overleaf-tongji-university-undergraduate-thesis-te/metadata.json"
+    },
+    {
+      "id": "github-visions-and-boundaries-standardgalactic-alp",
+      "name": "visions-and-boundaries (standardgalactic/alphabet)",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/formal/github-visions-and-boundaries-standardgalactic-alp/template.tex",
+      "metadata_path": "templates/scraped/article/biology/formal/github-visions-and-boundaries-standardgalactic-alp/metadata.json"
+    },
+    {
+      "id": "github-wedoc-dtuwindenergy-python4windenergy",
+      "name": "wedoc (DTUWindEnergy/Python4WindEnergy)",
+      "type": "article",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/biology/minimal/github-wedoc-dtuwindenergy-python4windenergy/template.tex",
+      "metadata_path": "templates/scraped/article/biology/minimal/github-wedoc-dtuwindenergy-python4windenergy/metadata.json"
+    },
+    {
+      "id": "github-first-midterm-2024-jhu-intro-hlt-jhu-intro-",
+      "name": "first-midterm-2024 (jhu-intro-hlt/jhu-intro-hlt.github.io)",
+      "type": "article",
+      "subject": "chemistry",
+      "style_tags": [
+        "creative"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/chemistry/creative/github-first-midterm-2024-jhu-intro-hlt-jhu-intro-/template.tex",
+      "metadata_path": "templates/scraped/article/chemistry/creative/github-first-midterm-2024-jhu-intro-hlt-jhu-intro-/metadata.json"
+    },
+    {
+      "id": "github-hw-2-lgw2-lgw2-github-io",
+      "name": "hw_2 (lgw2/lgw2.github.io)",
+      "type": "article",
+      "subject": "chemistry",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/chemistry/minimal/github-hw-2-lgw2-lgw2-github-io/template.tex",
+      "metadata_path": "templates/scraped/article/chemistry/minimal/github-hw-2-lgw2-lgw2-github-io/metadata.json"
+    },
+    {
+      "id": "github-paper-salmanahmad-6-854",
+      "name": "paper (salmanahmad/6.854)",
+      "type": "article",
+      "subject": "chemistry",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/chemistry/minimal/github-paper-salmanahmad-6-854/template.tex",
+      "metadata_path": "templates/scraped/article/chemistry/minimal/github-paper-salmanahmad-6-854/metadata.json"
+    },
+    {
+      "id": "github-cmpe-283-2014-worksheet-06-chrisstephenson-",
+      "name": "cmpe_283_2014_worksheet_06 (chrisstephenson/droplet-setup)",
+      "type": "article",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/cs/minimal/github-cmpe-283-2014-worksheet-06-chrisstephenson-/template.tex",
+      "metadata_path": "templates/scraped/article/cs/minimal/github-cmpe-283-2014-worksheet-06-chrisstephenson-/metadata.json"
+    },
+    {
+      "id": "overleaf-ggsipu-cv-template",
+      "name": "GGSIPU CV Template",
+      "type": "article",
+      "subject": "cs",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/cs/formal/overleaf-ggsipu-cv-template/template.tex",
+      "metadata_path": "templates/scraped/article/cs/formal/overleaf-ggsipu-cv-template/metadata.json"
+    },
+    {
+      "id": "overleaf-harshibar-s-resume",
+      "name": "harshibar's resume",
+      "type": "article",
+      "subject": "cs",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/cs/formal/overleaf-harshibar-s-resume/template.tex",
+      "metadata_path": "templates/scraped/article/cs/formal/overleaf-harshibar-s-resume/metadata.json"
+    },
+    {
+      "id": "github-main-season-lab-survey-symbolic-execution",
+      "name": "main (season-lab/survey-symbolic-execution)",
+      "type": "article",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/cs/minimal/github-main-season-lab-survey-symbolic-execution/template.tex",
+      "metadata_path": "templates/scraped/article/cs/minimal/github-main-season-lab-survey-symbolic-execution/metadata.json"
+    },
+    {
+      "id": "github-syllabus-shortcourse-teachbsd-course",
+      "name": "syllabus-shortcourse (teachbsd/course)",
+      "type": "article",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/cs/minimal/github-syllabus-shortcourse-teachbsd-course/template.tex",
+      "metadata_path": "templates/scraped/article/cs/minimal/github-syllabus-shortcourse-teachbsd-course/metadata.json"
+    },
+    {
+      "id": "overleaf-university-of-groningen-bsc-ai-bachelor-t",
+      "name": "University of Groningen - BSc AI - Bachelor Thesis Template",
+      "type": "article",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/cs/minimal/overleaf-university-of-groningen-bsc-ai-bachelor-t/template.tex",
+      "metadata_path": "templates/scraped/article/cs/minimal/overleaf-university-of-groningen-bsc-ai-bachelor-t/metadata.json"
+    },
+    {
+      "id": "overleaf-university-of-groningen-msc-ai-ccs-master",
+      "name": "University of Groningen - MSc AI & CCS - Master's Thesis Template",
+      "type": "article",
+      "subject": "cs",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/cs/formal/overleaf-university-of-groningen-msc-ai-ccs-master/template.tex",
+      "metadata_path": "templates/scraped/article/cs/formal/overleaf-university-of-groningen-msc-ai-ccs-master/metadata.json"
+    },
+    {
+      "id": "overleaf-polish-letter-template",
+      "name": "Polish letter template",
+      "type": "article",
+      "subject": "english",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/english/formal/overleaf-polish-letter-template/template.tex",
+      "metadata_path": "templates/scraped/article/english/formal/overleaf-polish-letter-template/metadata.json"
+    },
+    {
+      "id": "overleaf-unofficial-unicam-template-for-thesis",
+      "name": "(Unofficial) Unicam Template for Thesis",
+      "type": "article",
+      "subject": "general",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/general/minimal/overleaf-unofficial-unicam-template-for-thesis/template.tex",
+      "metadata_path": "templates/scraped/article/general/minimal/overleaf-unofficial-unicam-template-for-thesis/metadata.json"
+    },
+    {
+      "id": "overleaf-answer-sheet-dtu-bb",
+      "name": "Answer Sheet DTU BB",
+      "type": "article",
+      "subject": "general",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/general/formal/overleaf-answer-sheet-dtu-bb/template.tex",
+      "metadata_path": "templates/scraped/article/general/formal/overleaf-answer-sheet-dtu-bb/metadata.json"
+    },
+    {
+      "id": "github-app-q4-s-thesis-latex-template",
+      "name": "app (Q4-S/thesis-latex-template)",
+      "type": "article",
+      "subject": "general",
+      "style_tags": [
+        "modern"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/general/modern/github-app-q4-s-thesis-latex-template/template.tex",
+      "metadata_path": "templates/scraped/article/general/modern/github-app-q4-s-thesis-latex-template/metadata.json"
+    },
+    {
+      "id": "overleaf-comp9242-exam-template",
+      "name": "COMP9242 Exam Template",
+      "type": "article",
+      "subject": "general",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/general/minimal/overleaf-comp9242-exam-template/template.tex",
+      "metadata_path": "templates/scraped/article/general/minimal/overleaf-comp9242-exam-template/metadata.json"
+    },
+    {
+      "id": "overleaf-dbs-exam-template",
+      "name": "DBS Exam Template",
+      "type": "article",
+      "subject": "general",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/general/minimal/overleaf-dbs-exam-template/template.tex",
+      "metadata_path": "templates/scraped/article/general/minimal/overleaf-dbs-exam-template/metadata.json"
+    },
+    {
+      "id": "overleaf-hkust-letter-template",
+      "name": "HKUST LETTER TEMPLATE",
+      "type": "article",
+      "subject": "general",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/general/formal/overleaf-hkust-letter-template/template.tex",
+      "metadata_path": "templates/scraped/article/general/formal/overleaf-hkust-letter-template/metadata.json"
+    },
+    {
+      "id": "github-hw1-ankitvgupta-cs287assignments",
+      "name": "HW1 (ankitvgupta/CS287assignments)",
+      "type": "article",
+      "subject": "general",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/general/minimal/github-hw1-ankitvgupta-cs287assignments/template.tex",
+      "metadata_path": "templates/scraped/article/general/minimal/github-hw1-ankitvgupta-cs287assignments/metadata.json"
+    },
+    {
+      "id": "overleaf-plantilla-tfg-epsc-uco",
+      "name": "Plantilla TFG - EPSC UCO",
+      "type": "article",
+      "subject": "general",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/general/formal/overleaf-plantilla-tfg-epsc-uco/template.tex",
+      "metadata_path": "templates/scraped/article/general/formal/overleaf-plantilla-tfg-epsc-uco/metadata.json"
+    },
+    {
+      "id": "github-boundary-papers-standardgalactic-alphabet",
+      "name": "boundary-papers (standardgalactic/alphabet)",
+      "type": "article",
+      "subject": "history",
+      "style_tags": [
+        "modern"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/history/modern/github-boundary-papers-standardgalactic-alphabet/template.tex",
+      "metadata_path": "templates/scraped/article/history/modern/github-boundary-papers-standardgalactic-alphabet/metadata.json"
+    },
+    {
+      "id": "github-cv-davidstutz-latex-resources",
+      "name": "cv (davidstutz/latex-resources)",
+      "type": "article",
+      "subject": "history",
+      "style_tags": [
+        "modern"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/history/modern/github-cv-davidstutz-latex-resources/template.tex",
+      "metadata_path": "templates/scraped/article/history/modern/github-cv-davidstutz-latex-resources/metadata.json"
+    },
+    {
+      "id": "overleaf-mbzuai-resume-template-official",
+      "name": "MBZUAI Resume Template Official",
+      "type": "article",
+      "subject": "history",
+      "style_tags": [
+        "colorful",
+        "modern",
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/history/colorful/overleaf-mbzuai-resume-template-official/template.tex",
+      "metadata_path": "templates/scraped/article/history/colorful/overleaf-mbzuai-resume-template-official/metadata.json"
+    },
+    {
+      "id": "overleaf-astronomy-and-astrophysics-template",
+      "name": "Astronomy and Astrophysics Template",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/overleaf-astronomy-and-astrophysics-template/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/overleaf-astronomy-and-astrophysics-template/metadata.json"
+    },
+    {
+      "id": "overleaf-course-project-vclab-ontario-tech-univers",
+      "name": "Course Project (VCLab) - Ontario Tech University",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/overleaf-course-project-vclab-ontario-tech-univers/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/overleaf-course-project-vclab-ontario-tech-univers/metadata.json"
+    },
+    {
+      "id": "github-course-syllabus-rylanschaeffer-ecs198-crypt",
+      "name": "Course-Syllabus (RylanSchaeffer/ecs198-cryptocurrency-technologies)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/github-course-syllabus-rylanschaeffer-ecs198-crypt/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/github-course-syllabus-rylanschaeffer-ecs198-crypt/metadata.json"
+    },
+    {
+      "id": "overleaf-easy-pset-template",
+      "name": "Easy PSET Template",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/overleaf-easy-pset-template/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/overleaf-easy-pset-template/metadata.json"
+    },
+    {
+      "id": "overleaf-evaluations-type",
+      "name": "Evaluations type",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/overleaf-evaluations-type/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/overleaf-evaluations-type/metadata.json"
+    },
+    {
+      "id": "github-hw-verdverm-go-eureqa",
+      "name": "hw (verdverm/go-eureqa)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/github-hw-verdverm-go-eureqa/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/github-hw-verdverm-go-eureqa/metadata.json"
+    },
+    {
+      "id": "github-hw4-lipen-discrete-math-course",
+      "name": "hw4 (Lipen/discrete-math-course)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/github-hw4-lipen-discrete-math-course/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/github-hw4-lipen-discrete-math-course/metadata.json"
+    },
+    {
+      "id": "github-iihw-zhaofeng-shu33-thu-coursework-template",
+      "name": "iihw (zhaofeng-shu33/THU-coursework-template)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/github-iihw-zhaofeng-shu33-thu-coursework-template/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/github-iihw-zhaofeng-shu33-thu-coursework-template/metadata.json"
+    },
+    {
+      "id": "overleaf-math-2270-template",
+      "name": "MATH 2270 template",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/overleaf-math-2270-template/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/overleaf-math-2270-template/metadata.json"
+    },
+    {
+      "id": "github-midterm-exam-ws2324-wmutschl-quantitative-m",
+      "name": "midterm_exam_WS2324 (wmutschl/Quantitative-Macroeconomics)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/github-midterm-exam-ws2324-wmutschl-quantitative-m/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/github-midterm-exam-ws2324-wmutschl-quantitative-m/metadata.json"
+    },
+    {
+      "id": "overleaf-monthly-notices-of-the-royal-astronomical",
+      "name": "Monthly Notices of the Royal Astronomical Society (MNRAS) LaTeX template and guide for authors Offic",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/overleaf-monthly-notices-of-the-royal-astronomical/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/overleaf-monthly-notices-of-the-royal-astronomical/metadata.json"
+    },
+    {
+      "id": "overleaf-oscm-journal",
+      "name": "OSCM Journal",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/overleaf-oscm-journal/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/overleaf-oscm-journal/metadata.json"
+    },
+    {
+      "id": "github-paper-ethereum-yellowpaper",
+      "name": "Paper (ethereum/yellowpaper)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/github-paper-ethereum-yellowpaper/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/github-paper-ethereum-yellowpaper/metadata.json"
+    },
+    {
+      "id": "overleaf-question-paper-template-for-department-of",
+      "name": "Question Paper Template for Department of CSE, Stamford University Bangladesh",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/overleaf-question-paper-template-for-department-of/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/overleaf-question-paper-template-for-department-of/metadata.json"
+    },
+    {
+      "id": "github-quiz-0218-brianrwilliams-brianrwilliams-git",
+      "name": "quiz_0218 (brianrwilliams/brianrwilliams.github.io)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/github-quiz-0218-brianrwilliams-brianrwilliams-git/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/github-quiz-0218-brianrwilliams-brianrwilliams-git/metadata.json"
+    },
+    {
+      "id": "github-quiz-template-structmath-undergrad-logic-qu",
+      "name": "quiz-template (StructMath/undergrad-logic-questions)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/github-quiz-template-structmath-undergrad-logic-qu/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/github-quiz-template-structmath-undergrad-logic-qu/metadata.json"
+    },
+    {
+      "id": "github-reference-research-paper-upperstrange-done",
+      "name": "reference-research-paper (Upperstrange/done)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/github-reference-research-paper-upperstrange-done/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/github-reference-research-paper-upperstrange-done/metadata.json"
+    },
+    {
+      "id": "overleaf-revista-brasileira-de-economia-latex-temp",
+      "name": "Revista Brasileira de Economia: LaTeX Template",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/overleaf-revista-brasileira-de-economia-latex-temp/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/overleaf-revista-brasileira-de-economia-latex-temp/metadata.json"
+    },
+    {
+      "id": "github-rp-glisses-segmentation-and-uncertainty-est",
+      "name": "RP (glisses/segmentation-and-uncertainty-estimation-on-CityScapes)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/github-rp-glisses-segmentation-and-uncertainty-est/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/github-rp-glisses-segmentation-and-uncertainty-est/metadata.json"
+    },
+    {
+      "id": "github-se465-midterm-w19-patricklam-stqam-2019",
+      "name": "se465-midterm-w19 (patricklam/stqam-2019)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "modern",
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/modern/github-se465-midterm-w19-patricklam-stqam-2019/template.tex",
+      "metadata_path": "templates/scraped/article/math/modern/github-se465-midterm-w19-patricklam-stqam-2019/metadata.json"
+    },
+    {
+      "id": "github-svm-rmarkdown-syllabus-example-svmiller-svm",
+      "name": "svm-rmarkdown-syllabus-example (svmiller/svm-r-markdown-templates)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/github-svm-rmarkdown-syllabus-example-svmiller-svm/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/github-svm-rmarkdown-syllabus-example-svmiller-svm/metadata.json"
+    },
+    {
+      "id": "github-tabu-example-thehackerwithin-berkeley",
+      "name": "tabu-example (thehackerwithin/berkeley)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/github-tabu-example-thehackerwithin-berkeley/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/github-tabu-example-thehackerwithin-berkeley/metadata.json"
+    },
+    {
+      "id": "github-template-fi-jarlerik-kandidaattitutkielma",
+      "name": "template-fi (jarlerik/kandidaattitutkielma)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/github-template-fi-jarlerik-kandidaattitutkielma/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/github-template-fi-jarlerik-kandidaattitutkielma/metadata.json"
+    },
+    {
+      "id": "overleaf-uio-math-project-work-reports",
+      "name": "UiO Math Project Work Reports",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/overleaf-uio-math-project-work-reports/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/overleaf-uio-math-project-work-reports/metadata.json"
+    },
+    {
+      "id": "overleaf-uvt-letterhead",
+      "name": "UVT Letterhead",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/overleaf-uvt-letterhead/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/overleaf-uvt-letterhead/metadata.json"
+    },
+    {
+      "id": "github-worksheet-comsm0034-2019-20",
+      "name": "worksheet (comsm0034/2019_20)",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/formal/github-worksheet-comsm0034-2019-20/template.tex",
+      "metadata_path": "templates/scraped/article/math/formal/github-worksheet-comsm0034-2019-20/metadata.json"
+    },
+    {
+      "id": "overleaf-latex",
+      "name": "學測／分科數學考科試題 LaTeX 模板",
+      "type": "article",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/math/minimal/overleaf-latex/template.tex",
+      "metadata_path": "templates/scraped/article/math/minimal/overleaf-latex/metadata.json"
+    },
+    {
+      "id": "github-motor-worksheet-ucb-ee192-course-site",
+      "name": "motor-worksheet (ucb-ee192/course-site)",
+      "type": "article",
+      "subject": "physics",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/article/physics/formal/github-motor-worksheet-ucb-ee192-course-site/template.tex",
+      "metadata_path": "templates/scraped/article/physics/formal/github-motor-worksheet-ucb-ee192-course-site/metadata.json"
+    },
+    {
+      "id": "overleaf-fstuinws-examtemplate",
+      "name": "FSTUINWS-ExamTemplate",
+      "type": "exam",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/exam/biology/minimal/overleaf-fstuinws-examtemplate/template.tex",
+      "metadata_path": "templates/scraped/exam/biology/minimal/overleaf-fstuinws-examtemplate/metadata.json"
+    },
+    {
+      "id": "overleaf-science-olympiad-test-template",
+      "name": "Science Olympiad Test Template",
+      "type": "exam",
+      "subject": "chemistry",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/exam/chemistry/formal/overleaf-science-olympiad-test-template/template.tex",
+      "metadata_path": "templates/scraped/exam/chemistry/formal/overleaf-science-olympiad-test-template/metadata.json"
+    },
+    {
+      "id": "overleaf-template-ad-question-paper-iba-community-",
+      "name": "Template AD question paper IBA Community College Naushahro Feroze",
+      "type": "exam",
+      "subject": "general",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/exam/general/minimal/overleaf-template-ad-question-paper-iba-community-/template.tex",
+      "metadata_path": "templates/scraped/exam/general/minimal/overleaf-template-ad-question-paper-iba-community-/metadata.json"
+    },
+    {
+      "id": "github-ms-dfm-george",
+      "name": "ms (dfm/george)",
+      "type": "exam",
+      "subject": "math",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/exam/math/formal/github-ms-dfm-george/template.tex",
+      "metadata_path": "templates/scraped/exam/math/formal/github-ms-dfm-george/metadata.json"
+    },
+    {
+      "id": "overleaf-pnas-nexus-official",
+      "name": "PNAS Nexus Official",
+      "type": "exam",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/exam/math/minimal/overleaf-pnas-nexus-official/template.tex",
+      "metadata_path": "templates/scraped/exam/math/minimal/overleaf-pnas-nexus-official/metadata.json"
+    },
+    {
+      "id": "github-syllabus-stephens999-stat302",
+      "name": "Syllabus (stephens999/stat302)",
+      "type": "exam",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/exam/math/minimal/github-syllabus-stephens999-stat302/template.tex",
+      "metadata_path": "templates/scraped/exam/math/minimal/github-syllabus-stephens999-stat302/metadata.json"
+    },
+    {
+      "id": "github-main-ziqi-yang-latex-assignment-template",
+      "name": "main (Ziqi-Yang/latex_assignment_template)",
+      "type": "homework",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/homework/cs/minimal/github-main-ziqi-yang-latex-assignment-template/template.tex",
+      "metadata_path": "templates/scraped/homework/cs/minimal/github-main-ziqi-yang-latex-assignment-template/metadata.json"
+    },
+    {
+      "id": "overleaf-template-of-exercise-list-of-unichristus",
+      "name": "Template of Exercise List of Unichristus",
+      "type": "homework",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/homework/cs/minimal/overleaf-template-of-exercise-list-of-unichristus/template.tex",
+      "metadata_path": "templates/scraped/homework/cs/minimal/overleaf-template-of-exercise-list-of-unichristus/metadata.json"
+    },
+    {
+      "id": "overleaf-university-exercise-template-german",
+      "name": "University exercise template (German)",
+      "type": "homework",
+      "subject": "general",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/homework/general/formal/overleaf-university-exercise-template-german/template.tex",
+      "metadata_path": "templates/scraped/homework/general/formal/overleaf-university-exercise-template-german/metadata.json"
+    },
+    {
+      "id": "github-main-gijs-pennings-latex-homework",
+      "name": "main (gijs-pennings/latex-homework)",
+      "type": "homework",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/homework/math/minimal/github-main-gijs-pennings-latex-homework/template.tex",
+      "metadata_path": "templates/scraped/homework/math/minimal/github-main-gijs-pennings-latex-homework/metadata.json"
+    },
+    {
+      "id": "github-vs-herrbez-vs2",
+      "name": "vs (herrBez/VS2)",
+      "type": "letter",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/letter/cs/minimal/github-vs-herrbez-vs2/template.tex",
+      "metadata_path": "templates/scraped/letter/cs/minimal/github-vs-herrbez-vs2/metadata.json"
+    },
+    {
+      "id": "github-cover-letter-yeungalan0-site-monorepo",
+      "name": "cover_letter (yeungalan0/site-monorepo)",
+      "type": "letter",
+      "subject": "general",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/letter/general/minimal/github-cover-letter-yeungalan0-site-monorepo/template.tex",
+      "metadata_path": "templates/scraped/letter/general/minimal/github-cover-letter-yeungalan0-site-monorepo/metadata.json"
+    },
+    {
+      "id": "github-i1-deinprogramm-schreibe-dein-programm",
+      "name": "i1 (deinprogramm/schreibe-dein-programm)",
+      "type": "letter",
+      "subject": "math",
+      "style_tags": [
+        "creative"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/letter/math/creative/github-i1-deinprogramm-schreibe-dein-programm/template.tex",
+      "metadata_path": "templates/scraped/letter/math/creative/github-i1-deinprogramm-schreibe-dein-programm/metadata.json"
+    },
+    {
+      "id": "github-apps-huangxg-lnotes",
+      "name": "apps (huangxg/lnotes)",
+      "type": "presentation",
+      "subject": "history",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/presentation/history/minimal/github-apps-huangxg-lnotes/template.tex",
+      "metadata_path": "templates/scraped/presentation/history/minimal/github-apps-huangxg-lnotes/metadata.json"
+    },
+    {
+      "id": "github-bsd-beamer-thodg-bsd-beamer",
+      "name": "bsd-beamer (thodg/bsd-beamer)",
+      "type": "presentation",
+      "subject": "history",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/presentation/history/minimal/github-bsd-beamer-thodg-bsd-beamer/template.tex",
+      "metadata_path": "templates/scraped/presentation/history/minimal/github-bsd-beamer-thodg-bsd-beamer/metadata.json"
+    },
+    {
+      "id": "github-c1-justingrimmer-causalinf",
+      "name": "c1 (justingrimmer/CausalInf)",
+      "type": "presentation",
+      "subject": "math",
+      "style_tags": [
+        "colorful"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/presentation/math/colorful/github-c1-justingrimmer-causalinf/template.tex",
+      "metadata_path": "templates/scraped/presentation/math/colorful/github-c1-justingrimmer-causalinf/metadata.json"
+    },
+    {
+      "id": "github-c3-justingrimmer-causalinf",
+      "name": "c3 (justingrimmer/CausalInf)",
+      "type": "presentation",
+      "subject": "math",
+      "style_tags": [
+        "colorful"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/presentation/math/colorful/github-c3-justingrimmer-causalinf/template.tex",
+      "metadata_path": "templates/scraped/presentation/math/colorful/github-c3-justingrimmer-causalinf/metadata.json"
+    },
+    {
+      "id": "github-main-ustctug-ustcbeamer",
+      "name": "main (ustctug/ustcbeamer)",
+      "type": "presentation",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/presentation/math/minimal/github-main-ustctug-ustcbeamer/template.tex",
+      "metadata_path": "templates/scraped/presentation/math/minimal/github-main-ustctug-ustcbeamer/metadata.json"
+    },
+    {
+      "id": "github-pre-liu-qilong-college-beamer",
+      "name": "pre (liu-qilong/college-beamer)",
+      "type": "presentation",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/presentation/math/minimal/github-pre-liu-qilong-college-beamer/template.tex",
+      "metadata_path": "templates/scraped/presentation/math/minimal/github-pre-liu-qilong-college-beamer/metadata.json"
+    },
+    {
+      "id": "github-dtl-report-rvce-latex-project-report-templa",
+      "name": "DTL_Report (rvce-latex/Project-Report-Template)",
+      "type": "report",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/report/biology/minimal/github-dtl-report-rvce-latex-project-report-templa/template.tex",
+      "metadata_path": "templates/scraped/report/biology/minimal/github-dtl-report-rvce-latex-project-report-templa/metadata.json"
+    },
+    {
+      "id": "github-template-faims-faims3-elaboration-report",
+      "name": "template (FAIMS/FAIMS3-Elaboration-Report)",
+      "type": "report",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/report/biology/minimal/github-template-faims-faims3-elaboration-report/template.tex",
+      "metadata_path": "templates/scraped/report/biology/minimal/github-template-faims-faims3-elaboration-report/metadata.json"
+    },
+    {
+      "id": "github-main-kastnerrg-pp4fpgas",
+      "name": "main (KastnerRG/pp4fpgas)",
+      "type": "report",
+      "subject": "math",
+      "style_tags": [
+        "colorful",
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/report/math/colorful/github-main-kastnerrg-pp4fpgas/template.tex",
+      "metadata_path": "templates/scraped/report/math/colorful/github-main-kastnerrg-pp4fpgas/metadata.json"
+    },
+    {
+      "id": "overleaf-template",
+      "name": "Template",
+      "type": "report",
+      "subject": "math",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/report/math/minimal/overleaf-template/template.tex",
+      "metadata_path": "templates/scraped/report/math/minimal/overleaf-template/metadata.json"
+    },
+    {
+      "id": "overleaf-altacv-templatetop-pick",
+      "name": "AltaCV TemplateTop pick",
+      "type": "resume",
+      "subject": "biology",
+      "style_tags": [
+        "modern"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/biology/modern/overleaf-altacv-templatetop-pick/template.tex",
+      "metadata_path": "templates/scraped/resume/biology/modern/overleaf-altacv-templatetop-pick/metadata.json"
+    },
+    {
+      "id": "github-cv-zachscrivena-simple-resume-cv",
+      "name": "CV (zachscrivena/simple-resume-cv)",
+      "type": "resume",
+      "subject": "biology",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/biology/minimal/github-cv-zachscrivena-simple-resume-cv/template.tex",
+      "metadata_path": "templates/scraped/resume/biology/minimal/github-cv-zachscrivena-simple-resume-cv/metadata.json"
+    },
+    {
+      "id": "github-cv-depressiverobot-friggeri-cv-a4",
+      "name": "cv (depressiveRobot/friggeri-cv-a4)",
+      "type": "resume",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/cs/minimal/github-cv-depressiverobot-friggeri-cv-a4/template.tex",
+      "metadata_path": "templates/scraped/resume/cs/minimal/github-cv-depressiverobot-friggeri-cv-a4/metadata.json"
+    },
+    {
+      "id": "overleaf-cv-template",
+      "name": "CV Template",
+      "type": "resume",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/cs/minimal/overleaf-cv-template/template.tex",
+      "metadata_path": "templates/scraped/resume/cs/minimal/overleaf-cv-template/metadata.json"
+    },
+    {
+      "id": "overleaf-entry-level-resume-template-latex",
+      "name": "Entry Level Resume Template (LaTeX)",
+      "type": "resume",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/cs/minimal/overleaf-entry-level-resume-template-latex/template.tex",
+      "metadata_path": "templates/scraped/resume/cs/minimal/overleaf-entry-level-resume-template-latex/metadata.json"
+    },
+    {
+      "id": "overleaf-simple-hipster-cvtop-pick",
+      "name": "Simple Hipster CVTop pick",
+      "type": "resume",
+      "subject": "cs",
+      "style_tags": [
+        "minimal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/cs/minimal/overleaf-simple-hipster-cvtop-pick/template.tex",
+      "metadata_path": "templates/scraped/resume/cs/minimal/overleaf-simple-hipster-cvtop-pick/metadata.json"
+    },
+    {
+      "id": "github-wyx-en-zellux-resume",
+      "name": "wyx-en (zellux/resume)",
+      "type": "resume",
+      "subject": "cs",
+      "style_tags": [
+        "modern"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/cs/modern/github-wyx-en-zellux-resume/template.tex",
+      "metadata_path": "templates/scraped/resume/cs/modern/github-wyx-en-zellux-resume/metadata.json"
+    },
+    {
+      "id": "overleaf-a-customised-curve-cvtop-pick",
+      "name": "A Customised CurVe CVTop pick",
+      "type": "resume",
+      "subject": "general",
+      "style_tags": [
+        "modern"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/general/modern/overleaf-a-customised-curve-cvtop-pick/template.tex",
+      "metadata_path": "templates/scraped/resume/general/modern/overleaf-a-customised-curve-cvtop-pick/metadata.json"
+    },
+    {
+      "id": "github-cv-stefanqn-bewerbung",
+      "name": "cv (Stefanqn/Bewerbung)",
+      "type": "resume",
+      "subject": "general",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/general/formal/github-cv-stefanqn-bewerbung/template.tex",
+      "metadata_path": "templates/scraped/resume/general/formal/github-cv-stefanqn-bewerbung/metadata.json"
+    },
+    {
+      "id": "overleaf-northeastern-university-cos-faculty-cv-te",
+      "name": "Northeastern University COS Faculty CV Template",
+      "type": "resume",
+      "subject": "general",
+      "style_tags": [
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/general/formal/overleaf-northeastern-university-cos-faculty-cv-te/template.tex",
+      "metadata_path": "templates/scraped/resume/general/formal/overleaf-northeastern-university-cos-faculty-cv-te/metadata.json"
+    },
+    {
+      "id": "overleaf-maltacv",
+      "name": "MAltaCV",
+      "type": "resume",
+      "subject": "history",
+      "style_tags": [
+        "colorful",
+        "modern"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/history/colorful/overleaf-maltacv/template.tex",
+      "metadata_path": "templates/scraped/resume/history/colorful/overleaf-maltacv/metadata.json"
+    },
+    {
+      "id": "overleaf-sixtysecondscv",
+      "name": "SixtySecondsCV",
+      "type": "resume",
+      "subject": "history",
+      "style_tags": [
+        "modern"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/history/modern/overleaf-sixtysecondscv/template.tex",
+      "metadata_path": "templates/scraped/resume/history/modern/overleaf-sixtysecondscv/metadata.json"
+    },
+    {
+      "id": "overleaf-moderncv-and-cover-letter-template",
+      "name": "ModernCV and Cover Letter Template",
+      "type": "resume",
+      "subject": "math",
+      "style_tags": [
+        "modern",
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/math/modern/overleaf-moderncv-and-cover-letter-template/template.tex",
+      "metadata_path": "templates/scraped/resume/math/modern/overleaf-moderncv-and-cover-letter-template/metadata.json"
+    },
+    {
+      "id": "github-template-cmhyett-cmhyett-github-io",
+      "name": "template (cmhyett/cmhyett.github.io)",
+      "type": "resume",
+      "subject": "math",
+      "style_tags": [
+        "modern",
+        "formal"
+      ],
+      "educational": false,
+      "tex_path": "templates/scraped/resume/math/modern/github-template-cmhyett-cmhyett-github-io/template.tex",
+      "metadata_path": "templates/scraped/resume/math/modern/github-template-cmhyett-cmhyett-github-io/metadata.json"
+    },
+    {
+      "id": "github-worksheet-cls-sswatson-latex-setup",
+      "name": "worksheet-cls (sswatson/latex-setup)",
+      "type": "worksheet",
+      "subject": "chemistry",
+      "style_tags": [
+        "creative"
+      ],
+      "educational": true,
+      "tex_path": "templates/scraped/worksheet/chemistry/creative/github-worksheet-cls-sswatson-latex-setup/template.tex",
+      "metadata_path": "templates/scraped/worksheet/chemistry/creative/github-worksheet-cls-sswatson-latex-setup/metadata.json"
+    }
+  ]
+}

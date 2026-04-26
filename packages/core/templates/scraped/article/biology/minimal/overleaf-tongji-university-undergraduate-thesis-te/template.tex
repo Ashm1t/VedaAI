@@ -1,0 +1,39 @@
+\documentclass[
+  oneside,
+  fullwidthstop=false,
+  fontset=fandol,
+  times=false,
+  minted=true,
+  biblatex=true,
+]{tongjithesis}
+
+\tjbibresource{bib/note.bib}
+
+\begin{document}
+
+\input{sections/frontcover}
+\cleardoublepage
+
+\pagestyle{firststyle}
+\input{sections/00_abstract}
+
+\clearpage
+\tableofcontents
+\cleardoublepage
+
+\pagestyle{mainstyle}
+\input{sections/01_intro}
+\input{sections/02_math}
+\input{sections/03_reference}
+\input{sections/04_float}
+\input{sections/05_conclusion}
+
+\makereferences
+
+\appendix
+\input{sections/appendix}
+
+\clearpage
+\input{sections/ack}
+
+\end{document}

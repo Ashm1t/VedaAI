@@ -1,0 +1,21 @@
+{
+  "id": "overleaf-simple-hipster-cvtop-pick",
+  "name": "Simple Hipster CVTop pick",
+  "source_url": "https://www.overleaf.com/latex/templates/simple-hipster-cv/cnpkkjdkyhhw",
+  "source_site": "overleaf",
+  "type": "resume",
+  "subject": "cs",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "This is a new version of Hipster CV ( Github repo – read up more on the initial thought with it here &amp;amp; here).\n\nThe idea was to create a template a little...",
+  "date_scraped": "2026-03-29T08:21:45.919Z",
+  "packages_required": [
+    "inputenc",
+    "raleway",
+    "geometry"
+  ],
+  "has_custom_macros": false,
+  "document_class": "simplehipstercv",
+  "educational": false
+}

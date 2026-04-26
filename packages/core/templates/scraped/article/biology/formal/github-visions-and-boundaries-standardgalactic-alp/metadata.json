@@ -1,0 +1,30 @@
+{
+  "id": "github-visions-and-boundaries-standardgalactic-alp",
+  "name": "visions-and-boundaries (standardgalactic/alphabet)",
+  "source_url": "https://github.com/standardgalactic/alphabet/blob/181a265bdf8c74e26342cc508e5d86fe2369c921/screenplay/visions-and-boundaries.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "biology",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "Standard Galactic Alphabet",
+  "date_scraped": "2026-03-29T08:19:04.729Z",
+  "packages_required": [
+    "inputenc",
+    "fontenc",
+    "lmodern",
+    "csquotes",
+    "amsmath",
+    "amssymb",
+    "amsthm",
+    "bm",
+    "setspace",
+    "geometry",
+    "xurl",
+    "hyperref"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

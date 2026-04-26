@@ -1,0 +1,289 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{mypreamble}
+
+%% Page setup
+\geometry{
+    margin=2cm,
+    includehead,
+    % includefoot,
+    headsep=\baselineskip,
+}
+\pagestyle{fancy}
+\fancyfoot{}
+\MakeDoubleHeader% {<l1>}{<l2>}{<r1>}{<r2>}
+    {\TextHomeworkEng~\#4}
+    {Formal Logic}
+    {\TextDiscreteMathEng}
+    {\IconFall~Fall 2024}
+
+%% Add custom setup below
+
+%% Formal proofs
+\usepackage{fitch}
+% https://www.mathstat.dal.ca/~selinger/fitch/fitchdoc.pdf
+% \nddim{height}{topheight}{depth}{labelsep}{indent}{hsep}{justsep}{linethickness}
+% Default: \nddim{4.5ex}{3.5ex}{1.5ex}{1em}{1.6em}{.5em}{2.5em}{.2mm}
+\nddim%
+    {4.0ex}% <height> [4.5ex]
+    {3.3ex}% <topheight> [3.5ex]
+    {1.2ex}% <depth> [1.5ex]
+    {0.7em}% <labelsep> [1em]
+    {0.7em}% <indent> [1.6em]
+    {0.5em}% <hsep> [.5em]
+    {2.0em}% <justsep> [2.5em]
+    {0.8pt}% <linethickness> [.2mm]
+
+\begin{document}
+\selectlanguage{english}
+
+\begin{tasks}
+    % \item Construct complete truth tables for the given sentences. For each sentence, determine if it is a tautology, a contradiction, or a contingency. For each formula, draw its parse tree.
+
+    % \begin{multicols}{2}
+    % \begin{subtasks}
+    %     \item $(A \implies B) \iff (B \implies A)$
+    %     \item $((H \iff H) \implies H) \land \neg(H \implies H)$
+    %     \item $\neg(R \land S \land T) \iff (R \lor S \lor T)$
+    %     \item $(P \lor (Q \implies \neg P)) \land (P \implies \neg Q)$
+    % \end{subtasks}
+    % \end{multicols}
+
+
+    \item For each given set of sentences, determine whether it is logically consistent (jointly satisfiable).
+
+    \begin{multicols}{2}
+    \begin{subtasks}
+        \item $\neg D$, $(D \lor F)$, $\neg F$
+        \item $(T \implies K)$, $\neg K$, $(K \lor \neg T)$
+        \item $\neg(A \implies (\neg C \implies B))$, $((B \lor C) \land A)$
+        \item $(C \implies B)$, $(D \lor C)$, $\neg B$, $(D \implies B)$
+    \end{subtasks}
+    \end{multicols}
+
+
+    \item Complete the following deductive formal proofs by filling in missing formulae and justifications.
+
+    \begin{multicols}{2}
+    \begin{subtasks}
+        \newcommand{\mybox}{%
+            \tikz[baseline=0.5ex] \draw (0,0) rectangle (2em,2.5ex);%
+        }
+
+        \item \(\begin{nd}[t]
+            \hypo{p1}{H \implies (R \land C)} \premise
+            \hypo{p2}{\neg R \lor \neg C} \premise
+            \have{a}{\neg(R \land C)} \by{\mybox}{}
+            \have[\therefore]{c}{\mybox} \mt{p1,a}
+        \end{nd}\)
+
+        \item \(\begin{nd}[t]
+            \hypo{p1}{K \land S} \premise
+            \hypo{p2}{\neg K} \premise
+            \have{a}{\mybox} \by{\mybox}{}
+            \have{a}{\mybox} \by{\mybox}{}
+            \have[\therefore]{c}{\neg S} \by{\mybox}{}
+        \end{nd}\)
+
+        \item \(\begin{nd}[t]
+            \hypo{p}{A \implies \neg A} \premise
+            \have[\,\vdots]{a}{\mybox} \by{(multiple lines)}{}
+            \have[\therefore]{c}{\neg A} \by{LEM \mybox}{}
+        \end{nd}\)
+
+        \item \(\begin{nd}[t]
+            \hypo{p}{(P \land Q) \lor (P \land R)} \premise
+            \open
+            \hypo{a1}{\mybox} \by{Assumption}{}
+            \have{b1}{P} \by{\mybox}{}
+            \close
+            \open
+            \hypo{a2}{\mybox} \by{Assumption}{}
+            \have{b2}{P} \by{\mybox}{}
+            \close
+            \have[\therefore]{c}{P} \by{\mybox}{}
+        \end{nd}\)
+    \end{subtasks}
+    \end{multicols}
+
+
+    \item Symbolize the given arguments with well-formed formulae (WFFs) of propositional logic.
+    For each argument, determine its validity using a truth table.
+    For each \textit{valid} argument, provide a deductive formal proof\footnote{You can check your proofs at \url{https://proofs.openlogicproject.org}. Note that some inference rules may be missing here, \eg contraposition and commutativity \--- nevertheless, you are still allowed to use them in this task.} in Fitch notation.
+    For each \textit{invalid} argument, provide a counterexample valuation.
+
+    \begin{subtasks}
+        % (P -> Q), ~Q \/ R, P \therefore R
+        \item \textit{If philosophers ponder profound problems, their quandaries quell quotidian quibbles.
+        Either their quandaries don't quell quotidian quibbles or right reasoning reveals reality (or both).
+        Philosophers do ponder profound problems.
+        Therefore, right reasoning reveals reality.}
+
+        % A -> (~B \/ ~C), B, ~A \/ ~C \therefore ~A
+        \item \textit{If aardvarks are adorable, then either baby baboons don't beat bongos or crocodiles can't consume cute capybaras (or both).
+        Baby baboons beat bongos.
+        Aardvarks aren't adorable unless crocodiles can't consume cute capybaras.
+        Therefore, aardvarks aren't adorable.}
+
+        % ~D -> G, D -> H \therefore G \/ H
+        \item \textit{If discipline doesn't defeat deficiency, then geniuses generally get good grades.
+        If discipline defeats deficiency, then homework has harmed humanity.
+        Therefore, geniuses generally get good grades unless homework has harmed humanity.}
+
+        % C -> ~I, (M /\ D) \/ C, I, \therefore M <-> D
+        \item \textit{Crocodiles can consume cute capybaras only if incarcerating iguanas isn't illegal.
+        Mad monkeys make mayhem and dinosaurs do disco dance, unless crocodiles consume cute capybaras.
+        It is known that incarcerating iguanas is illegal.
+        Therefore, dinosaurs do disco dance if and only if mad monkeys make mayhem.}
+    \end{subtasks}
+
+
+    \item For each given argument, construct a deductive proof in Fitch notation using only basic rules.
+
+    \begin{multicols}{2}
+    \begin{subtasks}
+        \item $\neg\neg A \therefore A$
+        \item $((A \implies B) \implies A) \therefore A$
+        \item $(\neg B \implies \neg A) \therefore (A \implies B)$
+        \item $\neg (A \lor B) \therefore (\neg A \land \neg B)$
+        \item $(\neg A \land \neg B) \therefore \neg (A \lor B)$
+        \item $(A \implies B) \land (\neg A \implies B) \therefore B$
+    \end{subtasks}
+    \end{multicols}
+
+
+    \item For each given tautology, construct a deductive proof in Fitch notation.
+
+    \begin{multicols}{2}
+    \begin{subtasks}
+        \item $(A \implies B) \lor (B \implies A)$
+        \item $A \implies (B \implies A)$
+        \item $(\neg B \implies \neg A) \implies ((\neg B \implies A) \implies B)$
+        \item $(A \implies (B \implies C)) \implies ((A \implies B) \implies (A \implies C))$
+    \end{subtasks}
+    \end{multicols}
+
+
+    \item Reduce \emph{any three}\footnote{Collaborate with your classmates to cover distinct problems. Try to select problems from different domains.} of the following problems to the Boolean satisfiability problem (SAT).
+
+    Provide a detailed encoding of each chosen problem into logical variables and propositional constraints.
+    While your encoding does not have to be in CNF, explain how high-level constraints (such as arithmetic conditions) translate into propositional logic.
+    Additionally, discuss possible extensions or variations for each problem, and describe how your reduction could be adapted to handle these cases effectively.
+
+    \begin{enumerate}[start=0]
+        \item \emph{(Do not pick this one!)} \textbf{Graph Coloring:}
+        Determine if a given graph $G = (V, E)$ can be properly colored with $k$ colors so that no two adjacent vertices share the same color.
+
+        \item \textbf{Sudoku Puzzle:}
+        Determine if a partially filled $9 \times 9$ Sudoku grid can be completed so that each row, column, and $3 \times 3$ sub-grid contains each digit from 1 to 9 exactly once.
+
+        \item \textbf{N-Queens Problem:}
+        Place $N$ queens on an $N \times N$ chessboard so that no two queens threaten each other (no shared row, column, or diagonal).
+
+        \item \textbf{Hamiltonian Cycle:}
+        Determine if a given directed graph $G = (V, E)$ contains a Hamiltonian cycle that visits each vertex exactly once and returns to the starting point.
+
+        \item \textbf{Clique:}
+        Determine if a graph $G = (V, E)$ has a $k$-clique: a complete subgraph on $k$ vertices.
+
+        \item \textbf{Vertex Cover:}
+        Determine if a graph $G = (V, E)$ has a vertex cover of size~$k$: a set of vertices touching all edges.
+
+        \item \textbf{Tiling Problem:}
+        Determine if a given rectangular region can be tiled (without gaps or overlaps) using a specified set of shapes (e.g., dominoes or tetrominoes).
+
+        \item \textbf{3D Packing Problem:}
+        Determine if a set of 3D rectangular objects can fit into a container of fixed dimensions without overlapping, possibly rotating the objects as necessary.
+
+        \item \textbf{Exact Cover Problem:}
+        Given a universe $U$ and a collection of subsets, determine if there exists a sub-collection of these subsets that covers each element of $U$ exactly once.
+
+        \item \textbf{Cryptarithm Solver:}
+        Given a cryptarithm (e.g., $\mathtt{SEND} + \mathtt{MORE} = \mathtt{MONEY}$), assign a unique digit to each letter so that the resulting arithmetic equation holds true.
+
+        \item \textbf{Boolean Formula Synthesis:}\Href{https://doi.org/10.17586/2226-1494-2020-20-6-841-847}
+        Given a Boolean function $f: \{0,1\}^n \to \{0,1\}$, construct a Boolean formula in a form of a parse tree with $k$~nodes (logic connectives and variables) that computes~$f$.
+
+        \item \textbf{Boolean Circuit Synthesis:}
+        Given a Boolean function $f: \{0,1\}^n \to \{0,1\}^m$, construct a Boolean circuit with $k$ logic gates that computes~$f$.
+
+        \item \textbf{Logical Equivalence Check:}
+        Determine if two given Boolean circuits are equivalent (i.e.,~they compute the same Boolean function).
+
+        \item \textbf{Scheduling Problem:}
+        Assign $n$ tasks to $m$ time slots and $k$ processors. Each task should be scheduled exactly once, precedence constraints must be satisfied, tasks sharing a resource cannot overlap, and tasks requiring multiple time slots must be scheduled contiguously.
+
+        \item \textbf{Pancake Sorting:}
+        Given a stack of pancakes of varying sizes, determine a sequence of flips (each flip reverses the order of the top portion of the stack) to sort the stack with the largest pancake at the bottom.
+
+        \item \textbf{Latin Square:}
+        Determine if a partially filled $n \times n$ grid can be completed so that each row and column contains each of $n$ distinct symbols exactly once.
+
+        \item \textbf{Bin Packing Problem:}
+        Given a set of items with sizes and a fixed number of bins with given capacities, determine if all items can be placed into the bins without exceeding any bin's capacity.
+
+        \item \textbf{Betweenness Problem:}
+        Given a set of elements and constraints of the form $(a,b,c)$, meaning that in any acceptable linear ordering of these elements, $b$~must lie between $a$ and~$c$, determine if there exists such an ordering that satisfies all betweenness constraints.
+    \end{enumerate}
+
+    % use minipage to prevent page break for this block
+    \begin{minipage}{\linewidth}
+    \textbf{Guidelines for the reduction:}
+    \begin{itemize}
+        \item Define logical variables to represent key properties of the problem (e.g., whether a vertex is assigned a specific color, whether an item is placed in a particular bin, etc.).
+        \item Formulate constraints that enforce the rules of the problem in propositional logic.
+        \item Show how a solution to the SAT instance corresponds to a solution of the original problem.
+        \item Verify that your reduction captures all valid solutions of the original problem.
+    \end{itemize}
+    \end{minipage}
+
+    \medskip
+    \textbf{Example solution for the Graph Coloring problem:}
+
+    \begin{enumerate}
+        \item Define variables $x_{v,c}$ for each vertex $v \in V$ and color $c \in \{1,\dots,k\}$, where $x_{v,c}=1$ if vertex $v$ is assigned color $c$.
+        \item Add constraints ensuring each vertex is assigned exactly one color:
+        \[
+            \biglor_{c=1}^{k} x_{v,c} \quad \text{for all } v \in V
+        \]
+        \[
+            \neg(x_{v,c} \land x_{v,c'}) \quad \text{for all } v \in V, \, c \neq c'
+        \]
+        \item Add constraints ensuring no two adjacent vertices share the same color:
+        \[
+            \neg(x_{u,c} \land x_{v,c}) \quad \text{for all } (u,v) \in E, \, c \in \{1,\dots,k\}
+        \]
+        \item Optionally, fix a specific vertex and color to reduce symmetries:
+        \[
+            x_{1,1} = 1
+        \]
+        \item Possible extensions and variations:
+        \begin{itemize}[left=0pt]
+            \item Bounded coloring: Require each color to be used at least $t_{\min}$ and at most $t_{\max}$ times.
+            \item Exact coloring\Href{https://en.wikipedia.org/wiki/Exact_coloring}: Ensure every pair of colors appears on exactly one pair of adjacent vertices.
+        \end{itemize}
+    \end{enumerate}
+
+    \medskip
+    \textbf{Example solution for the Knapsack problem:}
+
+    \begin{enumerate}
+        \item Define variables $x_i$ for each item~$i$, where $x_i = 1$ if item~$i$ is included.
+        \item Add constraints to ensure the total weight does not exceed the limit~$W$:
+        \[
+            \sum_{i} w_i x_i \leq W
+        \]
+        \item Formulate the objective (though the SAT is a decision problem, you can encode the optimization (e.g., maximization) problem as a series of checks for a certain value threshold):
+        \[
+            \sum_{i} v_i x_i \geq V_{\text{target}}
+        \]
+        \item Possible extensions and variations:
+        \begin{itemize}
+            \item Fractional knapsack: Allow items to be broken into smaller pieces, so that a fraction of an item (with non-proportionally less value) can be included in the knapsack.
+            \item Multiple knapsacks: Consider multiple knapsacks with different weight limits.
+        \end{itemize}
+    \end{enumerate}
+
+    % \item \ldots
+\end{tasks}
+
+\end{document}

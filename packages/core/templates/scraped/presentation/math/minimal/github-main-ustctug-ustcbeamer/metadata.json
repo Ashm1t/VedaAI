@@ -1,0 +1,20 @@
+{
+  "id": "github-main-ustctug-ustcbeamer",
+  "name": "main (ustctug/ustcbeamer)",
+  "source_url": "https://github.com/ustctug/ustcbeamer/blob/315cd85837074ebda261f6559bffacab6c5973ce/main.tex",
+  "source_site": "github",
+  "type": "presentation",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "USTC Beamer 模板（基于学校公用 PPT 模板）",
+  "date_scraped": "2026-03-29T08:18:24.191Z",
+  "packages_required": [
+    "physics",
+    "ustcbeamer"
+  ],
+  "has_custom_macros": false,
+  "document_class": "ctexbeamer",
+  "educational": false
+}

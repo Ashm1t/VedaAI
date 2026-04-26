@@ -1,0 +1,31 @@
+{
+  "id": "github-first-midterm-2024-jhu-intro-hlt-jhu-intro-",
+  "name": "first-midterm-2024 (jhu-intro-hlt/jhu-intro-hlt.github.io)",
+  "source_url": "https://github.com/jhu-intro-hlt/jhu-intro-hlt.github.io/blob/08b2743ed9ea54888fb1f8fd030ed785f72faeb8/exam/first-midterm-2024.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "chemistry",
+  "style_tags": [
+    "creative"
+  ],
+  "description": "JHU Introduction to Human Language Technology",
+  "date_scraped": "2026-03-29T08:19:14.886Z",
+  "packages_required": [
+    "palatino",
+    "fullpage",
+    "graphicx",
+    "enumitem",
+    "multirow",
+    "latexsym",
+    "tikz",
+    "pgfplots",
+    "booktabs",
+    "color",
+    "amsmath",
+    "amssymb",
+    "inputenc"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

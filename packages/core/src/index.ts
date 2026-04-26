@@ -113,7 +113,7 @@ export class TexRAG {
 // ── Re-exports ─────────────────────────────────────────────────────
 
 export { GroqAdapter } from "./llm-adapter.js";
-export { OpenAIEmbeddingAdapter } from "./embedding-adapter.js";
+export { HuggingFaceEmbeddingAdapter, OpenAIEmbeddingAdapter } from "./embedding-adapter.js";
 export { TemplateRegistry } from "./template-registry.js";
 export { TemplateRetriever } from "./template-retriever.js";
 export { validateLatex, autoFixLatex } from "./validator.js";

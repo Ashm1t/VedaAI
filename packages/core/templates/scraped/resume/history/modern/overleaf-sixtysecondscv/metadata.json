@@ -1,0 +1,27 @@
+{
+  "id": "overleaf-sixtysecondscv",
+  "name": "SixtySecondsCV",
+  "source_url": "https://www.overleaf.com/latex/templates/sixtysecondscv/gcdrzwwvkqcr",
+  "source_site": "overleaf",
+  "type": "resume",
+  "subject": "history",
+  "style_tags": [
+    "modern"
+  ],
+  "description": "A Free, highly customizable, multi-page CV template with left sidebar suitable for anyone. This template needs to be compiled with XeLaTeX/LuaLaTeX.\n\nThis te...",
+  "date_scraped": "2026-03-29T08:22:03.654Z",
+  "packages_required": [
+    "microtype",
+    "ragged2e",
+    "hyphenat",
+    "fontspec",
+    "inputenc",
+    "fontenc",
+    "noto",
+    "amssymb",
+    "smartdiagram"
+  ],
+  "has_custom_macros": false,
+  "document_class": "unknown",
+  "educational": false
+}

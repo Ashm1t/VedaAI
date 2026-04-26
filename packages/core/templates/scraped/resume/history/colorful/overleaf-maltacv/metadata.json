@@ -1,0 +1,27 @@
+{
+  "id": "overleaf-maltacv",
+  "name": "MAltaCV",
+  "source_url": "https://www.overleaf.com/latex/templates/maltacv/fkxzrrhfddgy",
+  "source_site": "overleaf",
+  "type": "resume",
+  "subject": "history",
+  "style_tags": [
+    "colorful",
+    "modern"
+  ],
+  "description": "Yet another resume/CV template.\nGithub: https://github.com/Manciukic/MAltaCV",
+  "date_scraped": "2026-03-29T08:21:48.398Z",
+  "packages_required": [
+    "inputenc",
+    "fontenc",
+    "lato",
+    "tgheros",
+    "setspace",
+    "mathpazo",
+    "textcomp",
+    "multicol"
+  ],
+  "has_custom_macros": true,
+  "document_class": "altacv",
+  "educational": false
+}

@@ -1,0 +1,25 @@
+{
+  "id": "overleaf-science-olympiad-test-template",
+  "name": "Science Olympiad Test Template",
+  "source_url": "https://www.overleaf.com/latex/templates/science-olympiad-test-template/bmwwkvsbhkhj",
+  "source_site": "overleaf",
+  "type": "exam",
+  "subject": "chemistry",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "A template for Science Olympiad (SciOly) tests for event supervisors and test writers with examples of how to format questions and answers. Tutorial for use ...",
+  "date_scraped": "2026-03-29T08:20:03.087Z",
+  "packages_required": [
+    "graphicx",
+    "color",
+    "titlesec",
+    "chemmacros",
+    "chemformula",
+    "chemgreek",
+    "circuitikz"
+  ],
+  "has_custom_macros": true,
+  "document_class": "exam",
+  "educational": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "github-cover-letter-yeungalan0-site-monorepo",
+  "name": "cover_letter (yeungalan0/site-monorepo)",
+  "source_url": "https://github.com/yeungalan0/site-monorepo/blob/d83146da34e27e77277b8d3206dcce368ad7c3c6/my_site/public/my-resume/cover_letter.tex",
+  "source_site": "github",
+  "type": "letter",
+  "subject": "general",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Monorepo for my site projects",
+  "date_scraped": "2026-03-29T08:18:47.297Z",
+  "packages_required": [],
+  "has_custom_macros": true,
+  "document_class": "unknown",
+  "educational": false
+}

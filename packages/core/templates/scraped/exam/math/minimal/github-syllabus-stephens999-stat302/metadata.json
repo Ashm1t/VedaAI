@@ -1,0 +1,17 @@
+{
+  "id": "github-syllabus-stephens999-stat302",
+  "name": "Syllabus (stephens999/stat302)",
+  "source_url": "https://github.com/stephens999/stat302/blob/870edd33f430e19611cb7270e138c1795781cb9f/notes/Syllabus.tex",
+  "source_site": "github",
+  "type": "exam",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "notes from my 302 class on Bayesian methods and principles of statistics",
+  "date_scraped": "2026-03-29T08:19:29.306Z",
+  "packages_required": [],
+  "has_custom_macros": true,
+  "document_class": "unknown",
+  "educational": true
+}

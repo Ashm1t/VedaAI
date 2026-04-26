@@ -1,0 +1,32 @@
+{
+  "id": "github-iihw-zhaofeng-shu33-thu-coursework-template",
+  "name": "iihw (zhaofeng-shu33/THU-coursework-template)",
+  "source_url": "https://github.com/zhaofeng-shu33/THU-coursework-template/blob/7dc58c16e124b23daf650a5e6bef5d49146a3bd5/iihw.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "THU coursework template, intended user: Mathematics, Physics, Electronic Engineering, Mechanics and Computer Science",
+  "date_scraped": "2026-03-29T08:17:37.393Z",
+  "packages_required": [
+    "fontenc",
+    "amsmath",
+    "amssymb",
+    "amsthm",
+    "moreenum",
+    "mathtools",
+    "url",
+    "graphicx",
+    "subcaption",
+    "booktabs",
+    "eucal",
+    "dsfont",
+    "matlab-prettifier",
+    "iidef"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

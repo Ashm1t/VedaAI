@@ -1,0 +1,59 @@
+% File: quiz/quiz_0218.tex
+
+\documentclass[12pt]{article}
+
+% Load your custom style package
+\usepackage{/Users/bwill22/brianrwilliams/new_style}
+\usepackage{/Users/bwill22/brianrwilliams/macros-master}
+
+% Additional packages needed for this quiz template
+\usepackage{amssymb,amsmath,amsthm}
+
+% Itemize and enumerate styles consistent with your style package can remain default
+
+% Page geometry and header/footer can be customized here:
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\headfam\headweight Quiz}
+\fancyhead[C]{\headfam\itshape\large\thetitle}
+\fancyhead[R]{\headfam\headweight Page \thepage}
+% Title formatting uses your package's redefinition, so normal \title works
+\title{MA 442 - Quiz}
+\date{February 18}
+
+\begin{document}
+
+\maketitle
+\vspace{-1em}
+\noindent
+\begin{tabular}{@{}p{1cm}p{8cm}p{1cm}p{5cm}@{}}
+\textbf{Name:} & \hrulefill & \textbf{BUID:} & \hrulefill \\
+\end{tabular}
+
+\vspace{4pt}
+
+There are two questions, you must answer both.
+
+\vspace{4pt} 
+
+\begin{question}
+Is there a linear transformation $\sfT \colon \RR^3 \to \RR^2$ such that $\sfT(1,0,1)=(1,1)$, $\sfT(1,0,-1)=(1,1)$ and
+$\sfT(0,0,2) = (2,1)$? You must
+justify your answer.
+\end{question}
+
+\begin{question}
+  Let $\sfP_k$ be the vector space of polynomials of degree $\leq k$. 
+  Recall that this is a vector space of dimension $k+1$.
+  Let $\sfT \colon \sfP_2 \to \RR[x]$ be the linear map defined by
+  \begin{equation}\label{}
+    \sfT(f(x)) = f'(x) + xf(x).
+  \end{equation}
+  For example $\sfT(x^2) = 2x + x^3$.
+  (You do not need to check that this is linear.)
+
+  Compute $\dim \ker \sfT$ and $\dim \op{Im} \sfT$. (Hint: You should only need to compute one of these explicitly.)
+\end{question}
+\end{document}

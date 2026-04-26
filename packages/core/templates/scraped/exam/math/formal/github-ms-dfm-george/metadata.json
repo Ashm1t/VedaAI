@@ -1,0 +1,24 @@
+{
+  "id": "github-ms-dfm-george",
+  "name": "ms (dfm/george)",
+  "source_url": "https://github.com/dfm/george/blob/b5023758d6341df84b927d1350efbf57fc0b7f22/paper/ms.tex",
+  "source_site": "github",
+  "type": "exam",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "Fast and flexible Gaussian Process regression in Python",
+  "date_scraped": "2026-03-29T08:17:29.890Z",
+  "packages_required": [
+    "microtype",
+    "url",
+    "amsmath",
+    "amssymb",
+    "natbib",
+    "multirow"
+  ],
+  "has_custom_macros": true,
+  "document_class": "aastex61",
+  "educational": true
+}

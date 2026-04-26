@@ -1,0 +1,17 @@
+{
+  "id": "overleaf-template",
+  "name": "Template",
+  "source_url": "https://www.overleaf.com/latex/templates/template/cwqbynvjjzbx",
+  "source_site": "overleaf",
+  "type": "report",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Notes Template",
+  "date_scraped": "2026-03-29T08:20:35.710Z",
+  "packages_required": [],
+  "has_custom_macros": false,
+  "document_class": "report",
+  "educational": false
+}

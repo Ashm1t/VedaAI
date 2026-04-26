@@ -82,7 +82,7 @@ export default function EmptyState() {
       </p>
 
       <Link
-        href="/assignments/create"
+        href="/legacy/assignments/create"
         className="flex items-center gap-2 rounded-xl bg-[#1DB954] px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#1AA34A]"
       >
         <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
@@ -93,7 +93,7 @@ export default function EmptyState() {
             strokeLinecap="round"
           />
         </svg>
-        Create Your First Assignment
+        Open Legacy Assignment Builder
       </Link>
     </div>
   );

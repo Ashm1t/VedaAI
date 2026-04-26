@@ -1,0 +1,32 @@
+{
+  "id": "github-template-fi-jarlerik-kandidaattitutkielma",
+  "name": "template-fi (jarlerik/kandidaattitutkielma)",
+  "source_url": "https://github.com/jarlerik/kandidaattitutkielma/blob/b8604869c8c4fc4a436940e7e147c4ad5ee3b1b7/template-fi.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "LaTeX template from jarlerik/kandidaattitutkielma",
+  "date_scraped": "2026-03-29T08:18:41.617Z",
+  "packages_required": [
+    "inputenc",
+    "lmodern",
+    "microtype",
+    "amsfonts",
+    "amsmath",
+    "amssymb",
+    "amsthm",
+    "booktabs",
+    "color",
+    "enumitem",
+    "graphicx",
+    "hyperref",
+    "babelbib",
+    "tocbibind"
+  ],
+  "has_custom_macros": false,
+  "document_class": "tktltiki2",
+  "educational": false
+}

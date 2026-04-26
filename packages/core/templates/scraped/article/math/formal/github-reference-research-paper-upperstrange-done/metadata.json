@@ -1,0 +1,26 @@
+{
+  "id": "github-reference-research-paper-upperstrange-done",
+  "name": "reference-research-paper (Upperstrange/done)",
+  "source_url": "https://github.com/Upperstrange/done/blob/2481e7c4b83b73705190266f828008bbacfe731e/reference-research-paper.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "LaTeX template from Upperstrange/done",
+  "date_scraped": "2026-03-29T08:18:04.507Z",
+  "packages_required": [
+    "cite",
+    "amsmath",
+    "amssymb",
+    "amsfonts",
+    "algorithmic",
+    "graphicx",
+    "textcomp",
+    "xcolor"
+  ],
+  "has_custom_macros": true,
+  "document_class": "ieeetran",
+  "educational": false
+}

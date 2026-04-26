@@ -1,0 +1,25 @@
+{
+  "id": "overleaf-northeastern-university-cos-faculty-cv-te",
+  "name": "Northeastern University COS Faculty CV Template",
+  "source_url": "https://www.overleaf.com/latex/templates/northeastern-university-cos-faculty-cv-template/zfgnyhdpmpqg",
+  "source_site": "overleaf",
+  "type": "resume",
+  "subject": "general",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "A CV template for College of Science Faculty at Northeastern University. Intended to complement NU’s dossier guidelines for tenure and promotion cases, as we...",
+  "date_scraped": "2026-03-29T08:22:00.932Z",
+  "packages_required": [
+    "inputenc",
+    "geometry",
+    "titlesec",
+    "enumitem",
+    "hyperref",
+    "lipsum",
+    "changepage"
+  ],
+  "has_custom_macros": false,
+  "document_class": "extarticle",
+  "educational": false
+}

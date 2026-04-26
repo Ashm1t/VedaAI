@@ -1,0 +1,17 @@
+{
+  "id": "github-cv-zachscrivena-simple-resume-cv",
+  "name": "CV (zachscrivena/simple-resume-cv)",
+  "source_url": "https://github.com/zachscrivena/simple-resume-cv/blob/23fbc6a5ea66bf1a89a93a4e5dd782eb8785b2eb/CV.tex",
+  "source_site": "github",
+  "type": "resume",
+  "subject": "biology",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Template for a simple resume or curriculum vitae (CV), in XeLaTeX.",
+  "date_scraped": "2026-03-29T08:17:26.236Z",
+  "packages_required": [],
+  "has_custom_macros": true,
+  "document_class": "simpleresumecv",
+  "educational": false
+}

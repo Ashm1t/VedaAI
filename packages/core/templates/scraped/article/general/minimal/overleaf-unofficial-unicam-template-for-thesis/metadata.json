@@ -1,0 +1,19 @@
+{
+  "id": "overleaf-unofficial-unicam-template-for-thesis",
+  "name": "(Unofficial) Unicam Template for Thesis",
+  "source_url": "https://www.overleaf.com/latex/templates/unofficial-unicam-template-for-thesis/nptgrmpghfkh",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "general",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Template for Bachelor, Master and PhD Thesis at Unicam.",
+  "date_scraped": "2026-03-29T08:21:30.817Z",
+  "packages_required": [
+    "lipsum"
+  ],
+  "has_custom_macros": false,
+  "document_class": "unknown",
+  "educational": false
+}

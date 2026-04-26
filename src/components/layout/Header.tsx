@@ -70,7 +70,7 @@ export default function Header({ title, showBack = false }: HeaderProps) {
 
         {/* User Avatar + Name */}
         <button className="flex items-center gap-2.5 rounded-full pl-1 pr-3 py-1 hover:bg-[#282828] transition-colors">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1DB954]/20 text-sm font-semibold text-[#1DB954]">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#4C8DFF]/20 text-sm font-semibold text-[#4C8DFF]">
             JD
           </div>
           <span className="text-sm font-medium text-[#B3B3B3]">John Doe</span>

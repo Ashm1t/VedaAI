@@ -23,7 +23,7 @@ export default function ComingSoonPage() {
           updates!
         </p>
         <Link
-          href="/assignments"
+          href="/agent"
           className="inline-flex items-center gap-2 rounded-xl bg-[#1DB954] px-6 py-3 text-sm font-semibold text-black shadow-md transition-colors hover:bg-[#1AA34A]"
         >
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
@@ -35,7 +35,7 @@ export default function ComingSoonPage() {
               strokeLinejoin="round"
             />
           </svg>
-          Back to Assignments
+          Back to Agent
         </Link>
       </div>
     </div>

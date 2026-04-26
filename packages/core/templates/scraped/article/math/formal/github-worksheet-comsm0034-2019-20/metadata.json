@@ -1,0 +1,24 @@
+{
+  "id": "github-worksheet-comsm0034-2019-20",
+  "name": "worksheet (comsm0034/2019_20)",
+  "source_url": "https://github.com/comsm0034/2019_20/blob/9ca3d36a1246a96483c9d02753811d7e0ee1f156/worksheet/source/worksheet.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "2019-20 unit material for Information Processing and the Brain",
+  "date_scraped": "2026-03-29T08:19:37.737Z",
+  "packages_required": [
+    "amsfonts",
+    "epsfig",
+    "natbib",
+    "graphicx",
+    "fancyhdr",
+    "slashbox"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

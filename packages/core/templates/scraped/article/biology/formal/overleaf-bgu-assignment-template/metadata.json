@@ -1,0 +1,36 @@
+{
+  "id": "overleaf-bgu-assignment-template",
+  "name": "BGU - Assignment Template",
+  "source_url": "https://www.overleaf.com/latex/templates/bgu-assignment-template/gbhmjkrcpbmn",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "biology",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "A small and brief Assignment\\Homework template to be used with BGU University logo",
+  "date_scraped": "2026-03-29T08:20:30.656Z",
+  "packages_required": [
+    "babel",
+    "inputenc",
+    "fontenc",
+    "subfig",
+    "geometry",
+    "amsmath",
+    "graphicx",
+    "todonotes",
+    "hyperref",
+    "caption",
+    "subcaption",
+    "sectsty",
+    "apacite",
+    "float",
+    "titling",
+    "blindtext",
+    "natbib",
+    "xcolor"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

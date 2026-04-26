@@ -1,0 +1,21 @@
+{
+  "id": "overleaf-oscm-journal",
+  "name": "OSCM Journal",
+  "source_url": "https://www.overleaf.com/latex/templates/oscm-journal/wmxqbnwxdhmq",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "This document provides a LaTex template (v2.0) for prospective authors to prepare manuscripts for submission to the Operations and Supply Chain Management: A...",
+  "date_scraped": "2026-03-29T08:20:55.773Z",
+  "packages_required": [
+    "algorithm",
+    "algpseudocode",
+    "amsthm"
+  ],
+  "has_custom_macros": true,
+  "document_class": "oscmjournal",
+  "educational": false
+}

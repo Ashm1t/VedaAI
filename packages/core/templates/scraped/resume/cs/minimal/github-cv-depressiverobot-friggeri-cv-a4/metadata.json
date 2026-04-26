@@ -1,0 +1,17 @@
+{
+  "id": "github-cv-depressiverobot-friggeri-cv-a4",
+  "name": "cv (depressiveRobot/friggeri-cv-a4)",
+  "source_url": "https://github.com/depressiveRobot/friggeri-cv-a4/blob/aa029260665b96a636f3f3d9663aca75414c4ba0/cv.tex",
+  "source_site": "github",
+  "type": "resume",
+  "subject": "cs",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "A4 paper format version of the fancy Friggeri CV LaTex template",
+  "date_scraped": "2026-03-29T08:19:01.096Z",
+  "packages_required": [],
+  "has_custom_macros": false,
+  "document_class": "unknown",
+  "educational": false
+}

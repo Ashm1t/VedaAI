@@ -1,0 +1,17 @@
+{
+  "id": "github-app-q4-s-thesis-latex-template",
+  "name": "app (Q4-S/thesis-latex-template)",
+  "source_url": "https://github.com/Q4-S/thesis-latex-template/blob/87923ffda8e4a32fdd716934a2e4a1b6717691e5/app.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "general",
+  "style_tags": [
+    "modern"
+  ],
+  "description": "Modern thesis latex template (support hangeul font), also can be used to make a fancy book :)",
+  "date_scraped": "2026-03-29T08:19:02.912Z",
+  "packages_required": [],
+  "has_custom_macros": false,
+  "document_class": "unknown",
+  "educational": false
+}

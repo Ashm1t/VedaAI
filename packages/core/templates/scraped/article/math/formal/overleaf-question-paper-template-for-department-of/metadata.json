@@ -1,0 +1,24 @@
+{
+  "id": "overleaf-question-paper-template-for-department-of",
+  "name": "Question Paper Template for Department of CSE, Stamford University Bangladesh",
+  "source_url": "https://www.overleaf.com/latex/templates/question-paper-template-for-department-of-cse-stamford-university-bangladesh/dbpgsxkzfysn",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "This is the template for question paper of Department of CSE of Stamford University Bangladesh.",
+  "date_scraped": "2026-03-29T08:20:10.597Z",
+  "packages_required": [
+    "newtxtext",
+    "newtxmath",
+    "etoolbox",
+    "fancyhdr",
+    "lastpage",
+    "lipsum"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

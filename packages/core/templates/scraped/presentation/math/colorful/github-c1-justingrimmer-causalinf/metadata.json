@@ -1,0 +1,32 @@
+{
+  "id": "github-c1-justingrimmer-causalinf",
+  "name": "c1 (justingrimmer/CausalInf)",
+  "source_url": "https://github.com/justingrimmer/CausalInf/blob/3b4cddfa2842603a6a94e2b3479f2c7feeb4e97d/c1.tex",
+  "source_site": "github",
+  "type": "presentation",
+  "subject": "math",
+  "style_tags": [
+    "colorful"
+  ],
+  "description": "This the repository for the Spring Causal Inference Course",
+  "date_scraped": "2026-03-29T08:18:29.651Z",
+  "packages_required": [
+    "xcolor",
+    "lmodern",
+    "fontenc",
+    "palatino",
+    "cmbright",
+    "normalem",
+    "colortbl",
+    "textcomp",
+    "array",
+    "color",
+    "tikz",
+    "xy",
+    "lipsum",
+    "eulervm"
+  ],
+  "has_custom_macros": true,
+  "document_class": "beamer",
+  "educational": false
+}

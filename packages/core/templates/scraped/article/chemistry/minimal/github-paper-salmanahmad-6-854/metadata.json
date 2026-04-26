@@ -1,0 +1,22 @@
+{
+  "id": "github-paper-salmanahmad-6-854",
+  "name": "paper (salmanahmad/6.854)",
+  "source_url": "https://github.com/salmanahmad/6.854/blob/633a6bd5b36c3544bb581067733f4840bbc00715/paper.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "chemistry",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "LaTeX template from salmanahmad/6.854",
+  "date_scraped": "2026-03-29T08:18:06.324Z",
+  "packages_required": [
+    "paralist",
+    "graphicx",
+    "url",
+    "amsmath"
+  ],
+  "has_custom_macros": true,
+  "document_class": "style",
+  "educational": false
+}

@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #1DB954;
-  --color-primary-hover: #1AA34A;
+  --color-primary: #4C8DFF;
+  --color-primary-hover: #3977EA;
+  --color-primary-soft: rgba(76, 141, 255, 0.18);
   --color-sidebar-bg: #121212;
   --color-page-bg-from: #121212;
   --color-page-bg-to: #181818;
@@ -16,9 +17,9 @@
   --color-text-muted: #727272;
   --color-surface: #181818;
   --color-surface-raised: #282828;
-  --color-badge-easy: #1DB954;
-  --color-badge-easy-bg: #1DB95420;
-  --color-badge-easy-text: #1DB954;
+  --color-badge-easy: #4C8DFF;
+  --color-badge-easy-bg: rgba(76, 141, 255, 0.18);
+  --color-badge-easy-text: #4C8DFF;
   --color-badge-moderate: #F59E0B;
   --color-badge-moderate-bg: #F59E0B20;
   --color-badge-moderate-text: #F59E0B;
@@ -44,11 +45,11 @@ body {
   animation: fade-in 0.2s ease-out;
 }
 
-/* Emerald border for Create Assignment button */
+/* Accent border for primary CTA buttons */
 .gradient-border-btn {
   display: block;
   border-radius: 9999px;
-  border: 2px solid #1DB954;
+  border: 2px solid var(--color-primary);
 }
 
 /* Scrollbar styling */
@@ -61,4 +62,14 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #333333;
   border-radius: 3px;
+}
+
+/* Resizable panel separator handles */
+[data-separator] {
+  background: #1a1a1a;
+  transition: background 150ms;
+}
+[data-separator]:hover,
+[data-separator][data-active] {
+  background: rgba(76, 141, 255, 0.25);
 }

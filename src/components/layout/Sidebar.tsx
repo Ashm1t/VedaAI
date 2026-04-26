@@ -3,18 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useAssignmentStore } from "@/store/assignmentStore";
-import { useProfileStore } from "@/store/profileStore";
-import { useAuthStore } from "@/store/authStore";
 
+/* ── Navigation items ── */
 const NAV_ITEMS = [
   { label: "Home", href: "/", icon: HomeIcon },
-  { label: "My Groups", href: "/coming-soon", icon: GroupIcon },
-  { label: "Assignments", href: "/assignments", icon: AssignmentIcon },
-  { label: "AI Teacher's Toolkit", href: "/coming-soon", icon: ToolkitIcon },
-  { label: "My Library", href: "/library", icon: LibraryIcon },
+  { label: "Agent", href: "/agent", icon: AgentIcon },
+  { label: "Documents", href: "/legacy", icon: DocumentIcon },
 ];
 
 interface SidebarProps {
@@ -24,248 +18,171 @@ interface SidebarProps {
 
 export default function Sidebar({ mobile, onClose }: SidebarProps) {
   const pathname = usePathname();
-  const assignments = useAssignmentStore((s) => s.assignments);
-  const assignmentCount = assignments.length;
-  const generatedCount = assignments.filter((a) => a.status === "generated").length;
 
-  // Mobile: full-height drawer, no gap
+  /* ── Mobile: slide-in drawer with icons + labels ── */
   if (mobile) {
     return (
-      <aside className="flex h-full flex-col bg-[#121212] justify-between p-6">
-        <SidebarContent
-          pathname={pathname}
-          assignmentCount={assignmentCount}
-          generatedCount={generatedCount}
-          onNavigate={onClose}
-        />
-      </aside>
-    );
-  }
-
-  // Desktop: floating box per Figma spec
-  return (
-    <aside
-      className="fixed z-30 flex flex-col bg-[#121212] justify-between"
-      style={{
-        width: 304,
-        height: "calc(100vh - 24px)",
-        top: 12,
-        left: 12,
-        borderRadius: 16,
-        padding: 24,
-        boxShadow:
-          "0 32px 48px rgba(0,0,0,0.50), 0 16px 48px rgba(0,0,0,0.30)",
-      }}
-    >
-      <SidebarContent
-        pathname={pathname}
-        assignmentCount={assignmentCount}
-        generatedCount={generatedCount}
-      />
-    </aside>
-  );
-}
-
-/* ── Shared content used by both desktop & mobile sidebar ── */
-
-interface SidebarContentProps {
-  pathname: string;
-  assignmentCount: number;
-  generatedCount: number;
-  onNavigate?: () => void;
-}
-
-function SidebarContent({ pathname, assignmentCount, generatedCount, onNavigate }: SidebarContentProps) {
-  const [toast, setToast] = useState<string | null>(null);
-  const { name, initials, schoolName, schoolLocation } = useProfileStore();
-  const { user: authUser, logout } = useAuthStore();
-  const router = useRouter();
-
-  // Derive display initials
-  const displayInitials =
-    initials ||
-    name
-      .trim()
-      .split(/\s+/)
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((w) => w[0].toUpperCase())
-      .join("") ||
-    "?";
-
-  const showToast = (label: string) => {
-    setToast(`${label} — Coming Soon!`);
-    setTimeout(() => setToast(null), 2000);
-  };
-
-  return (
-    <>
-      {/* Top section */}
-      <div>
-        {/* Logo */}
-        <div className="flex items-center gap-2.5 mb-8">
-          <Image
-            src="/libra.png"
-            alt="Libra"
-            width={40}
-            height={40}
-            className="rounded-xl"
-          />
-          <span className="text-xl font-bold text-white">Libra</span>
-        </div>
-
-        {/* Create Assignment Button */}
-        <div className="gradient-border-btn mb-8">
-          <Link
-            href="/assignments/create"
-            onClick={onNavigate}
-            className="flex items-center justify-center gap-2 rounded-full px-4 py-3.5 text-sm font-semibold text-black transition-colors hover:brightness-110"
-            style={{ backgroundColor: "#1DB954" }}
+      <aside className="flex h-full w-full flex-col bg-[#0d0d0d] border-r border-[#1e1e1e] px-3 py-4">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8 px-1">
+          <div className="flex items-center gap-2.5">
+            <Image src="/libra.png" alt="Libra" width={28} height={28} className="rounded-lg" />
+            <span className="text-base font-bold text-white">Libra</span>
+          </div>
+          <button
+            onClick={onClose}
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-[#555] hover:bg-[#1a1a1a] hover:text-white transition-colors"
           >
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-              <path
-                d="M12 5v14M5 12h14"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+              <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
-            <span>Create Assignment</span>
-          </Link>
+          </button>
         </div>
 
-        {/* Navigation */}
-        <nav className="flex flex-col gap-2">
+        {/* Nav */}
+        <nav className="flex flex-col gap-1 flex-1">
           {NAV_ITEMS.map((item) => {
-            const isActive =
-              item.href === "/assignments"
-                ? pathname.startsWith("/assignments")
-                : item.href === "/library"
-                ? pathname.startsWith("/library")
-                : pathname === item.href;
-
-            const isPlaceholder = item.href === "/coming-soon";
-
-            return isPlaceholder ? (
-              <button
-                key={item.label}
-                onClick={() => showToast(item.label)}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors text-[#B3B3B3] hover:bg-[#282828] hover:text-white`}
-              >
-                <item.icon active={false} />
-                <span>{item.label}</span>
-                {item.label === "My Library" && assignmentCount > 0 && (
-                  <span className="ml-auto flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[11px] font-bold text-white">
-                    {assignmentCount}
-                  </span>
-                )}
-              </button>
-            ) : (
+            const isActive = getIsActive(item.href, pathname);
+            return (
               <Link
                 key={item.label}
                 href={item.href}
-                onClick={onNavigate}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
+                onClick={onClose}
+                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-[#282828] text-white"
-                    : "text-[#B3B3B3] hover:bg-[#282828] hover:text-white"
+                    ? "bg-[#1e2a3a] text-[#4C8DFF]"
+                    : "text-[#666] hover:bg-[#1a1a1a] hover:text-white"
                 }`}
               >
                 <item.icon active={isActive} />
                 <span>{item.label}</span>
-                {item.label === "Assignments" && assignmentCount > 0 && (
-                  <span className="ml-auto flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[11px] font-bold text-white">
-                    {assignmentCount}
-                  </span>
-                )}
-                {item.label === "My Library" && generatedCount > 0 && (
-                  <span className="ml-auto flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[11px] font-bold text-white">
-                    {generatedCount}
-                  </span>
-                )}
               </Link>
             );
           })}
         </nav>
-      </div>
 
-      {/* Bottom section */}
-      <div>
-        {/* Settings */}
-        <Link
-          href="/settings"
-          onClick={onNavigate}
-          className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors mb-4 ${
-            pathname === "/settings"
-              ? "bg-[#282828] text-white"
-              : "text-[#B3B3B3] hover:bg-[#282828] hover:text-white"
-          }`}
-        >
-          <SettingsIcon active={pathname === "/settings"} />
-          <span>Settings</span>
-        </Link>
-
-        {/* User profile card */}
-        <div className="rounded-xl bg-[#282828] px-3 py-3">
-          <div className="flex items-center gap-3">
-            {authUser?.avatar ? (
-              <img
-                src={authUser.avatar}
-                alt=""
-                className="h-10 w-10 rounded-full flex-shrink-0"
-                referrerPolicy="no-referrer"
-              />
-            ) : (
-              <div
-                className="flex h-10 w-10 items-center justify-center rounded-full flex-shrink-0 text-sm font-bold text-white"
-                style={{ background: "linear-gradient(135deg, #1DB954 0%, #0f7a33 100%)" }}
-              >
-                {displayInitials}
-              </div>
-            )}
-            <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-white truncate">
-                {authUser?.name || name || "User"}
-              </p>
-              <p className="text-xs text-[#727272] truncate">
-                {authUser?.email || schoolName || ""}
-              </p>
-            </div>
-            <button
-              onClick={() => {
-                logout();
-                router.push("/login");
-              }}
-              title="Sign out"
-              className="flex h-8 w-8 items-center justify-center rounded-lg text-[#727272] hover:bg-[#333] hover:text-white transition-colors flex-shrink-0"
-            >
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
+        {/* Bottom */}
+        <div className="flex flex-col gap-1 pt-4 border-t border-[#1e1e1e]">
+          <div className="flex items-center gap-3 px-3 py-2 text-xs text-[#444]">
+            <LocalIcon />
+            <span>Local workspace</span>
           </div>
+          <Link
+            href="/settings"
+            onClick={onClose}
+            className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
+              pathname === "/settings"
+                ? "bg-[#1a1a1a] text-white"
+                : "text-[#666] hover:bg-[#1a1a1a] hover:text-white"
+            }`}
+          >
+            <SettingsIcon active={pathname === "/settings"} />
+            <span>Settings</span>
+          </Link>
         </div>
+      </aside>
+    );
+  }
+
+  /* ── Desktop: 52px icon rail ── */
+  return (
+    <aside className="fixed left-0 top-0 z-30 flex h-screen w-[52px] flex-col items-center justify-between border-r border-[#1e1e1e] bg-[#0d0d0d] py-3">
+      {/* Top: logo + nav */}
+      <div className="flex flex-col items-center gap-1">
+        <RailTooltip label="Libra">
+          <Link
+            href="/agent"
+            className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl hover:bg-[#1a1a1a] transition-colors"
+          >
+            <Image src="/libra.png" alt="Libra" width={28} height={28} className="rounded-md" />
+          </Link>
+        </RailTooltip>
+
+        <div className="my-1 h-px w-7 bg-[#1e1e1e]" />
+
+        {NAV_ITEMS.map((item) => {
+          const isActive = getIsActive(item.href, pathname);
+          return (
+            <RailTooltip key={item.label} label={item.label}>
+              <Link
+                href={item.href}
+                className={`flex h-9 w-9 items-center justify-center rounded-xl transition-colors ${
+                  isActive
+                    ? "bg-[#1e2a3a] text-[#4C8DFF]"
+                    : "text-[#555] hover:bg-[#1a1a1a] hover:text-[#bbb]"
+                }`}
+              >
+                <item.icon active={isActive} />
+              </Link>
+            </RailTooltip>
+          );
+        })}
       </div>
 
-      {/* Toast notification */}
-      {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] rounded-xl bg-[#282828] border border-[#333] px-5 py-3 text-sm font-medium text-white shadow-lg animate-fade-in">
-          {toast}
-        </div>
-      )}
-    </>
+      {/* Bottom: local indicator + settings */}
+      <div className="flex flex-col items-center gap-1">
+        <RailTooltip label="Local workspace — files stay on your machine">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl text-[#333] hover:text-[#555] transition-colors cursor-default">
+            <LocalIcon />
+          </div>
+        </RailTooltip>
+
+        <RailTooltip label="Settings">
+          <Link
+            href="/settings"
+            className={`flex h-9 w-9 items-center justify-center rounded-xl transition-colors ${
+              pathname === "/settings"
+                ? "bg-[#1a1a1a] text-white"
+                : "text-[#555] hover:bg-[#1a1a1a] hover:text-[#bbb]"
+            }`}
+          >
+            <SettingsIcon active={pathname === "/settings"} />
+          </Link>
+        </RailTooltip>
+      </div>
+    </aside>
   );
 }
 
-// --- Inline SVG Icons ---
+/* ── Helpers ── */
+
+function getIsActive(href: string, pathname: string): boolean {
+  if (href === "/agent") return pathname.startsWith("/agent");
+  if (href === "/legacy")
+    return (
+      pathname.startsWith("/legacy") ||
+      pathname.startsWith("/assignments") ||
+      pathname.startsWith("/library")
+    );
+  return pathname === href;
+}
+
+function RailTooltip({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="group relative">
+      {children}
+      <span className="pointer-events-none absolute left-[calc(100%+8px)] top-1/2 -translate-y-1/2 z-50 whitespace-nowrap rounded-lg border border-[#2a2a2a] bg-[#161616] px-2.5 py-1.5 text-xs font-medium text-[#ccc] opacity-0 shadow-xl transition-opacity duration-150 group-hover:opacity-100">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+/* ── Icons (18×18, stroke-based) ── */
 
 function HomeIcon({ active }: { active: boolean }) {
   return (
-    <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
       <path
         d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"
-        stroke={active ? "#FFFFFF" : "#727272"}
-        strokeWidth="1.5"
+        stroke={active ? "#4C8DFF" : "currentColor"}
+        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -273,13 +190,13 @@ function HomeIcon({ active }: { active: boolean }) {
   );
 }
 
-function GroupIcon({ active }: { active: boolean }) {
+function AgentIcon({ active }: { active: boolean }) {
   return (
-    <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
       <path
-        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-        stroke={active ? "#FFFFFF" : "#727272"}
-        strokeWidth="1.5"
+        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+        stroke={active ? "#4C8DFF" : "currentColor"}
+        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -287,41 +204,13 @@ function GroupIcon({ active }: { active: boolean }) {
   );
 }
 
-function AssignmentIcon({ active }: { active: boolean }) {
+function DocumentIcon({ active }: { active: boolean }) {
   return (
-    <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
       <path
         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-        stroke={active ? "#FFFFFF" : "#727272"}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ToolkitIcon({ active }: { active: boolean }) {
-  return (
-    <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-      <path
-        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-        stroke={active ? "#FFFFFF" : "#727272"}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function LibraryIcon({ active }: { active: boolean }) {
-  return (
-    <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-      <path
-        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-        stroke={active ? "#FFFFFF" : "#727272"}
-        strokeWidth="1.5"
+        stroke={active ? "#4C8DFF" : "currentColor"}
+        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -330,19 +219,32 @@ function LibraryIcon({ active }: { active: boolean }) {
 }
 
 function SettingsIcon({ active }: { active: boolean }) {
-  const color = active ? "#FFFFFF" : "#727272";
   return (
-    <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
       <path
         d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-        stroke={color}
-        strokeWidth="1.5"
+        stroke={active ? "#ffffff" : "currentColor"}
+        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-        stroke={color}
+        stroke={active ? "#ffffff" : "currentColor"}
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function LocalIcon() {
+  return (
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+      <path
+        d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"
+        stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

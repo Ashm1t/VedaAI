@@ -25,7 +25,7 @@ function LoginContent() {
   // If already logged in, redirect to app
   useEffect(() => {
     if (isAuthenticated) {
-      router.replace("/assignments");
+      router.replace("/agent");
     }
   }, [isAuthenticated, router]);
 
@@ -54,7 +54,7 @@ function LoginContent() {
       }
 
       login(data.token, data.user);
-      router.replace("/assignments");
+      router.replace("/agent");
     } catch {
       setError("Network error. Please try again.");
       setLoading(false);

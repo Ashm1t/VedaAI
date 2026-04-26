@@ -1,0 +1,19 @@
+{
+  "id": "github-hw1-ankitvgupta-cs287assignments",
+  "name": "HW1 (ankitvgupta/CS287assignments)",
+  "source_url": "https://github.com/ankitvgupta/CS287assignments/blob/14d25f9bed51e75c193069d4e8da5c5bda312cd9/HW1/HW1.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "general",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "A repository containing problem sets and final project for CS 287 (Deep Learning) at Harvard.",
+  "date_scraped": "2026-03-29T08:17:52.140Z",
+  "packages_required": [
+    "common"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

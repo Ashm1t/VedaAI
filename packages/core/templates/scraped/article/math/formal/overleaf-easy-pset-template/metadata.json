@@ -1,0 +1,26 @@
+{
+  "id": "overleaf-easy-pset-template",
+  "name": "Easy PSET Template",
+  "source_url": "https://www.overleaf.com/latex/templates/easy-pset-template/cckcszdjctzc",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "Easy PSET template with examples.",
+  "date_scraped": "2026-03-29T08:20:28.134Z",
+  "packages_required": [
+    "fancyhdr",
+    "extramarks",
+    "amsmath",
+    "amsthm",
+    "amsfonts",
+    "tikz",
+    "algorithm",
+    "algpseudocode"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

@@ -1,0 +1,23 @@
+{
+  "id": "github-hw-verdverm-go-eureqa",
+  "name": "hw (verdverm/go-eureqa)",
+  "source_url": "https://github.com/verdverm/go-eureqa/blob/a4abdc0044652e52d01f0cdb6274228800f18cea/hw.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "Open source clone of the Eureqa software",
+  "date_scraped": "2026-03-29T08:17:48.526Z",
+  "packages_required": [
+    "fullpage",
+    "fancyhdr",
+    "lastpage",
+    "amsmath",
+    "graphicx"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

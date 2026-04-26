@@ -1,0 +1,31 @@
+{
+  "id": "overleaf-course-project-vclab-ontario-tech-univers",
+  "name": "Course Project (VCLab) - Ontario Tech University",
+  "source_url": "https://www.overleaf.com/latex/templates/course-project-vclab-ontario-tech-university/qrtpysxydgqb",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "Modified the excellent Tech Report ala MIT AI Lab (1981) template for the purposes of course projects reports.",
+  "date_scraped": "2026-03-29T08:20:45.708Z",
+  "packages_required": [
+    "geometry",
+    "inputenc",
+    "babel",
+    "abstract",
+    "titling",
+    "booktabs",
+    "fancyhdr",
+    "helvet",
+    "csquotes",
+    "graphicx",
+    "blindtext",
+    "parskip",
+    "etoolbox"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

@@ -1,0 +1,20 @@
+{
+  "id": "github-pre-liu-qilong-college-beamer",
+  "name": "pre (liu-qilong/college-beamer)",
+  "source_url": "https://github.com/liu-qilong/college-beamer/blob/72e937700989a256c2787f8ebbcd0a8b23e340aa/pre.tex",
+  "source_site": "github",
+  "type": "presentation",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Customized beamer templates for colleges/institutes",
+  "date_scraped": "2026-03-29T08:18:27.818Z",
+  "packages_required": [
+    "collegeBeamer",
+    "graphicx"
+  ],
+  "has_custom_macros": false,
+  "document_class": "beamer",
+  "educational": false
+}

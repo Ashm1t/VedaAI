@@ -1,0 +1,17 @@
+{
+  "id": "overleaf-cv-template",
+  "name": "CV Template",
+  "source_url": "https://www.overleaf.com/latex/templates/cv-template/gsztvcrdvvbj",
+  "source_site": "overleaf",
+  "type": "resume",
+  "subject": "cs",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "A CV template based on this clean CV template\n\n",
+  "date_scraped": "2026-03-29T08:22:08.445Z",
+  "packages_required": [],
+  "has_custom_macros": false,
+  "document_class": "temp",
+  "educational": false
+}

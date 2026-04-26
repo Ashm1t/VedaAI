@@ -1,0 +1,54 @@
+\documentclass[a4paper,twoside,symmetric,concrete,justified,sfsidenotes]{unicam-diss}
+
+\addbibresource{references.bib}
+\makeglossaries[abbreviations]
+\usepackage{lipsum}
+
+
+% \AtBeginDocument{%  use this to change font size
+% \fontsize{12}{15}\selectfont
+%  }%
+
+ 
+\input{backmatter/abbreviations}
+\input{backmatter/notation}
+
+\begin{document}
+\frontmatter
+\pagenumbering{roman}
+\input{frontmatter/titlepage}
+\input{frontmatter/imprint-colophon}
+\input{frontmatter/declaration}
+\input{frontmatter/dedication-epigraph}
+\input{frontmatter/abstract}
+\input{frontmatter/lists}
+
+
+\mainmatter
+\pagenumbering{arabic}
+\part{Prologue}
+\input{frontmatter/introduction}
+
+
+\part{XXXXXXXXXXXXXXX}
+\input{mainmatter/ch1}
+
+\part{Epilogue}
+\input{backmatter/conclusion}
+
+
+\backmatter
+
+
+
+\glsaddall
+\begin{multipagefullwidth}
+\printglossary[type=abbreviations,style=mcolindex]
+\printnomenclature
+%\begin{sloppypar} % use this if you get overfull hboxes in bibliography
+\printbibliography
+%\end{sloppypar}
+\input{backmatter/acknowledgements}
+\end{multipagefullwidth}
+
+\end{document}

@@ -1,0 +1,27 @@
+{
+  "id": "github-boundary-papers-standardgalactic-alphabet",
+  "name": "boundary-papers (standardgalactic/alphabet)",
+  "source_url": "https://github.com/standardgalactic/alphabet/blob/181a265bdf8c74e26342cc508e5d86fe2369c921/screenplay/boundary-papers.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "history",
+  "style_tags": [
+    "modern"
+  ],
+  "description": "Standard Galactic Alphabet",
+  "date_scraped": "2026-03-29T08:18:02.696Z",
+  "packages_required": [
+    "fontenc",
+    "inputenc",
+    "microtype",
+    "setspace",
+    "geometry",
+    "longtable",
+    "lipsum",
+    "csquotes",
+    "hyperref"
+  ],
+  "has_custom_macros": false,
+  "document_class": "book",
+  "educational": false
+}

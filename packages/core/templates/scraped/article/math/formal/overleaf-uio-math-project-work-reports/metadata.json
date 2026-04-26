@@ -1,0 +1,38 @@
+{
+  "id": "overleaf-uio-math-project-work-reports",
+  "name": "UiO Math Project Work Reports",
+  "source_url": "https://www.overleaf.com/latex/templates/uio-math-project-work-reports/vcbcbytxtwmm",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "Template for projects written in the project work courses at the Department of Mathematics at the University of Oslo.",
+  "date_scraped": "2026-03-29T08:20:33.139Z",
+  "packages_required": [
+    "projectfp",
+    "inputenx",
+    "fontenc",
+    "lmodern",
+    "beramono",
+    "microtype",
+    "amssymb",
+    "amsthm",
+    "thmtools",
+    "mathtools",
+    "mathrsfs",
+    "graphicx",
+    "babel",
+    "csquotes",
+    "textcomp",
+    "listings",
+    "mathscinet",
+    "varioref",
+    "hyperref",
+    "cleveref"
+  ],
+  "has_custom_macros": true,
+  "document_class": "memoir",
+  "educational": false
+}

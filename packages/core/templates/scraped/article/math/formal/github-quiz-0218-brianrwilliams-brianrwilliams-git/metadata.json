@@ -1,0 +1,25 @@
+{
+  "id": "github-quiz-0218-brianrwilliams-brianrwilliams-git",
+  "name": "quiz_0218 (brianrwilliams/brianrwilliams.github.io)",
+  "source_url": "https://github.com/brianrwilliams/brianrwilliams.github.io/blob/1f30c84700994e3269521f1b1761556b345b5505/ma442/quiz/quiz_0218.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "LaTeX template from brianrwilliams/brianrwilliams.github.io",
+  "date_scraped": "2026-03-29T08:19:56.133Z",
+  "packages_required": [
+    "/Users/bwill22/brianrwilliams/new_style",
+    "/Users/bwill22/brianrwilliams/macros-master",
+    "amssymb",
+    "amsmath",
+    "amsthm",
+    "geometry",
+    "fancyhdr"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

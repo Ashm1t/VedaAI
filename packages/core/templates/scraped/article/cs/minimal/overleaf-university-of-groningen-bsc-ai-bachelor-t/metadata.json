@@ -1,0 +1,19 @@
+{
+  "id": "overleaf-university-of-groningen-bsc-ai-bachelor-t",
+  "name": "University of Groningen - BSc AI - Bachelor Thesis Template",
+  "source_url": "https://www.overleaf.com/latex/templates/university-of-groningen-bsc-ai-bachelor-thesis-template/skczmjhsqmbq",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "cs",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "The official template for the Bachelor&#39;s Thesis for the Bachelor program Artificial Intelligence of the University of Groningen.\n\nGuidelines can be found on:...",
+  "date_scraped": "2026-03-29T08:21:25.797Z",
+  "packages_required": [
+    "bachelorproject"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

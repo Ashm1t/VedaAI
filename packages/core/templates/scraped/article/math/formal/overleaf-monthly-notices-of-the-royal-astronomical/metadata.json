@@ -1,0 +1,25 @@
+{
+  "id": "overleaf-monthly-notices-of-the-royal-astronomical",
+  "name": "Monthly Notices of the Royal Astronomical Society (MNRAS) LaTeX template and guide for authors Offic",
+  "source_url": "https://www.overleaf.com/latex/templates/monthly-notices-of-the-royal-astronomical-society-mnras-latex-template-and-guide-for-authors/kqnjzrwjwjth",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "This is a template and guide for preparing papers for Monthly Notices of the Royal Astronomical Society using the &#39;mnras&#39; LaTeX package.\n\nSee the mnras_templ...",
+  "date_scraped": "2026-03-29T08:20:53.196Z",
+  "packages_required": [
+    "newtxtext",
+    "newtxmath",
+    "mathptmx",
+    "txfonts",
+    "fontenc",
+    "graphicx",
+    "amsmath"
+  ],
+  "has_custom_macros": true,
+  "document_class": "mnras",
+  "educational": false
+}

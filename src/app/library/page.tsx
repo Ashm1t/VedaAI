@@ -2,156 +2,20 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useAssignmentStore } from "@/store/assignmentStore";
 import { useAuthStore } from "@/store/authStore";
 import { getPdfUrl } from "@/services/assignmentService";
 import type { Assignment } from "@/types";
 
 export default function LibraryPage() {
-  const { assignments, fetchAssignments, isLoading } = useAssignmentStore();
-
-  const [subjectFilter, setSubjectFilter] = useState("All");
-  const [classFilter, setClassFilter] = useState("All");
-  const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
-    fetchAssignments();
-  }, [fetchAssignments]);
+    router.replace("/legacy/library");
+  }, [router]);
 
-  // Only papers that have been generated
-  const generatedPapers = useMemo(
-    () => assignments.filter((a) => a.status === "generated" && a.outputId),
-    [assignments]
-  );
-
-  // Unique subjects and classes for filters
-  const subjects = useMemo(
-    () => ["All", ...Array.from(new Set(generatedPapers.map((a) => a.subject))).sort()],
-    [generatedPapers]
-  );
-  const classes = useMemo(
-    () => ["All", ...Array.from(new Set(generatedPapers.map((a) => a.className))).sort()],
-    [generatedPapers]
-  );
-
-  const filtered = useMemo(
-    () =>
-      generatedPapers.filter(
-        (a) =>
-          (subjectFilter === "All" || a.subject === subjectFilter) &&
-          (classFilter === "All" || a.className === classFilter)
-      ),
-    [generatedPapers, subjectFilter, classFilter]
-  );
-
-  async function handleDownload(assignment: Assignment) {
-    if (!assignment.outputId) return;
-    setDownloadingId(assignment.id);
-    try {
-      const url = getPdfUrl(assignment.outputId);
-      const token = useAuthStore.getState().token;
-      const res = await fetch(url, {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-      });
-      if (!res.ok) throw new Error("Download failed");
-      const blob = await res.blob();
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = `${assignment.title.replace(/[^a-zA-Z0-9 ]/g, "")}.pdf`;
-      a.click();
-      URL.revokeObjectURL(a.href);
-    } catch {
-      // silently fail — user can retry
-    } finally {
-      setDownloadingId(null);
-    }
-  }
-
-  return (
-    <div className="py-6 md:py-8 px-4 md:px-6">
-      {/* Page header */}
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-bold text-white">My Library</h1>
-          <p className="text-sm text-[#B3B3B3] mt-1">
-            {generatedPapers.length} question paper
-            {generatedPapers.length !== 1 ? "s" : ""} generated
-          </p>
-        </div>
-        <Link
-          href="/assignments/create"
-          className="flex items-center gap-2 rounded-xl bg-[#1DB954] px-4 py-2.5 text-sm font-semibold text-black hover:bg-[#1AA34A] transition-colors"
-        >
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-            <path
-              d="M12 5v14M5 12h14"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
-          New Paper
-        </Link>
-      </div>
-
-      {/* Filters */}
-      {generatedPapers.length > 0 && (
-        <div className="flex flex-wrap gap-3 mb-6">
-          <FilterSelect
-            label="Subject"
-            value={subjectFilter}
-            options={subjects}
-            onChange={setSubjectFilter}
-          />
-          <FilterSelect
-            label="Class"
-            value={classFilter}
-            options={classes}
-            onChange={setClassFilter}
-          />
-          {(subjectFilter !== "All" || classFilter !== "All") && (
-            <button
-              onClick={() => { setSubjectFilter("All"); setClassFilter("All"); }}
-              className="flex items-center gap-1.5 rounded-xl bg-[#282828] border border-[#333] px-3 py-2 text-xs font-medium text-[#B3B3B3] hover:text-white hover:border-[#444] transition-colors"
-            >
-              <svg width="12" height="12" fill="none" viewBox="0 0 24 24">
-                <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-              Clear filters
-            </button>
-          )}
-        </div>
-      )}
-
-      {/* Content */}
-      {isLoading ? (
-        <LibrarySkeleton />
-      ) : generatedPapers.length === 0 ? (
-        <EmptyLibrary />
-      ) : filtered.length === 0 ? (
-        <div className="text-center py-20">
-          <p className="text-[#B3B3B3] text-sm">No papers match the selected filters.</p>
-          <button
-            onClick={() => { setSubjectFilter("All"); setClassFilter("All"); }}
-            className="mt-3 text-[#1DB954] text-sm hover:underline"
-          >
-            Clear filters
-          </button>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-          {filtered.map((assignment) => (
-            <PaperCard
-              key={assignment.id}
-              assignment={assignment}
-              downloading={downloadingId === assignment.id}
-              onDownload={handleDownload}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
+  return null;
 }
 
 /* ── Paper Card ── */
@@ -215,7 +79,7 @@ function PaperCard({
       {/* Actions */}
       <div className="flex border-t border-[#2A2A2A]">
         <Link
-          href={`/assignments/${assignment.id}/output`}
+          href={`/legacy/assignments/${assignment.id}/output`}
           className="flex flex-1 items-center justify-center gap-2 py-3 text-xs font-medium text-[#B3B3B3] hover:text-white hover:bg-[#282828]/50 transition-colors"
         >
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
@@ -325,7 +189,7 @@ function EmptyLibrary() {
         Generate your first question paper from an assignment to see it here.
       </p>
       <Link
-        href="/assignments/create"
+        href="/legacy/assignments/create"
         className="inline-flex items-center gap-2 rounded-xl bg-[#1DB954] px-6 py-3 text-sm font-semibold text-black hover:bg-[#1AA34A] transition-colors"
       >
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24">

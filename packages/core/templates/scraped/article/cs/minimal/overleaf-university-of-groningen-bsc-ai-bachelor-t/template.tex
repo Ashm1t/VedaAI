@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Official template for the Bachelor's Thesis of the Bachelor AI      %%
+%% program of the University of Groningen (NL).                        %%
+%%                                                                     %%
+%% Current version: March 2026                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,a4paper,twocolumn]{article}
+\usepackage{bachelorproject}
+
+\title{\vspace{-0.5in}{\bfseries\scshape 
+    Bachelor's thesis Template - Title of project
+    } \\ 
+    \vspace{1ex} 
+    \normalsize{Bachelor's Thesis}\vspace{-2ex}
+}
+
+\author{
+    \normalsize{Max Punten, s1234567, m.punten@ai.rug.nl,} \\ 
+    \normalsize{Supervisors: Dr A.R. Tificial \& Prof Dr I.N. Telligence}
+}
+
+\date{\vspace{-5ex}}
+
+
+\begin{document}
+
+\twocolumn[
+  \maketitle
+  \begin{@twocolumnfalse}
+    \input{./sections/abstract.tex}
+  \end{@twocolumnfalse}
+]
+
+\thispagestyle{firststyle}
+
+\section{Introduction}\label{sec:introduction}
+\input{sections/introduction.tex}
+
+\section{Style}\label{sec:style}
+\input{sections/style.tex}
+
+\section{Contents}\label{sec:contents}
+\input{sections/contents.tex}
+
+\section{Layout}\label{sec:layout}
+\input{sections/layout.tex}
+
+\section{Conclusions}\label{sec:conclusions}
+\input{sections/conclusions.tex}
+
+\bibliographystyle{apacite}
+\bibliography{literature_bachelorthesis}
+
+\clearpage
+
+\begin{appendices}
+    \section{Appendix}\label{ap:appendix}
+    \input{sections/appendixA.tex}
+    \newpage
+    \section{Multiple appendices}\label{ap:appendices}
+    \input{sections/appendixB.tex}
+    \newpage
+\end{appendices}
+
+\end{document}

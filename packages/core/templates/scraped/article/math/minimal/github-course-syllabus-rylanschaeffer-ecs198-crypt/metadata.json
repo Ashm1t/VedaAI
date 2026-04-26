@@ -1,0 +1,22 @@
+{
+  "id": "github-course-syllabus-rylanschaeffer-ecs198-crypt",
+  "name": "Course-Syllabus (RylanSchaeffer/ecs198-cryptocurrency-technologies)",
+  "source_url": "https://github.com/RylanSchaeffer/ecs198-cryptocurrency-technologies/blob/8c433d382fdc3e5cd256202c0758921d00bbb9d0/Syllabus/Course-Syllabus.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "LaTeX template from RylanSchaeffer/ecs198-cryptocurrency-technologies",
+  "date_scraped": "2026-03-29T08:19:25.352Z",
+  "packages_required": [
+    "enumerate",
+    "tabularx",
+    "amsmath",
+    "hyperref"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

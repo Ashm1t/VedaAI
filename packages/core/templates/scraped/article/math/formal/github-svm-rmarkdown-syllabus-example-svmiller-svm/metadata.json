@@ -1,0 +1,35 @@
+{
+  "id": "github-svm-rmarkdown-syllabus-example-svmiller-svm",
+  "name": "svm-rmarkdown-syllabus-example (svmiller/svm-r-markdown-templates)",
+  "source_url": "https://github.com/svmiller/svm-r-markdown-templates/blob/d8c9c172da3426badf585de82012999e65a6ca76/syllabus-example/svm-rmarkdown-syllabus-example.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "This is my (deprecated) suite of R Markdown templates for academic manuscripts, beamer presentations, and syllabi. DOWNLOAD {stevetemplates} INSTEAD.",
+  "date_scraped": "2026-03-29T08:19:31.151Z",
+  "packages_required": [
+    "geometry",
+    "mathpazo",
+    "abstract",
+    "longtable",
+    "booktabs",
+    "parskip",
+    "titlesec",
+    "titling",
+    "fontenc",
+    "inputenc",
+    "fancyhdr",
+    "lastpage",
+    "enumitem",
+    "hyperref",
+    "color",
+    "graphicx",
+    "setspace"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

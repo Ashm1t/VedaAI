@@ -1,0 +1,231 @@
+% A template for writing Science Olympiad (SciOly) tests. 
+% Instructions for use and a tutorial can be found at https://lastlegume.github.io/blog/latex_tutorial
+% Note that there have been minor modifications since the tutorial that might not be included within it
+\documentclass[addpoints]{exam}
+% Used to insert images
+\usepackage{graphicx}
+% Used for the red highlight for correct answers
+\usepackage{color}
+% Used for the reduction in section padding
+\usepackage{titlesec}
+
+% Used for chemical reactions/equations
+% \usepackage{chemmacros}
+% \usepackage{chemformula}
+% \usepackage{chemgreek}
+
+% Used for circuit diagrams
+% \usepackage{circuitikz}
+
+% When not commented, \printanswers will show all of the answers to questions and change some other things. Using this function, you can create both a key and test in the same document simply by uncommenting or commenting \printanswers
+%\printanswers
+
+%*** Important - Update these 3 commands to update the entire test ***
+% Change "Event" to the name of the event
+\newcommand{\event}{Event}
+% Change "Tournament" to the name of the tournament
+\newcommand{\tournament}{Tournament}
+% If the test is a class set or answer sheet, change "0" to a 1 if this test is intended to be a class set or 2 if it is intended to be an answer sheet. Keep it at 0 if the test should be a normal test (not a class set). 
+%Any other type of test such as image sheet or stations must be created manually, though the presents may help in their creation.
+\def\type{0}
+
+% *** You do not need to read this unless you are interested in how I did all of this. If you are not, skip until line 92 *** 
+
+
+% Sets the default length of a fill in the blank line to the width of the text
+\setlength\fillinlinelength{\textwidth}
+% Makes correct answers appear both red and bold when print answers is active
+\CorrectChoiceEmphasis{\color{red}\bfseries}
+\SolutionEmphasis{\color{red}\bfseries}
+
+% Makes the fillin lines appear lower 
+\setlength\answerclearance{2pt}
+%Reduces the padding around sections if you chose to use them
+\titlespacing\section{0pt}{3pt plus 2pt minus 2pt}{3pt plus 2pt minus 2pt}
+
+% Creates the header and footer
+\pagestyle{headandfoot}
+% Adds a line to the top of the page
+\headrule
+% The three braces correspond to the different parts of the header: the left is the top left text, middle is top middle, and right is top right.
+\header{\event}{\tournament}{\ifnum\type=1 Class Set Test \else Team Number:\hspace{1cm} \fi }
+% Adds a line to the bottom of the page
+\footrule
+% The three braces correspond to the different parts of the footer: the left is the bottom left text, middle is bottom middle, and right is bottom right.
+% Doesn't include the title page in the page count 
+\footer{}{Page \thepage\ of \numpages}{}
+% Uncomment the line below if you want to include the title page in the page count 
+%\runningfooter{}{Page \thepage\   of \numpages}{}
+
+\begin{document}
+\begin{coverpages}
+    
+
+\begin{center}
+    {\huge Science Olympiad \\ \event
+    % Writes key if the answers are shown, otherwise writes test
+    \ifprintanswers 
+     \space Key
+    \else 
+     \space \ifnum\type<2 Test \fi \ifnum\type=1 \textbf{(CLASS SET)} \fi \ifnum\type=2 Answer Sheet \fi
+    \fi \\ \vspace{3mm}\tournament\vspace{1mm}}
+\end{center}
+% Change to any picture or just some \vspace{.3\textheight} to leave it blank. [h] ensures that the image is placed in the same place in the document as in the code
+\begin{figure}[h]
+    \centering
+    % The braces include the reference to the image, so they must be changed to add/change to a new image 
+    \includegraphics[height=.3\textheight, width=.6\textwidth, keepaspectratio]{placeholder.png}
+\end{figure}
+
+
+\begin{center}
+    % Does not print any blanks if the test is a class set
+    \ifnum\type=1
+
+    \else
+    % Changes the team name blank to key if the answer key is being shown as another indicator that answers are being printed.
+    Team Name: \ifprintanswers
+    \underline{\hspace{3.5cm}}\textbf{KEY}\underline{\hspace{5.5cm}}\\\vspace{5mm}
+    \else
+        \underline{\hspace{10cm}}\\ \vspace{5mm}
+    \fi
+    Team Number: \underline{\hspace{10cm}}\\ \vspace{5mm}
+    % If you want to attribute yourself, uncomment the next line and add your name
+    %\textbf{Written by: (name)}
+    \fi
+\end{center}
+
+% Change the list below to reflect the instructions for your test
+\noindent\textbf{\underline{Directions:}}
+\begin{itemize}
+    % If the test is a class set, an instruction will appear to not write on the test paper.
+    \ifnum\type=1 \item \textbf{This test is a class set.} Please do not write any answers on this paper. \fi
+    % Adds an instruction 
+    \item This is an instruction
+    \item Use \verb+\item+ to add more instructions
+\end{itemize}
+\begin{center}
+\textit{For grading use only}\\
+% The gradetable has a number of rows that automatically updates. This is not very accurate because of the variance in question size, but it can serve as a starting point. You will probably need to manually update the number of rows of the gradetable (change '\the\numexpr\numpages/13+1' to the desired number of rows).
+\ifnum\type=1
+    \multirowpointtable{\the\numexpr\numpages/13+1}[pages]    
+\else
+    \multirowgradetable{\the\numexpr\numpages/13+1}[pages]    
+\fi
+
+\end{center}
+\end{coverpages}
+
+\newpage
+\hspace{0.1em}\vspace{-1cm}
+
+% To create a section, use \section* (the * removes the section numbering. To make subheadings, you can use \subsection and \subsubsection
+% \fullwidth aligns it to the left of the page (only works in the exam class)
+% \uplevel does something similar, moving the text one indent less than the layer it's in. For example, if you have a subsubpart, uplevel will move the indentation to that of a subpart.
+
+\fullwidth{
+\section*{Questions}
+}
+
+\begin{questions}
+% A normal multiple choice question. Mark the correct choice with \correctchoice
+% Point value is inside the [] after questions. You cannot use decimals, although you can use \half to get a half point
+\question[1\half] Chicago is a
+\begin{choices}
+    \choice state
+    \correctchoice city
+    \choice country
+    \choice continent
+    \choice village
+\end{choices}
+
+% A multiple choice question with all answer choices on one line. Mark the correct choice with \correctchoice
+% \\ is the new line character
+\question[1] Chicago is a
+
+\begin{oneparchoices}
+    \choice state
+    \correctchoice city
+    \choice country
+    \choice continent
+    \choice village
+\end{oneparchoices}
+
+% An example of a true or false question. Just a MCQ with two choices
+\question[1] Chicago is a city. 
+
+\begin{oneparchoices}
+    \correctchoice True
+    \choice False
+\end{oneparchoices}
+
+% A select all that apply question. Same format as MCQ but with multiple correctchoices
+\question[1] Which of the following are plants?
+\begin{checkboxes}
+    \choice birds
+    \correctchoice trees
+    \correctchoice flowers
+    \choice fungi
+    \correctchoice clovers
+\end{checkboxes}
+% If you have information for multiple questions, use \fullwidth{} to align the text to the edge. I usually bold the text as well to make it more visible
+\fullwidth{\textbf{This text is aligned to the left edge and applies to the next few questions.}}
+% A fill in the blank question. Use \fillin[answer] to create a line to write the answer on
+% the blank line in between the question and fillin ensures that they're on different lines in the output
+\question[1] What is the greenhouse gas present in the highest concentration in the atmosphere? 
+
+\fillin[Water Vapor]
+
+% \fillin can also be used with 2 brackets, with the second being the length.
+\question[1] \fillin[Water Vapor][5cm] is the most common greenhouse gas.
+% Use \begin{figure} to insert an image. [h] is necessary to place the image where it is in the code
+\begin{figure}[h]
+    \centering
+    % \includegraphics[settings]{file name} is what shows the image. Settings can be a lot of different things, but usually width, height, or scale will work best. 
+    \includegraphics[width=.35\textwidth]{keeling curve.jpg}
+    \caption{This is an image}
+\end{figure}
+% A simple free response question
+\question[1] Why does this curve have a sawtooth pattern?
+% solutionbox creates a box of a specified size (note the use of braces ({}) because this argument is required) and what is written inside when printing answers
+\begin{solutionbox}{3cm}
+    Seasonal variation. Highest in May because of the lack of photosynthesis in the winter
+\end{solutionbox}
+% Other environments for solutions. Usually less preferable because they shrink when answers are printed to fit the size of the solution, so they can mess up formatting. Note the use of [] to specify size because the argument is optional
+\question[1] Why does this curve have a sawtooth pattern?
+% Another way to create a solution box. Note the use of [] to specify size (everything other than solutionbox uses [])
+\begin{solutionorbox}[3cm]
+    Seasonal variation. Highest in May because of the lack of photosynthesis in the winter
+\end{solutionorbox}
+
+\question[1] Why does this curve have a sawtooth pattern?
+% Creates white space that turns into a solution when printing answers
+\begin{solution}[3cm]
+    Seasonal variation. Highest in May because of the lack of photosynthesis in the winter
+\end{solution}
+
+\question[1] Why does this curve have a sawtooth pattern?
+% Creates lines that turns into a solution when printing answers
+\begin{solutionorlines}[3cm]
+    Seasonal variation. Highest in May because of the lack of photosynthesis in the winter
+\end{solutionorlines}
+
+\question[1] Why does this curve have a sawtooth pattern?
+% Creates a grid that turns into a solution when printing answers
+\begin{solutionorgrid}[3cm]
+    Seasonal variation. Highest in May because of the lack of photosynthesis in the winter
+\end{solutionorgrid}
+
+\question[1] Why does this curve have a sawtooth pattern?
+% Creates dashed lines that turns into a solution when printing answers
+\begin{solutionordottedlines}[3cm]
+    Seasonal variation. Highest in May because of the lack of photosynthesis in the winter
+\end{solutionordottedlines}
+
+\question[1] Why does this curve have a sawtooth pattern?
+% Answerline is an alternative to fillin that I think looks worse, so I don't use it.
+\answerline[Seasonal variation]
+
+\end{questions}
+
+\end{document}

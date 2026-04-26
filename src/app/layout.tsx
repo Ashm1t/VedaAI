@@ -9,8 +9,8 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Libra - Assignment Creator",
-  description: "AI-powered assessment creator for teachers",
+  title: "Libra - Agentic Document Workspace",
+  description: "AI-powered document agent with chat, source editing, and PDF preview",
 };
 
 export default function RootLayout({

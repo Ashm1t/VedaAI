@@ -1,5 +1,11 @@
 import { io, Socket } from "socket.io-client";
-import type { GenerationStatus } from "@/types";
+import type {
+  AgentArtifact,
+  AgentMessage,
+  AgentSession,
+  AgentSessionStatus,
+  GenerationStatus,
+} from "@/types";
 
 type StatusCallback = (status: GenerationStatus, progress: number) => void;
 
@@ -88,4 +94,67 @@ export function simulateGeneration(onStatus: StatusCallback): () => void {
 
 function sleep(ms: number) {
   return new Promise((r) => setTimeout(r, ms));
+}
+
+interface AgentSessionHandlers {
+  onStatus?: (status: AgentSessionStatus, error?: string | null) => void;
+  onMessage?: (message: AgentMessage) => void;
+  onArtifact?: (artifact: AgentArtifact) => void;
+  onSession?: (session: AgentSession) => void;
+}
+
+export function listenForAgentSession(
+  sessionId: string,
+  handlers: AgentSessionHandlers
+): () => void {
+  const sock = getSocket();
+
+  const statusHandler = (data: {
+    sessionId: string;
+    status: AgentSessionStatus;
+    error?: string | null;
+  }) => {
+    if (data.sessionId === sessionId) {
+      handlers.onStatus?.(data.status, data.error);
+    }
+  };
+
+  const messageHandler = (data: {
+    sessionId: string;
+    message: AgentMessage;
+  }) => {
+    if (data.sessionId === sessionId) {
+      handlers.onMessage?.(data.message);
+    }
+  };
+
+  const artifactHandler = (data: {
+    sessionId: string;
+    artifact: AgentArtifact;
+  }) => {
+    if (data.sessionId === sessionId) {
+      handlers.onArtifact?.(data.artifact);
+    }
+  };
+
+  const sessionHandler = (data: {
+    sessionId: string;
+    session: AgentSession;
+  }) => {
+    if (data.sessionId === sessionId) {
+      handlers.onSession?.(data.session);
+    }
+  };
+
+  sock.on("agent:status", statusHandler);
+  sock.on("agent:message", messageHandler);
+  sock.on("agent:artifact", artifactHandler);
+  sock.on("agent:session", sessionHandler);
+
+  return () => {
+    sock.off("agent:status", statusHandler);
+    sock.off("agent:message", messageHandler);
+    sock.off("agent:artifact", artifactHandler);
+    sock.off("agent:session", sessionHandler);
+  };
 }

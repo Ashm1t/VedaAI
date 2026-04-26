@@ -1,0 +1,35 @@
+{
+  "id": "overleaf-harshibar-s-resume",
+  "name": "harshibar's resume",
+  "source_url": "https://www.overleaf.com/latex/templates/harshibars-resume/sbcyynmtpnyd",
+  "source_site": "overleaf",
+  "type": "article",
+  "subject": "cs",
+  "style_tags": [
+    "formal"
+  ],
+  "description": "A simple one-page resume adapted from Jake's Resume. \nPublished under the MIT License. \nhttps://github.com/harshibar/resume",
+  "date_scraped": "2026-03-29T08:21:53.596Z",
+  "packages_required": [
+    "latexsym",
+    "fullpage",
+    "titlesec",
+    "marvosym",
+    "color",
+    "verbatim",
+    "enumitem",
+    "hyperref",
+    "fancyhdr",
+    "babel",
+    "tabularx",
+    "fontawesome5",
+    "FiraMono",
+    "contour",
+    "ulem",
+    "tgheros",
+    "fontenc"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

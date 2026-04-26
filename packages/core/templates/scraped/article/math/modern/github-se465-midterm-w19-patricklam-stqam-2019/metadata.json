@@ -1,0 +1,29 @@
+{
+  "id": "github-se465-midterm-w19-patricklam-stqam-2019",
+  "name": "se465-midterm-w19 (patricklam/stqam-2019)",
+  "source_url": "https://github.com/patricklam/stqam-2019/blob/49cd6d94aa5b60a93b707557bfa5e786215f98c9/exams/se465-midterm-w19.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "math",
+  "style_tags": [
+    "modern",
+    "formal"
+  ],
+  "description": "Materials for SE 465 as offered in W19",
+  "date_scraped": "2026-03-29T08:19:13.069Z",
+  "packages_required": [
+    "inputenc",
+    "showframe",
+    "geometry",
+    "lastpage",
+    "fancyhdr",
+    "mathtools",
+    "amssymb",
+    "enumitem",
+    "listings",
+    "url"
+  ],
+  "has_custom_macros": true,
+  "document_class": "article",
+  "educational": false
+}

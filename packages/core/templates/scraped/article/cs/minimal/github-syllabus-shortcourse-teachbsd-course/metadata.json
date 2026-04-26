@@ -1,0 +1,22 @@
+{
+  "id": "github-syllabus-shortcourse-teachbsd-course",
+  "name": "syllabus-shortcourse (teachbsd/course)",
+  "source_url": "https://github.com/teachbsd/course/blob/f1b9f9f353f4af8747a5b7eb0fd77f299787aef3/undergraduate/syllabus-shortcourse.tex",
+  "source_site": "github",
+  "type": "article",
+  "subject": "cs",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Slides, figures, and other material for teaching using tracing and observability on FreeBSD",
+  "date_scraped": "2026-03-29T08:19:23.503Z",
+  "packages_required": [
+    "geometry",
+    "graphicx",
+    "multirow",
+    "setspace"
+  ],
+  "has_custom_macros": false,
+  "document_class": "article",
+  "educational": false
+}

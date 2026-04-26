@@ -1,0 +1,19 @@
+{
+  "id": "github-vs-herrbez-vs2",
+  "name": "vs (herrBez/VS2)",
+  "source_url": "https://github.com/herrBez/VS2/blob/96cf1e8fa527f51c10af223c19288983e57ffe1d/vs.tex",
+  "source_site": "github",
+  "type": "letter",
+  "subject": "cs",
+  "style_tags": [
+    "minimal"
+  ],
+  "description": "Exercises of the second part of the exam \"Verifica Del Software\" (2016/2017)",
+  "date_scraped": "2026-03-29T08:18:53.587Z",
+  "packages_required": [
+    "vds"
+  ],
+  "has_custom_macros": false,
+  "document_class": "unknown",
+  "educational": false
+}

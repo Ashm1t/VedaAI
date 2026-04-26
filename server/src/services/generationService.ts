@@ -1,5 +1,5 @@
 import path from "path";
-import { TexRAG, GroqAdapter } from "@libra/core";
+import { TexRAG, GroqAdapter, HuggingFaceEmbeddingAdapter } from "@libra/core";
 import { AssignmentModel } from "../models/Assignment.js";
 import { QuestionPaperOutputModel } from "../models/QuestionPaperOutput.js";
 import * as ocrService from "./ocrService.js";
@@ -14,12 +14,19 @@ let engine: TexRAG | null = null;
 
 function getEngine(): TexRAG {
   if (!engine) {
+    const embeddingAdapter = config.hfToken
+      ? new HuggingFaceEmbeddingAdapter({ apiToken: config.hfToken })
+      : undefined;
+
     engine = new TexRAG({
       llm: new GroqAdapter({
         apiKey: config.groqApiKey,
       }),
       templatesDir: config.templatesDir,
       outputDir: config.outputDir,
+      embeddingAdapter,
+      embeddingsPath: config.embeddingsPath,
+      scrapedRegistryPath: config.scrapedRegistryPath,
     });
   }
   return engine;
